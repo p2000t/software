@@ -1,0 +1,13 @@
+P2000 Tape converter
+
+To convert your P2000 tapes, do the following:
+- Run SERIAL.BAS on your P2000. This will send all bytes of one side of a tape
+  through the P2000's serial port, at a baudrate of 2400Bd with 1 startbit 
+  and 1 stopbit
+- Run splitape.exe to split the tape .cas file into individual programs
+
+If you're still having problems after reading this, feel free to contact me at
+m.dekogel@student.utwente.nl
+
+Marcel
+

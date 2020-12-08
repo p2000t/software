@@ -59,8 +59,8 @@ extern int videomode;
 static int  CpuSpeed;
 static int  _argc;
 static char *_argv[256];
-static char MainConfigFile[MAX_CONFIG_FILE_SIZE];
-static char SubConfigFile[MAX_CONFIG_FILE_SIZE];
+static unsigned char MainConfigFile[MAX_CONFIG_FILE_SIZE];
+static unsigned char SubConfigFile[MAX_CONFIG_FILE_SIZE];
 static char szTempFileName[MAX_FILE_NAME];
 static char _CartName[MAX_FILE_NAME];
 static char CartNameNoExt[MAX_FILE_NAME];
@@ -312,7 +312,7 @@ static void LoadConfigFile (char *szFileName,unsigned char *ptr)
    ++ptr;
   if (*ptr)
   {
-   _argv[_argc++]=ptr;
+   _argv[_argc++]=(char *)ptr;
    while (*ptr && *ptr>' ')
     ++ptr;
    if (*ptr)

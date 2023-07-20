@@ -5,7 +5,9 @@
 | assembler 5.6 | cartridge/module |
 | assembler 5.9 | cartridge |
 | Zemon-assembler | cartridge |
-| 16k-basic | cartridge |
+| BASICNL1.0 | Early release of the BASICNL cartridge (v1.0) |
+| BASICNL1.1 | Revision of the BASICNL cartridge mentioning the names of the authors (Rob van der Heij en Rob van Ommering) and the release date of 1983 in the header.  |
+| BASICNL1.1A2 | Another revision of the BASICNL1.1 cartridge, yet no mentioning of the authors and using more of the available space. |
 | 24k-basic | cartridge, floppydrive(s) required for Basic-24 systemtracks.hex |
 | BIS-editor | cartridge, floppydrive(s) required for BIS system.hex |
 | CP/M (Nater) | cartridge, floppydrive(s) required |

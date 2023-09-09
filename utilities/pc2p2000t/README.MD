@@ -1,6 +1,6 @@
 ## PC2P2000T (PC to P2000T)
 
-Dit is een klein programma/utility gemaakt voor de P2000T waarmee je via de seriële poort **.cas** programma's en games naar je P2000T kunt sturen vanaf een Windows PC. Na het inladen van een game kun je deze spelen, maar ook wegschrijven naar mini-cassette.
+Dit is een klein programma/utility gemaakt voor de P2000T waarmee je via de seriële poort `.cas` programma's en games naar je P2000T kunt sturen vanaf een Windows PC. Na het inladen van een game op je P2000T kun je deze spelen, maar ook wegschrijven naar mini-cassette.
 Er bestond al een utility (SERIAL.BAS van Marcel de Kogel) waarmee je een complete mini-cassette naar de PC kan wegschrijven via de seriële poort, maar PC2P2000T werkt dus precies de andere kant op.
 
 Ik heb de overdrachtssnelheid van deze utility kunnen 'opvoeren' tot 9600 baud, waarmee het zelfs sneller is dan laden van een cassette (dat op de P2000T met ongeveer 6000 baud gaat).
@@ -9,7 +9,7 @@ De utility zou moeten werken voor P2000T machines met 16K, 32K of 48K aan RAM ge
 
 Om dit programma te gebruiken heb je de volgende hardware nodig:
 * Een P2000T
-* Een PC met daarop de .cas bestanden die je wilt laden naar je P2000T
+* Een PC met daarop de `.cas` bestanden die je wilt laden naar je P2000T
 * Een kabel waarmee je de 25-pins seriële poort van de P2000T aan de USB-ingang van je PC kunt koppelen \
   Als je zo'n kabel zoekt: online kun je het vinden door te zoeken op "USB naar 9-pin RS-232 adapter" en "Seriële adapter 25p SUB-D (m) - 9p SUB-D (v) RS232". De kabel en adapter kosten bij elkaar ongeveer 10 euro. \
   ![USB to RS232 cable](/utilities/pc2p2000t/usb2rs232.png)
@@ -44,7 +44,7 @@ Als alle hardware beschikbaar is, tik dan deze 27 regels BASIC code op je P2000T
 290 DATA 3A,B9,63,C6,02,32,B9,63,32,59
 300 DATA 62,3E,07,CD,4A,10,FB,C9,stop
 ```
-Bewaar dit vervolgens op een P2000T cassette (noem het bijv. pc2p2000.bas), zodat je het de volgende keer weer kunt gebruiken.
+Bewaar dit vervolgens op een P2000T cassette (noem het bijvoorbeeld `pc2p2000.bas`), zodat je het de volgende keer weer kunt gebruiken.
 
 Daarna de PC koppelen aan de seriële poort van de P2000T (via het RS232-to-USB adapter kabeltje).
 Op Windows kun je bij de Device Manager kijken op welke COM-poort de USB adapter is gemapt. In mijn geval is dat COM5. In de voorbeelden hieronder moet je dus jouw eigen COM-poort nummer gebruiken.
@@ -57,16 +57,16 @@ Dan op de P2000T de pc2p2000 utility laden en "installeren" door RUN te doen. Da
 ```
 ?usr1(0)
 ```
-En vervolgens op de PC een .cas bestand sturen naar de juiste COM poort (bijv. het bestand BrickWall.cas)
+En vervolgens op de PC een `.cas` bestand sturen naar de juiste COM poort (als voorbeeld hieronder het bestand `BrickWall.cas`)
 ```
 copy BrickWall.cas \\.\com5
 ```
 Daarna wachten op de pieptoon, waarna de cursor weer te zien is op zowel de P2000T als je PC. Dit betekent dat het programma succesvol is ingeladen.\
 Hierna kun je het ingeladen spel bewaren op cassette met CSAVE of direct kunt spelen met RUN.
 
-Op github zijn trouwens veel **.cas** game bestanden te vinden: https://github.com/p2000t/software/tree/master/tapes/games \
-Voor grote spellen (zoals 'Fraxxon.cas') heeft je P2000T mimaal 32K RAM nodig, en voor 'VluchtSimulator.cas' zelfs 48K RAM.
+Op github zijn trouwens veel `.cas` game bestanden te vinden: https://github.com/p2000t/software/tree/master/tapes/games \
+Voor grote spellen (zoals `Fraxxon.cas`) heeft je P2000T mimaal 32K RAM nodig, en voor `VluchtSimulator.cas` zelfs 48K RAM.
 
 ### Tips:
-* Om te testen of de kabel werkt, kun je in een Windows command box de baudrate van de COM-poort op 1200 zetten en dan TYPE COM5 doen (gebruik ipv '5' jouw eigen COM nummer), waarna je op de P2000T <shift><00> (de printer-key) indrukt. Dit stuurt alles op het scherm van je P2000T naar je PC, dus als het goed is zie je dat.
+* Om te testen of de kabel werkt, kun je in een Windows command box de baudrate van de COM-poort op 1200 zetten en dan TYPE COM5 doen (gebruik ipv '5' jouw eigen COM nummer), waarna je op de P2000T `<shift><00>` (de printer-key) indrukt. Dit stuurt alles op het scherm van je P2000T naar je PC, dus als het goed is zie je dat.
 * Ook heb ik gemerkt dat de 'mode' instellingen die je op de PC doet weer worden gereset naar de standaard waarden als je de USB stekker los- en daarna weer vastmaakt.

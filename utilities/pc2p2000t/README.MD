@@ -64,7 +64,7 @@ copy BrickWall.cas \\.\com5
 Daarna wachten op de pieptoon, waarna de cursor weer te zien is op zowel de P2000T als je PC. Dit betekent dat het programma succesvol is ingeladen.\
 Hierna kun je het ingeladen spel bewaren op cassette met CSAVE of direct kunt spelen met RUN.
 
-Op github zijn trouwens veel **.cas** bestanden te vinden: https://github.com/p2000t/software/tree/master/tapes/games \
+Op github zijn trouwens veel **.cas** game bestanden te vinden: https://github.com/p2000t/software/tree/master/tapes/games \
 Voor grote spellen (zoals 'Fraxxon.cas') heeft je P2000T mimaal 32K RAM nodig, en voor 'VluchtSimulator.cas' zelfs 48K RAM.
 
 ### Tips:

@@ -15,7 +15,6 @@ Om dit programma te gebruiken heb je de volgende hardware nodig:
   ![USB to RS232 cable](/utilities/pc2p2000t/usb2rs232.png)
 
 Als alle hardware beschikbaar is, tik dan deze 27 regels BASIC code op je P2000T:
-
 ```
 10 REM P2000T programma laden via RS232
 20 REM Versie 0.2 door Dion Olsthoorn
@@ -45,33 +44,27 @@ Als alle hardware beschikbaar is, tik dan deze 27 regels BASIC code op je P2000T
 290 DATA 3A,B9,63,C6,02,32,B9,63,32,59
 300 DATA 62,3E,07,CD,4A,10,FB,C9,stop
 ```
-
 Bewaar dit vervolgens op een P2000T cassette (noem het bijv. pc2p2000.bas), zodat je het de volgende keer weer kunt gebruiken.
 
 Daarna de PC koppelen aan de seriële poort van de P2000T (via het RS232-to-USB adapter kabeltje).
-
 Op Windows kun je bij de Device Manager kijken op welke COM-poort de USB adapter is gemapt. In mijn geval is dat COM5. In de voorbeelden hieronder moet je dus jouw eigen COM-poort nummer gebruiken.
 
 Dan op de PC een command prompt openen om voor deze COM poort de juiste baudrate etc. instellen (9600 baud, geen parity en 8 data bits):
-
 ```
 mode com5 baud=9600 parity=n data=8 stop=1
 ```
 Dan op de P2000T de pc2p2000 utility laden en "installeren" door RUN te doen. Daarna het volgende commando geven om de P2000T te laten luisteren naar de seriële poort:
-
 ```
 ?usr1(0)
 ```
 En vervolgens op de PC een .cas bestand sturen naar de juiste COM poort (bijv. het spel BrickWall)
-
 ```
 copy BrickWall.cas \\.\com5
 ```
-
-Daarna wachten op de pieptoon, waarna de cursor weer te zien is op zowel de P2000T als je PC. Dit betekent dat het programma succesvol is ingeladen.
+Daarna wachten op de pieptoon, waarna de cursor weer te zien is op zowel de P2000T als je PC. Dit betekent dat het programma succesvol is ingeladen.\
 Hierna kun je het ingeladen spel bewaren op cassette met CSAVE of direct kunt spelen met RUN.
 
-Hier zijn trouwens enkele .cas bestanden te vinden: http://ftp.komkon.org/pub/EMUL8/P2000/Tapes/
+Op github zijn trouwens veel .cas bestanden te vinden: https://github.com/p2000t/software/tapes
 Voor grote spellen (zoals 'Fraxxon.cas') heeft je P2000T mimaal 32K RAM nodig, en voor 'VluchtSimulator.cas' zelfs 48K RAM.
 
 ## Tips:

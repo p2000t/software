@@ -1,11 +1,11 @@
 ## PC2P2000T (PC to P2000T)
 
-Dit is een klein programma/utility gemaakt voor de P2000T waarmee je via de seriële poort `.cas` programma's en games naar je P2000T kunt sturen vanaf een Windows PC. Na het inladen van een game op je P2000T kun je deze spelen, maar ook wegschrijven naar mini-cassette. \
+Dit is een utility gemaakt voor de P2000T waarmee je via de seriële poort `.cas` programma's en games vanaf een PC naar de P2000T kunt sturen. Na het inladen van een game op je P2000T kun je deze spelen (`RUN`), maar ook wegschrijven naar mini-cassette (`CSAVE`). \
 Er bestond al een utility (SERIAL.BAS van Marcel de Kogel) waarmee je een complete mini-cassette naar de PC kan wegschrijven via de seriële poort, maar PC2P2000T werkt dus precies de andere kant op.
 
 Ik heb de overdrachtssnelheid van deze utility kunnen 'opvoeren' tot 9600 baud, waarmee het zelfs sneller is dan laden van een cassette (dat op de P2000T met ongeveer 6000 baud gaat).
 
-De utility zou moeten werken voor P2000T machines met 16K, 32K of 48K aan RAM geheugen. Ik heb zelf een geheugen-uitbreiding tot 32K, dus ik heb niet kunnen testen of het werkt op een 48K machine.
+De utility werkt voor P2000T machines met 16K, 32K of 48K aan RAM geheugen. Ik heb zelf een geheugen-uitbreiding tot 32K, dus ik heb niet kunnen testen of het werkt op een 48K machine.
 
 Om dit programma te gebruiken heb je de volgende hardware nodig:
 * Een P2000T;
@@ -17,7 +17,7 @@ Om dit programma te gebruiken heb je de volgende hardware nodig:
   * Een adapter van 25 pin (m) naar 9 pin (v) RS-232: https://www.onlinekabelshop.nl/adapter-db25-m-db9-v \
   ![USB to RS232 cable](/utilities/pc2p2000t/usb2rs232.png)
 
-Als alle hardware beschikbaar is, tik dan deze 27 regels BASIC code op je P2000T:
+Als je alle hardware beschikbaar hebt, tik dan deze 27 regels BASIC code op je P2000T:
 ```
 10 REM P2000T programma laden via RS232
 20 REM Versie 0.2 door Dion Olsthoorn
@@ -50,7 +50,7 @@ Als alle hardware beschikbaar is, tik dan deze 27 regels BASIC code op je P2000T
 Bewaar dit vervolgens op een P2000T cassette (noem het bijvoorbeeld `pc2p2000.bas`), zodat je het de volgende keer weer kunt gebruiken.
 
 Daarna de PC koppelen aan de seriële poort van de P2000T (via het RS232-to-USB adapter kabeltje).
-Op Windows kun je bij de Device Manager kijken op welke COM-poort de USB adapter is gemapt. In mijn geval is dat COM5. In de voorbeelden hieronder moet je dus jouw eigen COM-poort nummer gebruiken.
+Op Windows kun je bij de Device Manager kijken op welke COM-poort de USB adapter is gemapt. In mijn geval is dat COM5. In de voorbeelden hieronder moet je dus jouw eigen COM-poort nummer gebruiken i.p.v. `com5`.
 
 Dan op de PC een command prompt openen om voor deze COM poort de juiste baudrate etc. instellen (9600 baud, geen parity en 8 data bits):
 ```
@@ -65,7 +65,7 @@ En vervolgens op de PC een `.cas` bestand sturen naar de juiste COM poort (als v
 copy BrickWall.cas \\.\com5
 ```
 Daarna wachten op de pieptoon, waarna de cursor weer te zien is op zowel de P2000T als je PC. Dit betekent dat het programma succesvol is ingeladen.\
-Hierna kun je het ingeladen spel bewaren op cassette met CSAVE of direct kunt spelen met RUN.
+Hierna kun je het ingeladen spel bewaren op cassette met `CSAVE` of direct kunt spelen met `RUN`.
 
 Op github zijn trouwens veel `.cas` game bestanden te vinden: https://github.com/p2000t/software/tree/master/tapes/games \
 Voor grote spellen (zoals `Fraxxon.cas`) heeft je P2000T mimaal 32K RAM nodig, en voor `VluchtSimulator.cas` zelfs 48K RAM.

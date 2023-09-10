@@ -1,0 +1,167 @@
+                      ***** P2000 Architecture *****
+                                Version 1.1
+             By Marcel de Kogel (m.dekogel@student.utwente.nl)
+
+This document describes the architecture of the P2000, a home computer
+from the late 70ies/early 80ies that was extremely popular in Holland.
+Please note that the information in this document is far from complete,
+more information may be added in later releases. If anyone is able to
+contribute to this document, feel free to contact me.
+
+History
+=======
+1.1  Added keyboard layout specs
+1.0  Initial release
+
+There are two models of the P2000 home computer: An M-model and a T-model.
+The T-model interfaces with a standard colour or black/white television
+set, whereas the M-model interfaces to a monochrome monitor. The main
+difference between the two models is found in the video generation.
+
+General Architecture
+====================
+
+CPU
+---
+The P2000 uses a Zilog Z80 microprocessor running at 2.5MHz
+
+Memories
+--------
+These memory areas are available:
+  A 4K8 monitor ROM, which contains the general I/O routines such as the
+start routine, the keyboard scan routine, cassette interfacing routines, a
+routine to activate the bell, etc.
+  An application program stored in the program cartridge. This cartridge
+is inserted onto the CPU board via a slot on the machine. Various programs
+are available, such as BASIC, Word-processing, etc. The application
+program's memory can go up to 16K8
+  8 dynamic memory chips of 16K1 form the system RAM. Part of it is
+reserved for communication between the application program and the monitor
+routines, the other part is available for use by the application program.
+  The video memory is different for the T- and M- versions. For the T-
+version, it is a 2K8 area. It includes the control characters of the
+teletext character set, while cursor information is also stored there.
+80x24 characters can be stored in the first 1920 characters, though only
+40x24 characters are displayed at one time. A scroll register is available
+for scrolling another 40 characters. For the M-version, it consists of two
+areas: An 2K8 area is used to store the 80x24 characters to be displayed.
+Another area of 2K4 is used to store the attributes of the characters to
+be displayed, such as underline, blinking and inverse video.
+  Two more 16K8 dynamic RAM areas can be stored on the extension board.
+The upper 8K of this area cannot be accessed directly by the CPU and is
+especially used by disc systems to store part of the operating system.
+
+I/O control
+-----------
+Input and output to external devices is done via I/O ports. Among others,
+ports are available for scanning the keyboard matrix, serial I/O, the
+cassette interface, the beep and the floppy-controller.
+
+Interrupts
+----------
+When the extension board is not used, interrupts are generated via a
+circuitry on the CPU-board, giving an interrupt every 20ms to scan the key
+matrix.
+When the extension board is used, interrupts are controlled by a
+programmable interrupt controller providing interrupt addresses for the
+floppy and the keyboard.
+
+Memory layout
+=============
+Memory layout is as follows:
+0000-0FFF  Monitor ROM
+1000-4FFF  Application program
+5000-57FF  Video RAM (T-version)
+5000-5FFF  Video RAM (M-version)
+6000-9FFF  System RAM
+A000-FFFF  Extension board
+
+I/O layout
+==========
+00-09 Keyboard port
+      If the keyboard interrupt is enabled, all keyboard matrix rows are
+      connected and reading from either of these ports will give the
+      keyboard status (FF=no key pressed)
+      If the keyboard interrupt is disables, reading one of these ports
+      will read the corresponding keyboard matrix row
+10-1F Output port
+      Bit  Function
+      0    Cassette write data
+      1    Cassette write command
+      2    Cassette rewind
+      3    Cassette forward
+      4    Unused
+      5    Unused
+      6    Keyboard interrupt enable
+      7    Printer output
+20-2F Input port
+      Bit  Function
+      0    Printer input
+      1    Printer ready
+      2    Strap N (Daisy/Matrix)
+      3    Cassette write enabled
+      4    Cassette in position
+      5    Begin/End of tape
+      6    Cassette read clock
+      7    Cassette read data
+      The read data is a serial bit pattern in phase encoded format. Read
+      clock is active at the start of every new bit
+30-3F Scroll register (T-version only)
+      The lower 7 bits of this register hold the index of the first
+      character to be displayed
+      The upper bit can be used to turn video display on/off (0=display
+      enabled)
+50-5F Beeper
+      Setting bit 0 of this register will turn on the beeper
+70-7F DISAS (M-version only)
+      The DISA is activated by setting bit 1 of this register. When the
+      DISA is active, the CPU has the highest priority and video refresh
+      is disabled when the CPU accesses video memory
+
+Keyboard layout
+===============
+Y \ X   0       1        2       3        4       5        6       7
+0       LEFT    6        up      Q        3       5        7       4
+1       TAB     H        Z       S        D       G        J       F
+2       . *     SPACE    00 *    0 *      #       DOWN     ,       RIGHT
+3       SHLOCK  N        <       X        C       B        M       V
+4       CODE    Y        A       W        E       T        U       R
+5       CLRLN   9        + *     - *      BACKSP  0        1       -
+6       9 *     O        8 *     7 *      ENTER   P        8       @
+7       3 *     .        2 *     1 *      ->      /        K       2
+8       6 *     L        5 *     4 *      1/4     ;        I       :
+9       LSHIFT                                                     RSHIFT
+Keys marked with an asterix (*) are on the numeric keypad
+
+Video processor
+===============
+The video processor used in the T-model is the SAA5050 teletext character
+generator. In some versions, it is replaced with a variant with a
+different character set (e.g. SAA5051 has a German character set). It
+generates 96 alphanumeric and 64 graphics characters. In addition, there
+are 32 control characters which determine the nature of display. It's
+basic input is the 7-bit character data from the teletext page memory.
+Following are the control codes supported by this device:
+00  Unused                            10  Unused
+01  Alpha Red                         11  Graphics Red
+02  Alpha Green                       12  Graphics Green
+03  Alpha Yellow                      13  Graphics Yellow
+04  Alpha Blue                        14  Graphics Blue
+05  Alpha Magenta                     15  Graphics Magenta
+06  Alpha Cyan                        16  Graphics Cyan
+07  Alpha White*                      17  Graphics White
+08  Flash                             18  Conceal Display
+09  Steady*                           19  Contiguous Graphics*
+0A  End Box*                          1A  Separated Graphics
+0B  Start Box                         1B  Unused
+0C  Normal Height*                    1C  Black Background
+0D  Double Height                     1D  New Background
+0E  Unused                            1E  Hold Graphics
+0F  Unused                            1F  Release Graphics*
+* Default setting
+
+I would like to thank Hans Bus (jbus@hzsbg01.nl.lucent.com) for providing
+me with a lot of technical information about the P2000
+
+---------------
+Marcel de Kogel

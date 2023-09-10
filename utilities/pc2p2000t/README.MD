@@ -1,6 +1,6 @@
 ## PC2P2000T - loading `.cas` cassette dump-files from PC to P2000T
 
-Dit is een utility gemaakt voor de P2000T waarmee je via de seriële poort `.cas` programma's en games vanaf een PC naar de P2000T kunt sturen. Na het inladen van een game op je P2000T kun je deze spelen (`RUN`), maar ook wegschrijven naar mini-cassette (`CSAVE`). \
+Dit is een utility gemaakt voor de P2000T waarmee je via de seriële poort `.cas` programma's en games vanaf een PC naar de P2000T kunt laden. Na het inladen van een game op je P2000T kun je deze spelen (`RUN`), maar ook wegschrijven naar mini-cassette (`CSAVE`). \
 Er bestond al een utility (SERIAL.BAS van Marcel de Kogel) waarmee je een complete mini-cassette naar de PC kan wegschrijven via de seriële poort, maar PC2P2000T werkt dus precies de andere kant op.
 
 Ik heb de overdrachtssnelheid van deze utility kunnen 'opvoeren' tot 9600 baud, waarmee het zelfs sneller is dan laden van een cassette (dat op de P2000T met ongeveer 6000 baud gaat).

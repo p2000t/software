@@ -1,55 +1,39 @@
-                           ******* M2000 *******
-                        The Portable P2000 Emulator
-                                Version 0.6
+# M2000 - The Portable P2000 Emulator
+Version 0.6 \
+Copyright (C) 1996,1997  Marcel de Kogel
                                      
-                 Copyright (C) 1996,1997  Marcel de Kogel
-                                     
-Hardware Requirements
-=====================
+## Hardware Requirements
+
 MS-DOS version:
- A 386DX-40 (486DX-33 recommended)
- A VGA compatible video card
- PC Speaker, SoundBlaster and joystick supported
-Linux/SVGALib version:
- A 486DX-33 (486DX-66 recommended)
- A VGA compatible video card
- Sound and joystick drivers supported
-Unix/X version:
- A 486DX-66 or DEC Alpha-150
- An X-Windows server running in 8, 16 or 32 bpp mode
- USS(/Lite) sound system and Linux joystick driver supported
+* A 386DX-40 (486DX-33 recommended)
+* A VGA compatible video card
+* PC Speaker, SoundBlaster and joystick supported
 
-Files included
-==============
-m2000          The emulator
-M2000.txt      This file
-Default.fnt    SAA5050 font
-P2000ROM.bin   P2000 ROM image
-BASIC.bin      BASIC cartridge ROM image (v. 1.1NL)
-CWSDMI.ZIP     (MS-DOS version only) A DPMI server required by M2000 MS-
-               DOS
-Some utilities for use with M2000 can be found on the M2000 distribution
-site at http://www.komkon.org/~dekogel/m2000.html
+Win32 version:
+* Windows XP, 7, 8, 10 or 11
 
-What's emulated
-===============
+Win64 version:
+* 64 bits Windows or Windows 11
+
+## What's emulated
+
 -  P2000T or P2000M model (P2000M emulation is buggy)
 -  Support for 1 ROM cartridge
 -  User-definable amount of RAM
 -  One tape drive
--  Sound through PC Speaker or SoundBlaster (MS-DOS version), or
-   USS(/Lite) /dev/dsp (Linux/SVGALib and Unix/X versions)
+-  Sound
 -  SAA5050 character rounding emulated in high resolution mode
 
-Key Mappings
-============
+## Key Mappings
+```
 Cursor Keys, -  Movement
 Alt/Ctrl
 Delete       -  < >
 ` ~          -  CODE
+```
 
-Special Keys
-============
+## Special Keys
+```
 F4           -  Toggle tracing on/off (Debugging version only)
 F5           -  Toggle sound on/off
 F11          -  Decrease sound volume
@@ -59,9 +43,12 @@ F7           -  Make screen shot (Not implemented in the Unix/X version)
 F8           -  Pause & Blank screen
 F9           -  Pause
 ESC/F10      -  Quit emulator
+```
 
-Command line options
-====================
+![keyboard mappings](/emulators/toetsenbord.png)
+
+## Command line options
+```
 -trap <address>        Trap execution when PC reaches specified address [-
                        1] (Debugging version only)
 -help                  Print a help page describing all available command
@@ -112,24 +99,22 @@ Command line options
 -shm <mode>            Use/Do not use MIT SHM extensions for X [1] (Unix/X
                        version only)
                        0 - Don't use SHM   1 - Use SHM
+```
 
-Configuration files
-===================
-The emulator loads two configuration files (if present) before it loads a
-cartridge ROM: M2000.cfg located in the emulator's directory and CART.cfg
-(i.e. BASIC.cfg by default) located in the cartridge dump's directory.
-These are plain text files containing optional command line options.
-Options can be separated with spaces, tabs or returns.
-Please note that for the Unix versions, the configuration files should be
-present in the current working directory.
+## Configuration files
 
-Plans for the future
-====================
+The emulator loads two configuration files (if present) before it loads a cartridge ROM: M2000.cfg located in the emulator's directory and CART.cfg (i.e. BASIC.cfg by default) located in the cartridge dump's directory. \
+These are plain text files containing optional command line options. \
+Options can be separated with spaces, tabs or returns. \
+Please note that for the Unix versions, the configuration files should be present in the current working directory.
+
+## Plans for the future
+
 -  Fix the P2000M emulation
 -  Add disk drive emulation
 
-History
-=======
+## History
+```
 0.6     Fixed several bugs in the Z80 emulation engine, fixed several
         compatibility problems, added high resolution and character
         rounding emulation support
@@ -144,9 +129,10 @@ History
 0.2     Major sound emulation improvements, fixed some bugs in video
         emulation, added -ram and -volume command line options
 0.1     Initial release
+```
 
-Credits
-=======
+## Credits
+
 - Hans Bus (jbus@hzsbg01.nl.lucent.com) provided me with lots of technical
   information on the P2000
 - Marat Fayzullin (fms@freeflight.com) provided invaluable help improving

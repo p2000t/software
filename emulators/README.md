@@ -49,8 +49,8 @@ ESC/F10      -  Quit emulator
 
 ## Command line options
 ```
--trap <address>        Trap execution when PC reaches specified address [-
-                       1] (Debugging version only)
+-trap <address>        Trap execution when PC reaches specified address [-1]
+                       (Debugging version only)
 -help                  Print a help page describing all available command
                        line options
 -verbose <level>       Select debugging messages [1]
@@ -103,7 +103,10 @@ ESC/F10      -  Quit emulator
 
 ## Configuration files
 
-The emulator loads two configuration files (if present) before it loads a cartridge ROM: M2000.cfg located in the emulator's directory and CART.cfg (i.e. BASIC.cfg by default) located in the cartridge dump's directory. \
+The emulator loads two configuration files (if present) before it loads a cartridge ROM: 
+* M2000.cfg located in the emulator's directory and
+* CART.cfg (i.e. BASIC.cfg by default) located in the cartridge dump's directory.
+  
 These are plain text files containing optional command line options. \
 Options can be separated with spaces, tabs or returns. \
 Please note that for the Unix versions, the configuration files should be present in the current working directory.

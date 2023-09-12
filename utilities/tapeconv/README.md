@@ -6,7 +6,7 @@ To convert P2000T tapes to program files on your PC, do the following:
 
 ### Detailed instructions (in Dutch)
 
-Dit is de hardware en software die ik heb gebruikt om programma's op P2000T cassettes te digitaliseren onder Windows:
+Dit is de hardware en software die ik heb gebruikt om P2000T programma's vanaf mini-cassettes om te zetten naar bestanden onder Windows:
 
 * Een USB naar 9-pin RS-232 adapter. Te vinden op bijv. https://www.onlinekabelshop.nl/usb-naar-9-pins-serieel-rs-232-adapter-0-80-meter \
 De driver voor deze adapter kun je hier vinden: https://files-onlinekabelshop.nl/Handleidingen/OKS-27684_Drivers.zip

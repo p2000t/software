@@ -1,0 +1,189 @@
+{
+    "cartridges": [
+        {
+            "filename": "assembler 5.6.bin",
+            "name" : "assembler 5.6",
+            "description": "cartridge/module"
+        },
+        {
+            "filename": "assembler 5.9.bin",
+            "name" : "assembler 5.9",
+            "description": "cartridge"
+        },
+        {
+            "filename": "Zemon 1.4.bin",
+            "name" : "Zemon-assembler",
+            "description": "cartridge"
+        },
+        {
+            "filename": "BASICNL1.0.bin",
+            "name" : "BASICNL1.0",
+            "description": "Early release of the BASICNL cartridge (v1.0)"
+        },
+        {
+            "filename": "BASICNL1.1.bin",
+            "name" : "BASICNL1.1",
+            "description": "Revision of the BASICNL cartridge mentioning the names of the authors (Rob van der Heij en Rob van Ommering) and the release date of 1983 in the header."
+        },
+        {
+            "filename": "BASICNL1.1A2.bin",
+            "name" : "BASICNL1.1A2",
+            "description": "Another revision of the BASICNL1.1 cartridge, yet no mentioning of the authors and using more of the available space."
+        },
+        {
+            "filename": "BASICEN1.0.bin",
+            "name" : "BASICEN1.0",
+            "description": "English version of the BASIC 1.0 cartridge."
+        },
+        {
+            "filename": "BILDSCHIRMTEXT_DE.bin",
+            "name" : "Bildschirmtext",
+            "description": "cartridge"
+        },
+        {
+            "filename": "Basic-24.bin",
+            "name" : "24k-basic",
+            "description": "cartridge, floppydrive(s) required for Basic-24 systemtracks.hex"
+        },
+        {
+            "filename": "BIS system.bin",
+            "name" : "BIS-system",
+            "description": "floppy"
+        },
+        {
+            "filename": "BIS.bin",
+            "name" : "BIS-editor",
+            "description": "cartridge, floppydrive(s) required for BIS system.hex"
+        },
+        {
+            "filename": "CPM Nater.bin",
+            "name" : "CP/M (Nater)",
+            "description": "cartridge, floppydrive(s) required"
+        },
+        {
+            "filename": "Seeters.bin",
+            "name" : "CP/M (Nater)",
+            "description": "systeemtracks on floppy"
+        },
+        {
+            "filename": "EPROM-programmer.bin",
+            "name" : "EPROM-programmer",
+            "description": "cartridge, connected to hardware=programmer with cable!"
+        },
+        {
+            "filename": "familiegeheugen 2.bin",
+            "name" : "Familiegeheugen 2",
+            "description": "cartridge"
+        },
+        {
+            "filename": "familiegeheugen 3.bin",
+            "name" : "Familiegeheugen 3",
+            "description": "cartridge"
+        },
+        {
+            "filename": "familiegeheugen 4.bin",
+            "name" : "Familiegeheugen 4",
+            "description": "cartridge"
+        },
+        {
+            "filename": "flexbase.bin",
+            "name" : "flexbase",
+            "description": "cartridge"
+        },
+        {
+            "filename": "Forth.bin",
+            "name" : "Forth",
+            "description": "cartridge"
+        },
+        {
+            "filename": "GOS 3.6.bin",
+            "name" : "GOS 3.6",
+            "description": "Graphic Operating System in 2764 on hires-print"
+        },
+        {
+            "filename": "Maintenance 1.bin",
+            "name" : "maintenance 1",
+            "description": "cartridge"
+        },
+        {
+            "filename": "Maintenance 2.bin",
+            "name" : "maintenance 2",
+            "description": "cartridge"
+        },
+        {
+            "filename": "MAINT1.bin",
+            "name" : "Maintenance 1 cartridge (slightly modified variant)",
+            "description": "cartridge"
+        },
+        {
+            "filename": "MCPM.bin",
+            "name" : "MCP/M",
+            "description": "cartridge, floppydrive(s) required for MCPM-system.hex"
+        },
+        {
+            "filename": "MCPM-system.bin",
+            "name" : "MCP/M",
+            "description": "floppy"
+        },
+        {
+            "filename": "Miniware 1.0.bin",
+            "name" : "Miniware 1.0",
+            "description": "cartridge"
+        },
+        {
+            "filename": "NeboCalc.bin",
+            "name" : "cartridge, floppydrive(s) required for NeboCalc system.hex",
+            "description": "cartridge"
+        },
+        {
+            "filename": "NeboCalc system.bin",
+            "name" : "NEBOcalc",
+            "description": "floppy"
+        },
+        {
+            "filename": "PDOS.bin",
+            "name" : "PDOS",
+            "description": "systeemtracks on floppy"
+        },
+        {
+            "filename": "TEXT1_DE.bin",
+            "name" : "Text1 (German)",
+            "description": "cartridge"
+        },
+        {
+            "filename": "TEXT2_DE.bin",
+            "name" : "Text2 (German)",
+            "description": "cartridge"
+        },
+        {
+            "filename": "Text2000 2.bin",
+            "name" : "text2000 2",
+            "description": "cartridge"
+        },
+        {
+            "filename": "Text2000 3.bin",
+            "name" : "text2000 3",
+            "description": "cartridge"
+        },
+        {
+            "filename": "UCSD Pascal.bin",
+            "name" : "UCSD Pascal",
+            "description": "cartridge, floppydrive(s) required for UCSD Pascal system.hex"
+        },
+        {
+            "filename": "UCSD Pascal system.bin",
+            "name" : "UCSD Pascal",
+            "description": "floppy"
+        },
+        {
+            "filename": "WordProcessor 1.bin",
+            "name" : "WordProcessor 1",
+            "description": "cartridge"
+        },
+        {
+            "filename": "WordProcessor 2.bin",
+            "name" : "WordProcessor 2",
+            "description": "cartridge"
+        }
+    ]
+}

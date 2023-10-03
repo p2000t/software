@@ -21,8 +21,8 @@ def build_readme(data):
     Build (formatted) README.md file based on cartridges.json
     """
     out = "# Cartridges\n\n"
-    out += "|    | Cart name | Description | MD5 checksum |\n"
-    out += "| --- | --------- | ----------- | ----------- |\n"
+    out += "| Cart name | Description | MD5 checksum |\n"
+    out += "| --------- | ----------- | ----------- |\n"
     
     for cart in data['cartridges']:
         # calculate checksum
@@ -32,11 +32,10 @@ def build_readme(data):
         
         icon = ":floppy_disk:"
         
-        out += "| %s | [%s](%s) | %s | `%s` |\n" % (icon,
-                                                    cart['name'],
-                                                    urllib.parse.quote(cart['filename']),
-                                                    cart['description'],
-                                                    checksum)
+        out += "| [%s](%s) | %s | `%s` |\n" % (cart['name'],
+                                               urllib.parse.quote(cart['filename']),
+                                               cart['description'],
+                                               checksum)
         
     with open("README.md", 'w') as f:
         f.write(out)
@@ -47,9 +46,11 @@ def check_files(data):
     on the MD5 checksum
     """
     checksums = []
+    filenames = [] # store list of file names
     
     for file in data['cartridges']:
         filename = file['filename']
+        filenames.append(filename)
         if os.path.exists(filename):
             print('%s [OK]' % filename)
             with open(filename, 'rb') as f:
@@ -60,6 +61,16 @@ def check_files(data):
                     checksums.append(checksum)
         else:
             raise Exception('File %s not found!' % filename)
+
+    # additionally check whether there are any files in the folder which
+    # are not represented in the json file
+    root = os.path.dirname(__file__)
+    for path in os.listdir(root):
+        if os.path.isfile(os.path.join(root, path)) and \
+           os.path.splitext(os.path.join(root, path))[1].lower() == '.bin':
+            if path not in filenames:
+                print(path)
+                print('[WARNING] File %s is not listed in cartridges.json.' % path)
 
 if __name__ == '__main__':
     main()    

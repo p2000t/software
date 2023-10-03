@@ -43,7 +43,12 @@
         {
             "filename": "Basic-24.bin",
             "name" : "24k-basic",
-            "description": "cartridge, floppydrive(s) required for Basic-24 systemtracks.hex"
+            "description": "cartridge, floppydrive(s) required for Basic-24 systemtracks.bin"
+        },
+        {
+            "filename": "Basic-24 systemtracks.bin",
+            "name" : "24k-basic systemtracks",
+            "description": ""
         },
         {
             "filename": "BIS system.bin",
@@ -146,14 +151,19 @@
             "description": "systeemtracks on floppy"
         },
         {
+            "filename": "tekst 1.bin",
+            "name" : "Tekst1 (Dutch)",
+            "description": "cartridge, word processor tool"
+        },
+        {
             "filename": "TEXT1_DE.bin",
             "name" : "Text1 (German)",
-            "description": "cartridge"
+            "description": "cartridge, German version of tekst 1.bin"
         },
         {
             "filename": "TEXT2_DE.bin",
             "name" : "Text2 (German)",
-            "description": "cartridge"
+            "description": "cartridge, version 2 of TEXT1_DE.bin"
         },
         {
             "filename": "Text2000 2.bin",

@@ -5,6 +5,6 @@ Preservation of Philips' P2000T home computer software, originating from cartrid
 In this repo you can find:
 
 * [Cartridge dumps](/cartridges/)
-* [Programs and games](/tapes/) ripped from mini-cassettes and JWS-dos disks
+* [Programs and games](/tapes/) ripped from mini-cassettes and JWS-dos disks. Note that most games are rip-offs of existing games from other systems. E.g. Brick Wall = Breakout, Lazy Bug = Lady Bug, Macho Man = Jumping Jack/Leggit!, Fraxxon = Galaga.
 * [P2000T emulators](/emulators/) for MSDOS and Windows
 * [Utilities](/utilities/) for ripping P2000T cassette programs to PC, but also for loading P2000T programs from PC back to your P2000T again. Note: these utilities require a serial connection cable.

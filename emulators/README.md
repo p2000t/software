@@ -28,7 +28,8 @@ Win64 version:
 ```
 Cursor Keys, -  Movement
 Alt/Ctrl
-Delete       -  < >
+Delete       -  <
+Shift-Delete -  >
 ` ~          -  CODE
 ```
 

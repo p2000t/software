@@ -1,7 +1,9 @@
 ; This routine sends a specified number of bytes [numchars] found in memory location (ptr) to the serial/printer port as RS232 signal.
 ; Note that RS232 sends a byte bit-by-bit, LSB (least significant bit) first and MSB (most significant bit) last.
-; Also note that when using the OUT instruction on port $10 (serial data out), a logical 0 is indicated by setting bit 7 of register A
-; and a logical 1 is indicated by clearing bit 7 of A. This is exactly then opposite when using the IN instruction and bit 0 of A.
+; Also note that when using the OUT instruction on port $10 (serial data out) the bits are sent inverted. So sending a logical 0 is 
+; done by setting bit 7 of register A. For a logical 1, bit 7 of A needs to be cleared. This is exactly then opposite when using 
+; the IN instruction and bit 0 of A.
+; For each byte, 10 bits are sent out (RS232): 1 start bit (1), 8 data bits (inverted) and 1 stop bit (0)
 
 BaudRate        .equ    $6016   ; contains the configured serial baudrate (set as '0' by SERIAL.BAS = 2400 Bd)
 

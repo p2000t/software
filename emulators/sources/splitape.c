@@ -12,16 +12,23 @@
 
 #include <stdio.h>
 #include <ctype.h>
+#include <stdbool.h>
+
+bool charAllowed (char c)
+{
+  return isprint(c) && c!='<' && c!='>' && c!=':' && c!='"' && c!='/' && c!='\\' && c!='|' && c!='?' && c!='*';
+}
 
 int main (int argc, char *argv[])
 {
  static unsigned char buffer[1024+256];
  FILE *infile;
  FILE *outfile;
- char filename[13];
+ char p2000name[16];
+ char filename[16+4+1];
  int filecount=0;
- int i,j;
- printf ("splitape: Tape image splitter\n"
+ int i,j,pos;
+ printf ("splitape v2.0: Tape image splitter\n"
          "Copyright (C) Marcel de Kogel 1996\n");
  if (argc!=2)
  {
@@ -38,16 +45,25 @@ int main (int argc, char *argv[])
  {
   for (i=0;i<8;++i)
   {
-   j=buffer[0x36+i];
-   if (!isprint(j) || j==' ' || j=='?' || j=='*')
-    j='_';
-   filename[i]=j;
+    //get all 16 characters of original filename
+    p2000name[i] = buffer[0x36+i];
+    p2000name[i+8] = buffer[0x47+i];
   }
-  filename[8]='.';
-  filename[9]=(filecount/100)%10+'0';
-  filename[10]=(filecount/10)%10+'0';
-  filename[11]=(filecount)%10+'0';
-  filename[12]='\0';
+  pos = 0;
+  for (i=0;i<16;++i)
+  {
+    j=p2000name[i];
+    if (charAllowed(j)
+      && (j!=' ' || (pos>0 && i!=15 && charAllowed(p2000name[i+1]) && p2000name[i+1]!=' '))) //remove extra spaces
+    {
+      filename[pos++] = j;
+    }
+  }
+  filename[pos++]='.';
+  filename[pos++]='c';
+  filename[pos++]='a';
+  filename[pos++]='s';
+  filename[pos++]='\0';
   i=buffer[0x4F];
   if (!i) i=256;
   outfile=fopen (filename,"wb");

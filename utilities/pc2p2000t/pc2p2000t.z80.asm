@@ -17,7 +17,7 @@ check_start_bit:
     ld b, $15               ; 06 15 [7]
 delay_on_start_bit:
     djnz delay_on_start_bit ; 10 FE [13/8]
-    ld b, $08               ; 06 08 [7]
+    ld b, $08               ; 06 08 [7] - call read_next_bit 8 times (for 8 bits)
 
 read_next_bit:
     in a,($20)              ; DB 20 [11]

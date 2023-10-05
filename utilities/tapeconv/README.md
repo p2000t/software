@@ -4,6 +4,8 @@ To convert P2000T tapes to program files on your PC, do the following:
 * Run [`SERIAL.BAS`](/utilities/tapeconv/SERIAL.BAS) on your P2000. This will send all bytes of one side of the currently inserted tape through the P2000's serial port, at a baudrate of 2400Bd with 1 startbit and 1 stopbit
 * Then run splitape.exe to split the full tape file into individual programs
 
+![Example usage of splitape.exe](/utilities/tapeconv/splitape_example.png)
+
 ### Detailed instructions (in Dutch)
 
 Dit is de hardware en software die ik heb gebruikt om P2000T programma's vanaf mini-cassettes om te zetten naar bestanden onder Windows:

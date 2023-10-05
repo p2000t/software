@@ -2,9 +2,7 @@
 
 To convert P2000T tapes to program files on your PC, do the following:
 * Run [`SERIAL.BAS`](/utilities/tapeconv/SERIAL.BAS) on your P2000. This will send all bytes of one side of the currently inserted tape through the P2000's serial port, at a baudrate of 2400Bd with 1 startbit and 1 stopbit
-* Then run splitape.exe to split the full tape file into individual programs
-
-![Example usage of splitape.exe](/utilities/tapeconv/splitape_example.png)
+* Then run splitape.exe to split the full tape file into individual `.cas` programs
 
 ### Detailed instructions (in Dutch)
 
@@ -32,12 +30,12 @@ Als je dit programma al eerder had ingetikt, dan kun je het gewoon laden uiteraa
  
 * Daarna op je PC het volgende commando uitvoeren om inkomende data van de COM-poort te bewaren in een tape image file
   ```
-  type com4: >> mijntape.img
+  type com4: >> mijntape.cas
   ```
 
 * Daarna op de P2000T het commando `RUN` geven, waardoor het programma SERIAL.BAS uitgevoerd wordt, die de gehele inhoud van één kant van de cassette via RS-232 naar je PC verstuurt.
  
 * Na verloop van tijd is het programma SERIAL.BAS klaar (duurt maximaal 4-5 minuten per kant van een cassette), waarna je Ctrl-C doet in de Windows Command Prompt, zodat het archief bestand wordt gesloten.
 
-* Gebruik het programma `splittape.exe` om de tape image file (bijv. `mijntape.img`) op te splitsen in losse programma's. \
-Hernoem vervolgens de gesplitse programma's (genummerd met extensies `.000`, `.001`, etc.) naar de juiste bestandsnaam met de extensie `.cas`.
+* Gebruik het programma `splittape.exe` om de tape image file (bijv. `Basic Demo blauw A.cas`) op te splitsen in losse `.cas` programma's: \
+![Example usage of splitape.exe](/utilities/tapeconv/splitape_example.png)

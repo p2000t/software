@@ -2,7 +2,7 @@
 /***                                                                      ***/
 /***                          cleancas.c                                  ***/
 /***                                                                      ***/
-/*** This utility cleans a P2000T .cas cassette dump file by clearing     ***/
+/*** This utility cleans a P2000T .cas cassette file by clearing the      ***/
 /*** irrelevant bytes that weren't part of a cassette data record (header ***/
 /*** or data).                                                            ***/
 /*** Cleaned .cas files allow for better compression and de-duplication.  ***/
@@ -17,15 +17,13 @@ int main (int argc, char *argv[])
 {
  static unsigned char buffer[1024+256];
  FILE *infile;
- int blockcount=0;
  int i,j;
- bool dirty;
+ bool dirty = false;
 
- printf ("cleancas v1.0: Clears irrelevant bytes in a P2000T .cas file\n"
-         "Copyright (C) Dion Olsthoorn 2023\n");
  if (argc!=2)
  {
-  printf ("Usage: cleancas <cassette dump file>\n");
+  printf ("cleancas v1.0: Clears irrelevant bytes in a P2000T .cas file.\n");
+  printf ("Usage: cleancas <cassette file>\n");
   return 1;
  }
  infile=fopen (argv[1],"rb+");
@@ -36,8 +34,6 @@ int main (int argc, char *argv[])
  }
  while (fread(buffer,1024+256,1,infile))
  {
-  blockcount++;
-  dirty = false;
   for (i=0;i<256;++i)
   {
     //clear irrelevant bytes
@@ -56,7 +52,8 @@ int main (int argc, char *argv[])
   }
  }
  fclose (infile);
- printf ("Cleaned %d blocks\n",blockcount);
+ if (dirty) printf("Cleaned cassette file!\n");
+ else printf("Cassette file was already clean.\n");
  return 0;
 }
 

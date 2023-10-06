@@ -43,6 +43,10 @@ int main (int argc, char *argv[])
  }
  while (fread(buffer,1024+256,1,infile))
  {
+  for (i=0;i<256;++i) //clear irrelevant bytes
+  {
+    if (i<0x30 || i>=0x50) buffer[i] = 0;
+  }
   for (i=0;i<8;++i)
   {
     //get all 16 characters of original filename

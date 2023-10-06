@@ -11,6 +11,7 @@
 /****************************************************************************/
 
 #include <stdio.h>
+#include <stdbool.h>
 
 int main (int argc, char *argv[])
 {
@@ -18,6 +19,7 @@ int main (int argc, char *argv[])
  FILE *infile;
  int blockcount=0;
  int i,j;
+ bool dirty;
 
  printf ("cleancas v1.0: Clears irrelevant bytes in a P2000T .cas file\n"
          "Copyright (C) Dion Olsthoorn 2023\n");
@@ -35,14 +37,23 @@ int main (int argc, char *argv[])
  while (fread(buffer,1024+256,1,infile))
  {
   blockcount++;
-  for (i=0;i<256;++i) //clear irrelevant bytes
+  dirty = false;
+  for (i=0;i<256;++i)
   {
-    if (i<0x30 || i>=0x50) buffer[i] = 0;
+    //clear irrelevant bytes
+    if ((i<0x30 || i>=0x50) && buffer[i] != 0) 
+    {
+      buffer[i] = 0;
+      dirty = true;
+    }
   }
-  j = ftell(infile);
-  fseek(infile, j-1024-256, SEEK_SET);
-  fwrite (buffer,256,1,infile);
-  fseek(infile, j, SEEK_SET);
+  if (dirty)
+  {
+    j = ftell(infile);
+    fseek(infile, j-1024-256, SEEK_SET);
+    fwrite (buffer,256,1,infile);
+    fseek(infile, j, SEEK_SET);
+  }
  }
  fclose (infile);
  printf ("Cleaned %d blocks\n",blockcount);

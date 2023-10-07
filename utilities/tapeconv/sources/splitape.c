@@ -35,15 +35,14 @@ int main (int argc, char *argv[])
   printf ("Usage: splitape <tape image>\n");
   return 1;
  }
- infile=fopen (argv[1],"rb");
- if (!infile)
+ if (!(infile=fopen (argv[1],"rb")))
  {
-  printf ("Can't open %s\n",argv[1]);
+  printf ("ERROR: Can't open %s\n",argv[1]);
   return 1;
  }
  while (fread(buffer,1024+256,1,infile))
  {
-  for (i=0;i<256;++i) //clear irrelevant bytes
+  for (i=0;i<256;++i) //clear irrelevant b ytes
   {
     if (i<0x30 || i>=0x50) buffer[i] = 0;
   }
@@ -70,12 +69,19 @@ int main (int argc, char *argv[])
   filename[pos++]='\0';
   i=buffer[0x4F];
   if (!i) i=256;
-  outfile=fopen (filename,"wb");
-  if (outfile)
+  if ((outfile=fopen(filename,"rb")))
+  {
+    fclose(outfile);
+    printf ("ERROR: Output file %s already exists. \n",filename);
+    return 1;
+  }
+  if ((outfile=fopen (filename,"wb")))
+  {
    printf ("Writing %s - %d blocks\n",filename,i);
+  }
   else
   {
-   printf ("Can't open %s\n",filename);
+   printf ("ERROR: Can't open %s\n",filename);
    return 1;
   }
   fwrite (buffer,1024+256,1,outfile);

@@ -68,15 +68,19 @@ def check_cartridge_header(path):
     errorlist = []
     valid_flag = True
     
-    # check if number of remaining blocks is valid
+    # calculate number of blocks
     nrblocks = len(data) // 0x500
+    
+    # loop over blocks
     for i in range(nrblocks):
+        # check if number of remaining blocks is valid
         if np.uint8(data[i * 0x500 + 0x4F]) != np.uint8(nrblocks - i):
             errorlist.append('[Block %i] Incorrect block value: %i != %i' 
                              % (i, data[i * 0x500 + 0x4F], nrblocks - i - 1))
             valid_flag = False
 
-        # check if file size lies within bounds
+        # determine filesize and record length
+        # note big endian format
         filesize = data[i * 0x500 + 0x33] * 255 + data[i * 0x500 + 0x32]
         record_length = data[i * 0x500 + 0x35] * 255 + data[i * 0x500 + 0x34]
         

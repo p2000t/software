@@ -126,9 +126,9 @@ static int keymask[]=
 /****************************************************************************/
 static void PutImage (void)
 {
-al_flip_display();
+  al_unlock_bitmap(al_get_backbuffer(display));
+  al_flip_display();
 }
-
 
 /****************************************************************************/
 /*** Deallocate resources taken by InitMachine()                          ***/
@@ -802,7 +802,7 @@ static inline void PutChar_T (int x,int y,int c,int fg,int bg,int si)
 //printf("-T-");
 // printf("%c",c);
 
- //al_lock_bitmap(al_get_backbuffer(display), ALLEGRO_PIXEL_FORMAT_ANY, 0);
+ al_lock_bitmap(al_get_backbuffer(display), ALLEGRO_PIXEL_FORMAT_ANY, 0);
  
  if (!videomode)
  {

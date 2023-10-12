@@ -9,10 +9,7 @@ MS-DOS version:
 * A VGA compatible video card
 * PC Speaker, SoundBlaster and joystick supported
 
-Win32 version:
-* Windows XP, 7, 8, 10 or 11
-
-Win64 version:
+Windows version:
 * 64 bits Windows or Windows 11
 
 ## What's emulated

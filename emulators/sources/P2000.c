@@ -31,6 +31,7 @@ int UPeriod      = 2;
 int IFreq        = 50;
 int Sync         = 1;
 int TapeBootEnabled = 0;
+int CartBootEnabled = 0;
 int PrnType      = 0;
 int RAMSize      = 32;
 int Z80_IRQ      = Z80_IGNORE_INT;
@@ -233,8 +234,8 @@ int StartP2000 (void)
   else
   {
    if (RAMSize<=16384) RAMSize=16384;
-   else if (RAMSize<=32768) RAMSize=32768;
-   else RAMSize=40960;
+   //else if (RAMSize<=32768) RAMSize=32768;
+   //else RAMSize=40960;
   }
   if (Verbose)
    printf ("Allocating memory: 20KB ROM, 4KB VRAM, %uKB RAM...",RAMSize/1024);

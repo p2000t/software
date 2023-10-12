@@ -142,7 +142,6 @@ static void PutImage (void)
 static void keyb_handler (int code,int newstatus)
 {
  int tmp;
- 
  if (newstatus || code==XK_Caps_Lock) newstatus=1;
  if (keybstatus[code&255]!=newstatus)
  {
@@ -213,9 +212,8 @@ static void keyboard_update (void)
  int i;
  keybstatus[XK_Caps_Lock&255]=0;
  i=keymask[XK_Caps_Lock&255];
- if (i) {
-  KeyMap[i>>8]|=(~(i&0xFF));
- }
+ if (i)
+	 KeyMap[i>>8]|=(~(i&0xFF));
  while (XCheckWindowEvent(Dsp,Wnd,KeyPressMask|KeyReleaseMask,&E))
  {
   i=XLookupKeysym ((XKeyEvent*)&E,0);
@@ -294,13 +292,13 @@ int InitMachine(void)
  bpp=DefaultDepthOfScreen (Scr);
  if (bpp!=8 && bpp!=16 && bpp!=24 && bpp!=32)
  {
-  printf ("ERROR - Only 8,16,24 and 32 bpp displays are supported\n");
-  return 1;
+  printf ("FAILED - Only 8,16,24 and 32 bpp displays are supported\n");
+  return 0;
  }
- if (bpp>24 && sizeof(unsigned)<=4)
+ if (bpp>=24 && sizeof(unsigned)!=4)
  {
   printf ("ERROR - 24 bpp or more displays are only supported on 32 bit or higher machines\n");
-  return 1;
+  return 0;
  }
  switch (videomode)
  {
@@ -406,20 +404,18 @@ int InitMachine(void)
     Colour.red=Pal[i*3+0]<<8;
     Colour.green=Pal[i*3+1]<<8;
     Colour.blue=Pal[i*3+2]<<8;
+
     if (XAllocColor(Dsp,DefaultCMap,&Colour)) {
 #ifdef LSB_FIRST
      if (BitmapBitOrder(Dsp)==LSBFirst)
 #else
      if (BitmapBitOrder(Dsp)==MSBFirst)
 #endif
-     {
       XPal[i]=Colour.pixel;
-     }
      else
-     {
       XPal[i]=SwapBytes (Colour.pixel,bpp);
-     }
-    }
+	}
+
    }
   }
  }

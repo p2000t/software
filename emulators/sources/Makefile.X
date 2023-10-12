@@ -23,14 +23,14 @@ LD	= gcc	# Linker used
 
 CFLAGS  = -Wall -fomit-frame-pointer -O2 -I/usr/X11/include \
 	  -DLSB_FIRST -DHAVE_FTRUNCATE -DHAVE_CLOCK -DUNIX_X \
-	  -DSOUND -DMITSHM
+	  -DSOUND -DMITSHM -D__64BIT__
 
 LFLAGS	= -s -L/usr/X11/lib
 
 OBJECTS = M2000.o P2000.o Z80.o Z80Debug.o \
           Unix.o X.o
 
-all:    m2000
+all:    m2000 fontc splitape z80dasm
 
 m2000:	$(OBJECTS)
 	$(LD) $(LFLAGS) -o m2000 $(OBJECTS) -lXext -lX11

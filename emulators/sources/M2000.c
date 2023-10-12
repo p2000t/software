@@ -36,7 +36,7 @@ static char *Options[]=
   "verbose","help","cpuspeed","ifreq","t","m",
   "sound","joystick","romfile","uperiod","trap","printertype",
   "printer","font","tape","boot","volume","ram","sync","shm",
-  "savecpu","video",
+  "savecpu","video","cart",
   NULL
 };
 #define AbvOptions      Options         /* No abrevations yet */
@@ -57,6 +57,10 @@ extern int SaveCPU;
 extern int videomode;
 
 static int  CpuSpeed;
+#ifdef ALLEGRO
+#include <allegro5/allegro.h>
+#endif
+// Odd Allegro implementations have (had?) _argc _argv already declared (!?!??)
 static int  _argc;
 static char *_argv[256];
 static unsigned char MainConfigFile[MAX_CONFIG_FILE_SIZE];
@@ -68,6 +72,14 @@ static char _ROMName[MAX_FILE_NAME];
 static char ProgramPath[MAX_FILE_NAME];
 
 #ifndef MSDOS
+/* Get full path name, convert all backslashes to UNIX style slashes */
+static void _fixpath (char *old,char *new)
+{
+ strcpy (new,old);
+}
+#endif
+
+#ifdef _WIN32
 /* Get full path name, convert all backslashes to UNIX style slashes */
 static void _fixpath (char *old,char *new)
 {
@@ -238,6 +250,12 @@ static int ParseOptions (int argc,char *argv[])
     case 21: N++;
              if (N<argc)
               videomode=atoi(argv[N]);
+             else
+              misparm=1;
+             break;
+    case 22: N++;
+             if (N<argc)
+              CartName=argv[N];
              else
               misparm=1;
              break;

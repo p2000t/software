@@ -1,14 +1,9 @@
 default:
 	@echo "To compile M2000, use one of the following:"
-	@echo " make svga  - Make the Linux/SVGALib version"
-	@echo " make x     - Make the Unix/X version"
-	@echo " make msdos - Make the MS-DOS version (DJGPP only)"
-	@echo " make linux - Build both the Linux/SVGALib and the Unix/X versions"
-	@echo "When compiling the SVGALib version, make sure you are logged in as root"
-	@echo "Please check Makefile.SVGALib, Makefile.X and Z80.h before compiling M2000"
-
-svga:
-	make -f Makefile.SVGALib
+	@echo " make allegro5 - Make the Windows version (requires Allegro5 libs)"
+	@echo " make x        - Make the Unix/X version"
+	@echo " make msdos    - Make the MS-DOS version (DJGPP only)"
+	@echo "Please check Makefile.X and Z80.h before compiling M2000"
 
 x:
 	make -f Makefile.X
@@ -16,12 +11,16 @@ x:
 msdos:
 	make -f Makefile.MSDOS
 
-clean:
-	rm -f *.o *~
+windows:
+	make -f Makefile.Windows
 
-linux:
+OBJECTS = M2000.o P2000.o Z80.o Z80Debug.o \
+		  Unix.o X.o allegro.o \
+          MSDOS.o Asm.o DMA.o INT.o SB.o Bitmap.o
+clean:
+	rm -f $(OBJECTS)
+
+distclean:
 	make clean
-	make x
-	mv m2000 m2000x
-	make clean
-	make svga
+	rm -f m2000 m2000.exe
+

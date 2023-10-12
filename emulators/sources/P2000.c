@@ -234,8 +234,8 @@ int StartP2000 (void)
   else
   {
    if (RAMSize<=16384) RAMSize=16384;
-   //else if (RAMSize<=32768) RAMSize=32768;
-   //else RAMSize=40960;
+   else if (RAMSize<=32768) RAMSize=32768;
+   else RAMSize=40960;
   }
   if (Verbose)
    printf ("Allocating memory: 20KB ROM, 4KB VRAM, %uKB RAM...",RAMSize/1024);

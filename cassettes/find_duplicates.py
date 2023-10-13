@@ -49,15 +49,21 @@ def main():
     print('The following CAS files have invalid headers:')
     for i,(path,errorlist) in enumerate(zip(invalid_header, errorlists)):
         print('%03i: %s (%i header errors)' % (i+1, path, len(errorlist)))
+        for error in errorlist:
+            print('\t%s' % error)
         
     print('Invalid CAS: %i / %i' % (len(invalid_header), len(paths)))
-    
-    #print(errorlists[45])
 
 def check_cartridge_header(path):
     """
     Parse the cartridge header metadata and check whether number of blocks
     and file sizes match
+    
+    Checks:
+        * Recnum [0x4F] should lie between 1-40, inclusive
+        * Each consecutive recnum whose previous recnum is not 1 should be
+          one smaller than the previous recnum
+        * The filesize should never exceed the number of blocks multiplied by 
     
     Returns parsing check (true/false) and list of errors
     """
@@ -70,36 +76,33 @@ def check_cartridge_header(path):
     
     # calculate number of blocks
     nrblocks = len(data) // 0x500
+    prev_recnum = 1
     
     # loop over blocks
     for i in range(nrblocks):
         # check if number of remaining blocks is valid
-        if np.uint8(data[i * 0x500 + 0x4F]) != np.uint8(nrblocks - i):
-            errorlist.append('[Block %i] Incorrect block value: %i != %i' 
-                             % (i, data[i * 0x500 + 0x4F], nrblocks - i - 1))
+        recnum = data[i * 0x500 + 0x4F]
+        if not (recnum >= 1 or recnum <= 40):
+            errorlist.append('B%02i: Invalid recum found: %i' % (i,recnum))
             valid_flag = False
+        
+        # check if the record number is one smaller than previous record number
+        # skip this check if the previous recnum was 1
+        if prev_recnum != 1:
+            if recnum != prev_recnum-1:
+                errorlist.append('B%02i: Invalid sequence in recnum %i > %i' % (i,recnum, prev_recnum))
+                valid_flag = False
+        prev_recnum = recnum
 
         # determine filesize and record length
         # note big endian format
-        filesize = data[i * 0x500 + 0x33] * 255 + data[i * 0x500 + 0x32]
-        record_length = data[i * 0x500 + 0x35] * 255 + data[i * 0x500 + 0x34]
+        filesize = data[i * 0x500 + 0x33] * 256 + data[i * 0x500 + 0x32]
+        record_length = data[i * 0x500 + 0x35] * 256 + data[i * 0x500 + 0x34]
         
         # check if filesize lies between boundaries
-        if not (filesize > (nrblocks-1) * 0x400 and filesize <= nrblocks * 0x400):
-            errorlist.append('[Block %i] Filesize (%i) does not match number of blocks (%i)' 
-                             % (i, filesize, nrblocks))
-            valid_flag = False
-        
-        # check if record length lies between boundaries
-        if not (record_length > (nrblocks-1) * 0x400 and filesize <= nrblocks * 0x400):
-            errorlist.append('[Block %i] Record length (%i) does not match number of blocks (%i)' 
-                             % (i, record_length, nrblocks))
-            valid_flag = False
-            
-        # check if filesize matches record length
-        if filesize != record_length:
-            errorlist.append('[Block %i] Filesize (%i) does not match record length (%i)' 
-                             % (i, filesize, record_length))
+        if filesize > nrblocks * 0x400:
+            errorlist.append('B%02i: Filesize (%i) does not match number of blocks (%i)' 
+                             % (i,filesize, nrblocks))
             valid_flag = False
 
     return valid_flag, errorlist

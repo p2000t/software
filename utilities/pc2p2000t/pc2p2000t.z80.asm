@@ -53,9 +53,9 @@ delay_bit:
 read_program:               ; starts at $9E1D
     di                      ; F3 - disable interrupts
 
-read_header:                ; read 256-byte header into $9f00 - $9fff
-    ld b,0                  ; 06 00
-    ld hl, $9f00            ; 21 00 9F
+read_header:                ; read 32-byte header into $9f30 - $9f4f
+    ld b, $20               ; 06 20
+    ld hl, $9f30            ; 21 30 9F
 read_header_loop:
     call read_byte          ; CD 00 9E
     ld (hl),a               ; 77
@@ -68,7 +68,7 @@ read_header_loop:
     ld hl, BasicProgStart   ; 21 47 65 - IDEA: read pointer from $625c?
     jr read_block           ; 18 07 - first header already read, so skip
 ignore_header:
-    ld b, $00               ; 06 00 - ignore later 256-byte headers
+    ld b, $20               ; 06 20 - ignore later 32-byte headers
 ignore_header_loop:
     call read_byte          ; CD 00 9E
     djnz ignore_header_loop ; 10 FB

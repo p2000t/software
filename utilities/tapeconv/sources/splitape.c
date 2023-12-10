@@ -28,7 +28,7 @@ int main (int argc, char *argv[])
  char filename[16+4+1];
  int filecount=0;
  int i,j,pos;
- printf ("splitape v2.0: Tape image splitter\n"
+ printf ("splitape v2.1: Tape image splitter\n"
          "Copyright (C) Marcel de Kogel 1996\n");
  if (argc!=2)
  {
@@ -69,6 +69,11 @@ int main (int argc, char *argv[])
   filename[pos++]='\0';
   i=buffer[0x4F];
   if (!i) i=256;
+  pos = 0;
+  while (filename[pos] && (outfile=fopen(filename,"rb"))) {
+    fclose(outfile);
+    filename[pos++]='_';
+  }
   if ((outfile=fopen(filename,"rb")))
   {
     fclose(outfile);

@@ -78,7 +78,7 @@ Hierna kun je het ingeladen spel bewaren op cassette met `CSAVE` of direct kunt 
 Zorg er hierbij wel voor dat:
 * De cassette waarnaar je wilt schrijven leeg is
 * De eerste letter van iedere bestandsnaam (te vinden in de .cas header) uniek is
-* De PC na het verzenden van een .cas bestand een tijdje wacht (afhankelijk van de grootte van het bestand) voordat het volgende .cas bestand weer wordt verzonden. Op die manier krijgt de P2000T genoeg tijd om het ontvangen bestand op cassette te bewaren voordat het klaar is voor het volgende bestand.
+* De PC na het verzenden van ieder .cas bestand een tijdje wacht (afhankelijk van de grootte van het bestand) voordat het volgende .cas bestand weer wordt verzonden. Op die manier krijgt de P2000T genoeg tijd om het ontvangen bestand op cassette te bewaren voordat het klaar is voor het volgende bestand.
 
 ## Op zoek naar .cas bestanden?
 

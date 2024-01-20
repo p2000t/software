@@ -1,9 +1,11 @@
 
 ; 9600 baud!!!
+; Note: I used https://www.asm80.com/onepage/asmz80.html for compilation to hex code
 
 BasicProgStart      .equ    $6547
-ProgramBlocks       .equ    $9f4f ; byte
+ProgramBlocks       .equ    $9f4f ; word
 ProgramLength       .equ    $9f34 ; word
+TransferAddress     .equ    $9f30 ; word
 
     .org $9e00
 
@@ -12,12 +14,12 @@ read_byte:
     push bc                 ; C5 [11]
 check_start_bit:
     in a,($20)              ; DB 20 [11]
-    and $01                 ; E6 01 [7] - check if bit D0 is 0
+    and $01                 ; E6 01 [7] - check until bit D0 is 0 (start bit)
     jr nz, check_start_bit  ; 20 FA [7] 
     ld b, $15               ; 06 15 [7]
 delay_on_start_bit:
     djnz delay_on_start_bit ; 10 FE [13/8]
-    ld b, $08               ; 06 08 [7] - call read_next_bit 8 times (for 8 bits)
+    ld b, $08               ; 06 08 [7] - call read_next_bit for 8 data bits
 
 read_next_bit:
     in a,($20)              ; DB 20 [11]
@@ -65,7 +67,7 @@ read_header_loop:
     ;read the blocks and put into basic memory
     ld hl, ProgramBlocks    ; 21 4F 9F
     ld c, (hl)              ; 4E - load number of blocks into C
-    ld hl, BasicProgStart   ; 21 47 65 - IDEA: read pointer from $625c?
+    ld hl,(TransferAddress) ; 2A 30 9F - loads transfer address into hl     (*)
     jr read_block           ; 18 07 - first header already read, so skip
 ignore_header:
     ld b, $00               ; 06 00 - ignore later 256-byte headers
@@ -105,3 +107,17 @@ read_block_loop:
     ei                      ; FB - enable interrupts
     ret                     ; C9
 
+read_and_write_proram:      ; starts at $9E6C
+    call read_program       ; CD 1D 9E
+
+    ; copy block of 32 bytes at TransferAddress to $6030 (hl -> de)
+    ld hl, TransferAddress  ; 21 30 9F
+	ld de, $6030            ; 11 30 60
+	ld bc, $20              ; 01 20 00
+	ldir                    ; ED B0
+
+    ; write program out to cassette
+    ld a, $5                ; 3E 05 - 5 is command number for write         (*)
+    call $0018              ; CD 18 00 - call cass write                    (*)
+    ld (hl), a              ; 77 - read any error code                      (*)
+    ret                     ; C9

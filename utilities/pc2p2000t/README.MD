@@ -72,9 +72,9 @@ copy BrickWall.cas \\.\com5
 Daarna wachten op de pieptoon, waarna de cursor weer te zien is op zowel de P2000T als je PC. Dit betekent dat het programma succesvol is ingeladen.\
 Hierna kun je het ingeladen spel bewaren op cassette met `CSAVE` of direct kunt spelen met `RUN`.
 
-### PC2P2000 ontvang-bewaar modus
+### Ontvang-bewaar modus
 
-`pc2p2000` heeft ook een **ontvang-bewaar modus**, te activeren d.m.v. `?USR2(0)` i.p.v. `?USR1(0)`. Hierbij kun je vanaf de PC iedere keer een los .cas programma naar de P2000T kunt sturen, die dan direct na ontvangst op cassette wordt opgeslagen, waarna de P2000T dan weer gaat wachten op het volgende .cas bestand. Hiermee kun je dus een hele reeks .cas bestanden in één keer naar cassette wegschrijven. \
+`pc2p2000` heeft ook een **ontvang-bewaar modus**, te activeren d.m.v. `?USR2(0)` i.p.v. `?USR1(0)`. Hierbij kun je vanaf de PC iedere keer een los .cas programma naar de P2000T sturen, die dan direct na ontvangst op cassette wordt opgeslagen, waarna de P2000T dan weer gaat wachten op het volgende .cas bestand. Hiermee kun je dus een hele reeks .cas bestanden in één keer naar cassette wegschrijven. \
 Zorg er hierbij wel voor dat:
 * De cassette waarop je wilt schrijven leeg is
 * De PC na het verzenden van een .cas bestand een tijdje wacht (afhankelijk van de grootte van het bestand) voordat het volgende .cas bestand weer wordt verzonden. Op die manier krijgt de P2000T genoeg tijd om het ontvangen bestand op cassette te bewaren voordat het klaar is voor het volgende bestand.

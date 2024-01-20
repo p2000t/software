@@ -107,7 +107,7 @@ read_block_loop:
     ei                      ; FB - enable interrupts
     ret                     ; C9
 
-read_and_write_proram:      ; starts at $9E6C
+write_to_cas_loop:          ; starts at $9E6C
     call read_program       ; CD 1D 9E
 
     ; copy block of 32 bytes at TransferAddress to $6030 (hl -> de)
@@ -119,5 +119,4 @@ read_and_write_proram:      ; starts at $9E6C
     ; write program out to cassette
     ld a, $5                ; 3E 05 - 5 is command number for write         (*)
     call $0018              ; CD 18 00 - call cass write                    (*)
-    ld (hl), a              ; 77 - read any error code                      (*)
-    ret                     ; C9
+    jp write_to_cas_loop    ; C3 6C 9E

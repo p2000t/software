@@ -79,7 +79,7 @@ Zorg er hierbij wel voor dat:
 * De eerste letter van iedere bestandsnaam (te vinden in de .cas header) uniek is
 * De PC na het verzenden van ieder .cas bestand een tijdje wacht (afhankelijk van de grootte van het bestand) voordat het volgende .cas bestand weer wordt verzonden. Op die manier krijgt de P2000T genoeg tijd om het ontvangen bestand op cassette te bewaren voordat het klaar is voor het volgende bestand.
 
-## Op zoek naar .cas bestanden?
+### Op zoek naar .cas bestanden?
 
 Op github zijn trouwens veel `.cas` game bestanden te vinden: https://github.com/p2000t/software/tree/master/tapes/games \
 Voor grote spellen (zoals `Fraxxon.cas`) heeft je P2000T mimaal een 16K RAM geheugenuitbreiding nodig. Als je zo'n geheugenuitbreiding zoekt, kijk dan eens op marktplaats. Gebruiker [ifilot](https://www.marktplaats.nl/u/ifilot/15277239/) maakt ze zelf nog gewoon nieuw!

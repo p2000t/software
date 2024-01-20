@@ -11,7 +11,7 @@ Om dit programma te gebruiken heb je de volgende hardware nodig:
 * Een P2000T;
 * Een PC met daarop de `.cas` bestanden die je wilt laden naar je P2000T;
 * Een kabel en adapter waarmee je de 25-pins seriële poort van de P2000T aan de USB-ingang van je PC kunt koppelen. \
-  Als je zo'n kabel zoekt: online kun je het vinden door te zoeken op "USB naar 9-pin RS-232 adapter" en "Seriële adapter 25p SUB-D (m) - 9p SUB-D (v) RS232". De kabel en adapter kosten bij elkaar ongeveer 12 euro. Ik heb ze hier gekocht:
+  Als je zo'n kabel zoekt: online kun je het vinden door te zoeken op "USB naar 25-pin RS-232 adapter". De kabel en adapter kosten bij elkaar ongeveer 12 euro. Ik heb ze hier gekocht:
   * De USB naar 25-pin RS-232 adapter: https://www.onlinekabelshop.nl/usb-a-m-naar-9-pins-sub-d-25-pins-sub-d-m-seriele.html
   * De Windows driver voor deze adapter: https://files-onlinekabelshop.nl/Handleidingen/Drivers%20OKS-45902.zip
   ![USB to RS232 cable](/utilities/pc2p2000t/usb2rs232.png)

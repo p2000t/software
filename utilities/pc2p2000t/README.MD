@@ -73,7 +73,7 @@ Hierna kun je het ingeladen spel bewaren op cassette met `CSAVE` of direct kunt 
 
 ### Ontvang-bewaar modus
 
-`pc2p2000` heeft ook een **ontvang-bewaar modus**, te activeren d.m.v. `?USR2(0)` i.p.v. `?USR1(0)`. Hierbij kun je vanaf de PC iedere keer een los .cas programma naar de P2000T sturen, die dan direct na ontvangst op cassette wordt bewaard, waarna de P2000T dan weer gaat wachten op het volgende .cas bestand. Hiermee kun je dus een hele reeks .cas bestanden in één keer naar cassette wegschrijven. \
+De pc2p2000 utility heeft ook een **ontvang-bewaar modus**, die te activeren is d.m.v. `?USR2(0)` i.p.v. `?USR1(0)`. Hierbij kun je vanaf de PC iedere keer een los .cas programma naar de P2000T sturen, die dan direct na ontvangst op cassette wordt bewaard, waarna de P2000T dan weer gaat wachten op het volgende .cas bestand. Hiermee kun je dus een hele reeks .cas bestanden in één keer naar cassette wegschrijven. \
 Zorg er hierbij wel voor dat:
 * De cassette waarnaar je wilt schrijven leeg is
 * De eerste letter van iedere bestandsnaam (te vinden in de .cas header) uniek is

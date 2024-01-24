@@ -92,5 +92,5 @@ Op github zijn veel .cas games te vinden: https://github.com/p2000t/software/tre
 Voor grote spellen zoals [Fraxxon.cas](../../cassettes/games/Fraxxon.cas) heeft je P2000T mimaal een 16K RAM geheugenuitbreiding nodig. Als je zo'n geheugenuitbreiding zoekt, kijk dan eens op marktplaats bij gebruiker [ifilot](https://www.marktplaats.nl/u/ifilot/15277239/) die ze zelf maakt!
 
 ### Tips:
-* Om te testen of de kabel werkt, kun je in een Windows command prompt de baudrate van de COM-poort op 1200 zetten en dan `TYPE COM5` doen (gebruik ipv '5' jouw eigen COM nummer), waarna je op de P2000T `<shift><00>` (de printer-key) indrukt. Dit stuurt alles op het scherm van je P2000T naar je PC, dus als het goed is zie je dat verschijnen in de command prompt.
+* Om te testen of de kabel werkt, kun je in een Windows command prompt de baudrate van de COM-poort op 1200 zetten d.m.v. `mode com5 baud=1200 parity=n data=8 stop=1` en dan het `TYPE COM5` commando te geven (gebruik ipv '5' jouw eigen COM nummer), waarna je op de P2000T `<shift><00>` (de printer-key) indrukt. Dit stuurt alles op het scherm van je P2000T naar je PC, dus als het goed is zie je die tekst verschijnen in de command prompt.
 * Ik heb gemerkt dat de `mode` instellingen die je op de PC doet weer worden gereset naar de standaard waarden als je de USB stekker los- en daarna weer vastmaakt.

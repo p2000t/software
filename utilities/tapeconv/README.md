@@ -16,7 +16,7 @@ Trouwens: kabel en adapter kun je ook veel goedkoper op AliExpress bestellen, ma
  
 * M.b.v. de kabel en adapter maak je dan een verbinding tussen de P2000T (seriele poort) en je laptop (USB poort).
  
-* Tik dan (eenmalig) het programma [`SERIAL.BAS`](/utilities/tapeconv/SERIAL.BAS) over op de P2000T en bewaar deze op een cassette. \
+* Tik dan (eenmalig) het programma [`SERIAL.BAS`](/utilities/tapeconv/SERIAL.BAS) over op de P2000T **en bewaar deze op een cassette**. \
 Als je dit programma al eerder had ingetikt, dan kun je het gewoon laden uiteraard.
  
 * Na het intikken/inladen van `SERIAL.BAS` (let op: run deze nog niet!), doe je de cassette in de P2000T die je wil gaan archiveren. Het archiveren gaat per kant van de cassette, dus je moet zowel de voor- als achterkant doen.

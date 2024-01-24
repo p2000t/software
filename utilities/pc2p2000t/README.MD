@@ -74,14 +74,15 @@ Hierna kun je het ingeladen spel bewaren op cassette met `CSAVE` of direct spele
 
 De pc2p2000t utility heeft ook een **ontvang-bewaar modus**, die te activeren is d.m.v. `?USR2(0)` i.p.v. `?USR1(0)`. Hierbij kun je vanaf de PC iedere keer een los .cas bestand naar de P2000T sturen, die dan direct na ontvangst op cassette wordt bewaard, waarna de P2000T dan weer gaat wachten op het volgende .cas bestand. Hiermee kun je dus een hele reeks .cas bestanden in één keer naar cassette wegschrijven.
 
-Ook kun je de [sendcas.py](sendcas.py) Python utility gebruiken, die zelf de juiste baudrate instelt en ook niet-opgesplitste .cas bestanden zoals [Basic Demo cassette (kant A).cas](<../../cassettes/demos/Basic Demo cassette (kant A).cas>) of [ErrorSoft.cas](../../cassettes/games/ErrorSoft.cas) correct kan overzetten. \
+Ook kun je de [sendcas.py](sendcas.py) Python utility gebruiken, die zelf de juiste baudrate instelt en ook niet-gesplitste .cas bestanden zoals [Basic Demo cassette (kant A).cas](<../../cassettes/demos/Basic Demo cassette (kant A).cas>) of [ErrorSoft.cas](../../cassettes/games/ErrorSoft.cas) correct kan overzetten.
 ```
 usage: python sendcas.py [-h] serial_port cas_file_path [cas_file_path ...]
-example: python sendcas.py COM4 "Basic Demo cassette (kant A).cas"
+example: python sendcas.py COM4 games\Fraxxon.cas games\Brick-Wall.cas
 ```
 
 Zorg bij het gebruik van de ontvang-bewaar modus wel voor dat:
 * De cassette waarnaar je wilt schrijven leeg is;
+* Alle programma's bij elkaar maximaal 40 blokken zijn, want meer past er niet op een originele P2000T cassette;
 * De eerste letter van ieder Basic bestandsnaam (te vinden in de .cas header) uniek is;
 * De PC na het verzenden van ieder .cas bestand een tijdje wacht (afhankelijk van de grootte van het bestand) voordat het volgende .cas bestand weer wordt verzonden. Op die manier krijgt de P2000T genoeg tijd om het zojuist ontvangen bestand op cassette te bewaren voordat het klaar is voor het volgende bestand. N.B. de `sendcas.py` utility doet dit wachten uit zichzelf al.
 

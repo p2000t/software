@@ -82,7 +82,8 @@ example: python sendcas.py COM4 games\Fraxxon.cas games\Brick-Wall.cas
 
 Zorg bij het gebruik van de ontvang-bewaar modus wel voor dat:
 * De cassette waarnaar je wilt schrijven leeg is;
-* Alle programma's bij elkaar maximaal 40 blokken zijn, want meer past er niet op een originele P2000T cassette. Oké, 41 blokken mag, maar dan wordt het laatste blok niet volledig weggeschreven :smirk:
+* Alle programma's bij elkaar maximaal 40 blokken zijn, want meer past er niet op een originele P2000T cassette. \
+  Oké... 41 blokken mag, maar dan wordt het laatste blok niet volledig weggeschreven :smirk:
 * De eerste letter van iedere Basic bestandsnaam, zoals te vinden in de .cas header, uniek is;
 * De PC na het verzenden van ieder .cas bestand een tijdje wacht (afhankelijk van de grootte van het bestand) voordat het volgende .cas bestand weer wordt verzonden. Op die manier krijgt de P2000T genoeg tijd om het zojuist ontvangen bestand op cassette te bewaren voordat het klaar is om het volgende bestand te ontvangen. N.B. de `sendcas.py` utility doet dit wachten uit zichzelf al.
 

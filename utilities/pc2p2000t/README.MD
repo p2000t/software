@@ -71,11 +71,12 @@ Hierna kun je het ingeladen spel bewaren op cassette met `CSAVE` of direct spele
 
 ### Ontvang-bewaar modus
 
-De pc2p2000 utility heeft ook een **ontvang-bewaar modus**, die te activeren is d.m.v. `?USR2(0)` i.p.v. `?USR1(0)`. Hierbij kun je vanaf de PC iedere keer een los .cas programma naar de P2000T sturen, die dan direct na ontvangst op cassette wordt bewaard, waarna de P2000T dan weer gaat wachten op het volgende .cas bestand. Hiermee kun je dus een hele reeks .cas bestanden in één keer naar cassette wegschrijven. \
-Zorg er hierbij wel voor dat:
-* De cassette waarnaar je wilt schrijven leeg is
-* De eerste letter van iedere bestandsnaam (te vinden in de .cas header) uniek is
-* De PC na het verzenden van ieder .cas bestand een tijdje wacht (afhankelijk van de grootte van het bestand) voordat het volgende .cas bestand weer wordt verzonden. Op die manier krijgt de P2000T genoeg tijd om het ontvangen bestand op cassette te bewaren voordat het klaar is voor het volgende bestand.
+De `pc2p2000t` utility heeft ook een **ontvang-bewaar modus**, die te activeren is d.m.v. `?USR2(0)` i.p.v. `?USR1(0)`. Hierbij kun je vanaf de PC iedere keer een los .cas programma naar de P2000T sturen, die dan direct na ontvangst op cassette wordt bewaard, waarna de P2000T dan weer gaat wachten op het volgende .cas bestand. Hiermee kun je dus een hele reeks .cas bestanden in één keer naar cassette wegschrijven. \
+Ook kun je de [sendcas](sendcas.py) Python utility gebruiken, die zelf de juiste baudrate instelt en ook niet-opgesplitste .cas bestanden (zoals Errorsoft.cas) correct kan overzetten.
+Zorg bij het gebruik van de ontvang-bewaar modus wel voor dat:
+* De cassette waarnaar je wilt schrijven leeg is;
+* De eerste letter van ieder Basic bestandsnaam (te vinden in de .cas header) uniek is;
+* De PC na het verzenden van ieder .cas bestand een tijdje wacht (afhankelijk van de grootte van het bestand) voordat het volgende .cas bestand weer wordt verzonden. Op die manier krijgt de P2000T genoeg tijd om het zojuist ontvangen bestand op cassette te bewaren voordat het klaar is voor het volgende bestand. N.B. de `sendcas.py` utility doet dit uit zichzelf al.
 
 ### Op zoek naar .cas bestanden?
 

@@ -1,9 +1,9 @@
 ## PC2P2000T - loading `.cas` programs from PC to P2000T
 
-Dit is een utility gemaakt voor de P2000T waarmee je via de seriële poort `.cas` programma's en games vanaf een PC naar de P2000T kunt laden. Na het inladen van een game op je P2000T kun je deze spelen (`RUN`), maar ook wegschrijven naar mini-cassette (`CSAVE`). \
+`pc2p2000t` is een utility gemaakt voor de P2000T waarmee je via de seriële poort één of meerdere `.cas` programma's/games vanaf een PC kunt inladen. Na het laden van een game op je P2000T kun je deze spelen (`RUN`), maar ook wegschrijven naar mini-cassette (`CSAVE`). \
 Er bestond al een utility (SERIAL.BAS van Marcel de Kogel) waarmee je een complete mini-cassette vanaf de P2000T naar een PC kan wegschrijven via de seriële poort, maar PC2P2000T werkt dus precies de andere kant op.
 
-Ik heb de overdrachtssnelheid van deze utility kunnen 'opvoeren' tot 9600 baud, waarmee het zelfs sneller is dan laden van een cassette (dat op de P2000T met ongeveer 6000 baud gaat).
+De overdrachtssnelheid van deze utility is 9600 baud (bits per seconde), waarmee het zelfs sneller is dan laden van een cassette, dat op de P2000T met ongeveer 6000 baud gaat.
 
 De utility werkt voor P2000T machines met 16K, 32K of 48K aan RAM geheugen. Ik heb zelf een geheugen-uitbreiding tot 32K, dus ik heb niet kunnen testen of het werkt op een 48K machine.
 
@@ -49,7 +49,7 @@ Als je alle hardware beschikbaar hebt, tik dan deze 32 regels BASIC code op je P
 320 DATA ED,B0,3E,05,CD,18,00,C3,6C,9E
 330 DATA stop
 ```
-Bewaar dit vervolgens op een P2000T cassette (noem het bijvoorbeeld `pc2p2000.bas`), zodat je het de volgende keer weer kunt gebruiken.
+Bewaar dit vervolgens op een P2000T cassette (noem het bijvoorbeeld `pc2p2000t.bas`), zodat je het de volgende keer weer kunt gebruiken.
 
 Daarna de PC koppelen aan de seriële poort van de P2000T (via het RS232-to-USB adapter kabeltje).
 Op Windows kun je bij de Device Manager kijken op welke COM-poort de USB adapter is gemapt. In mijn geval is dat COM5. In de voorbeelden hieronder moet je dus jouw eigen COM-poort nummer gebruiken i.p.v. `com5`.

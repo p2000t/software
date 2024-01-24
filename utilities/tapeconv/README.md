@@ -37,5 +37,5 @@ Als je dit programma al eerder had ingetikt, dan kun je het gewoon laden uiteraa
  
 * Na verloop van tijd is het programma SERIAL.BAS klaar (duurt maximaal 4-5 minuten per kant van een cassette), waarna je Ctrl-C doet in de Windows Command Prompt, zodat het archief bestand wordt gesloten.
 
-* Gebruik het programma `splittape.exe` om de tape image file (bijv. `Basic Demo blauw A.cas`) op te splitsen in losse `.cas` programma's: \
+* [Optioneel] Gebruik het programma `splittape.exe` om de tape image file (bijv. `Basic Demo blauw A.cas`) op te splitsen in losse `.cas` programma's: \
 ![Example usage of splitape.exe](/utilities/tapeconv/splitape_example.png)

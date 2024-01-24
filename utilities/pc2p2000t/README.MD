@@ -1,17 +1,17 @@
-## PC2P2000T - inladen van P2000T programma's vanaf je PC
+## PC2P2000T - Laden van P2000T programma's vanaf PC naar P2000T (via seriele poort)
 
-`pc2p2000t` is een utility gemaakt voor de P2000T waarmee je via de seriële poort één of meerdere `.cas` programma's/games vanaf een PC kunt inladen. Na het laden van een game op je P2000T kun je deze spelen (`RUN`), maar ook wegschrijven naar mini-cassette (`CSAVE`). \
-Er bestond al een utility (SERIAL.BAS van Marcel de Kogel) waarmee je een complete mini-cassette vanaf de P2000T naar een PC kan wegschrijven via de seriële poort, maar PC2P2000T werkt dus precies de andere kant op.
+`pc2p2000t` is een utility gemaakt voor de P2000T waarmee je via de seriële poort één of meerdere `.cas` programma's vanaf een PC kunt inladen. Na het laden van een programma naar de P2000T kun je deze dan starten d.m.v. `RUN`, maar ook wegschrijven naar mini-cassette d.m.v. `CSAVE`. \
+Er bestond al een utility `SERIAL.BAS` (van Marcel de Kogel) waarmee je een complete mini-cassette vanaf de P2000T naar je PC kan wegschrijven via de seriële poort, maar PC2P2000T werkt dus precies de andere kant op.
 
-De overdrachtssnelheid van deze utility is 9600 baud (bits per seconde), waarmee het zelfs sneller is dan laden van een cassette, dat op de P2000T met ongeveer 6000 baud gaat.
+De overdrachtssnelheid van deze utility is 9600 baud (=bits per seconde), waarmee het zelfs sneller(!) is dan laden van een cassette, dat op de P2000T met ongeveer 6000 baud gaat.
 
-De utility werkt voor P2000T machines met 16K, 32K of 48K aan RAM geheugen. Ik heb zelf een geheugen-uitbreiding tot 32K, dus ik heb niet kunnen testen of het werkt op een 48K machine.
+`pc2p2000t` werkt voor alle P2000T modellen, dus met 16K, 32K of >48K aan RAM geheugen.
 
-Om dit programma te gebruiken heb je de volgende hardware nodig:
+Om deze utility te gebruiken heb je de volgende hardware nodig:
 * Een P2000T;
 * Een PC met daarop de `.cas` bestanden die je wilt laden naar je P2000T;
-* Een kabel en adapter waarmee je de 25-pins seriële poort van de P2000T aan je PC kunt koppelen. Omdat de meeste PC's tegenwoordig geen seriële poort meer hebben, kun je in dat geval het beste een USB-naar-serieel adapter kabel gebruiken.  \
-  Als je zo'n kabel zoekt: online kun je het vinden door te zoeken op "USB to serial RS-232 adapter".
+* Een kabel en adapter waarmee je de 25-pins seriële poort van de P2000T aan je PC kunt koppelen. Omdat de meeste PC's tegenwoordig geen seriële poort meer hebben, kun je in dat geval een USB-naar-serieel adapter kabel gebruiken.  \
+  Oline kun je zo'n kabel vinden door te zoeken op "USB to serial RS-232 adapter".
   ![USB to RS232 cable](/utilities/pc2p2000t/usb2rs232.png)
 
 Als je alle hardware beschikbaar hebt, tik dan deze 32 regels BASIC code op je P2000T:

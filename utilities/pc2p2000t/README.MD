@@ -61,7 +61,7 @@ mode com5 baud=9600 parity=n data=8 stop=1
 ```
 Dan op de P2000T de pc2p2000t.bas utility laden en "installeren" door `RUN` te doen. Daarna het volgende commando op de P2000T om pc2p2000t te starten en te laten luisteren naar de seriële poort:
 ```
-?usr1(0)
+?USR1(0)
 ```
 En vervolgens op de PC een .cas bestand sturen naar de juiste COM poort - als voorbeeld hieronder het bestand BrickWall.cas:
 ```

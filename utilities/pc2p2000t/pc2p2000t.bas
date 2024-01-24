@@ -1,6 +1,5 @@
 10 REM P2000T programma laden via RS232
 20 REM Versie 0.3 door Dion Olsthoorn
-21 REM Gewijzigde regels tov 0.2: 20,21,110,131,141,240,300-330
 30 CLEAR 50,&H9DFF+256*32*(PEEK(&H605C)+(PEEK(&H605C)=1))
 40 M=PEEK(&H605C) : Z = 32*(M+(M=1))
 50 BASE = &H9E00 + 256*Z

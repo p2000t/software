@@ -28,7 +28,7 @@ Als je alle hardware beschikbaar hebt, tik dan deze 32 regels BASIC code op je P
 90 IF P=&H9E OR P=&H9F THEN POKE BASE+I,P+Z
 100 I=I+1 : T=T+P : GOTO 70
 110 IF T=11963 THEN GOTO 130
-120 PRINT "Typefout gemaakt in DATA" : END
+120 PRINT "Typfout gemaakt in DATA" : END
 130 DEF USR1=BASE + &H1D
 131 DEF USR2=BASE + &H6C
 140 PRINT "Start ontvanger op P2000T met ?USR1(0)"

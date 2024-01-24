@@ -1,4 +1,4 @@
-## PC2P2000T - loading `.cas` programs from PC to P2000T
+## PC2P2000T - inladen van P2000T programma's vanaf je PC
 
 `pc2p2000t` is een utility gemaakt voor de P2000T waarmee je via de seriële poort één of meerdere `.cas` programma's/games vanaf een PC kunt inladen. Na het laden van een game op je P2000T kun je deze spelen (`RUN`), maar ook wegschrijven naar mini-cassette (`CSAVE`). \
 Er bestond al een utility (SERIAL.BAS van Marcel de Kogel) waarmee je een complete mini-cassette vanaf de P2000T naar een PC kan wegschrijven via de seriële poort, maar PC2P2000T werkt dus precies de andere kant op.

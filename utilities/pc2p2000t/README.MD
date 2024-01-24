@@ -81,9 +81,9 @@ Zorg bij het gebruik van de ontvang-bewaar modus wel voor dat:
 * De eerste letter van ieder Basic bestandsnaam (te vinden in de .cas header) uniek is;
 * De PC na het verzenden van ieder .cas bestand een tijdje wacht (afhankelijk van de grootte van het bestand) voordat het volgende .cas bestand weer wordt verzonden. Op die manier krijgt de P2000T genoeg tijd om het zojuist ontvangen bestand op cassette te bewaren voordat het klaar is voor het volgende bestand. N.B. de `sendcas.py` utility doet dit wachten uit zichzelf al.
 
-### Op zoek naar .cas bestanden?
+### Op zoek naar .cas games?
 
-Op github zijn veel `.cas` games te vinden: https://github.com/p2000t/software/tree/master/tapes/games \
+Op github zijn veel .cas games te vinden: https://github.com/p2000t/software/tree/master/tapes/games \
 Voor grote spellen zoals [Fraxxon.cas](../../cassettes/games/Fraxxon.cas) heeft je P2000T mimaal een 16K RAM geheugenuitbreiding nodig. Als je zo'n geheugenuitbreiding zoekt, kijk dan eens op marktplaats bij gebruiker [ifilot](https://www.marktplaats.nl/u/ifilot/15277239/) die ze zelf maakt!
 
 ### Tips:

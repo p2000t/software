@@ -14,36 +14,39 @@ import serial
 import argparse
 import time
 
-def send_cas_to_serial(cas_file_path, serial_port):
+BLOCK_SIZE = 256 + 1024 # 256 bytes header + 1024 bytes data
+HEADER_START = 0x30     # record info offset from begin of block
+
+def send_cas_to_serial(cas_file, serial_port):
     # Open the .cas file in read mode
-    with open(cas_file_path, 'rb') as file:
-        # Read the file in blocks of 1280 bytes (256 bytes header + 1024 bytes data)
+    with open(cas_file, 'rb') as file:
+        # Read the file in blocks of 1280 bytes 
         while True:
-            first_block = file.read(1280)
+            first_block = file.read(BLOCK_SIZE)
             if not first_block:
                 break
 
             # Accumulate the blocks of progam data into a byte array
             program_data = bytearray(first_block)
 
-            # Get the total number of program blocks from the block header at position 0x4f
-            program_total_blocks = first_block[0x4f]
+            # Get the total number of program blocks from the block header
+            program_total_blocks = first_block[HEADER_START + 0x1F]
 
             # Get the program name from the block's header
-            program_name = first_block[0x36:0x36+8] + first_block[0x47:0x47+8]
+            program_name = first_block[HEADER_START+0x06:HEADER_START+0x06+8] + first_block[HEADER_START+0x17:HEADER_START+0x17+8]
             program_name = program_name.decode('ascii', errors='ignore').rstrip()
 
-            program_type = first_block[0x41]
+            program_type = first_block[HEADER_START + 0x11]
             # If the program type is a stand-alone program ('P') then change the transfer-address 
             # in the header to 0x6547 to prevent that pc2p2000t loads the progam into memory which 
             # is unavailable without a memory expansion (&HA000 - &HFFFF)
             if program_type == 0x50: # 'P'
-                program_data[0x30] = 0x47
-                program_data[0x31] = 0x65
+                program_data[HEADER_START + 0x00] = 0x47
+                program_data[HEADER_START + 0x01] = 0x65
                 
             # Read the remaining blocks of the program
             for _ in range(program_total_blocks - 1):
-                next_block = file.read(1280)
+                next_block = file.read(BLOCK_SIZE)
                 if not next_block:
                     break
                 program_data.extend(next_block)
@@ -64,9 +67,9 @@ def send_cas_to_serial(cas_file_path, serial_port):
 if __name__ == '__main__':
     # Create argument parser
     parser = argparse.ArgumentParser()
-    parser.add_argument("cas_file_paths", nargs='+', help="Paths to the cas files")
-    parser.add_argument("serial_port", help="Serial port to send the files to")
-
+    parser.add_argument("serial_port", help="Serial port to send the .cas file(s) to. E.g. COM4 (for Windows) or /dev/ttyUSB3 (for Linux and macOS)")
+    parser.add_argument("cas_file_path", nargs='+', help="Path(s) to the .cas file(s)")
+    
     # Parse arguments
     args = parser.parse_args()
 
@@ -80,8 +83,8 @@ if __name__ == '__main__':
             bytesize=serial.EIGHTBITS)
 
         # Call the function to send each .cas file to the serial port
-        for cas_file_path in args.cas_file_paths:
-            send_cas_to_serial(cas_file_path, serial_port)
+        for cas_file in args.cas_file_path:
+            send_cas_to_serial(cas_file, serial_port)
         print('Done!')
 
     finally:

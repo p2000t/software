@@ -50,7 +50,7 @@ Als je alle hardware beschikbaar hebt, tik dan deze 32 regels BASIC code op je P
 320 DATA ED,B0,3E,05,CD,18,00,C3,6C,9E
 330 DATA stop
 ```
-Bewaar dit vervolgens op een P2000T cassette (noem het bijvoorbeeld `pc2p2000t.bas`), zodat je het de volgende keer weer kunt gebruiken.
+Bewaar dit vervolgens op een P2000T cassette, zodat je het de volgende keer weer kunt gebruiken. Noem het bijvoorbeeld `pc2p2000t.bas`.
 
 Daarna de PC koppelen aan de seriële poort van de P2000T (via het RS232-to-USB adapter kabeltje).
 Op Windows kun je bij de Device Manager kijken op welke COM-poort de USB adapter is gemapt. In mijn geval is dat COM5. In de voorbeelden hieronder moet je dus jouw eigen COM-poort nummer gebruiken i.p.v. `com5`.

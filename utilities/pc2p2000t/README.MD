@@ -67,7 +67,7 @@ En vervolgens op de PC een `.cas` bestand sturen naar de juiste COM poort (als v
 copy BrickWall.cas \\.\com5
 ```
 Dan wachten op de pieptoon, waarna de cursor weer te zien is op zowel de P2000T als je PC. Dit betekent dat het programma succesvol is ingeladen.
-Hierna kun je het ingeladen spel bewaren op cassette met `CSAVE` of direct kunt spelen met `RUN`.
+Hierna kun je het ingeladen spel bewaren op cassette met `CSAVE` of direct spelen met `RUN`.
 
 ### Ontvang-bewaar modus
 

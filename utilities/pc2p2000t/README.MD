@@ -10,7 +10,7 @@ De utility werkt voor P2000T machines met 16K, 32K of 48K aan RAM geheugen. Ik h
 Om dit programma te gebruiken heb je de volgende hardware nodig:
 * Een P2000T;
 * Een PC met daarop de `.cas` bestanden die je wilt laden naar je P2000T;
-* Een kabel en adapter waarmee je de 25-pins seriële poort van de P2000T aan je PC kunt koppelen. Omdat de meeste PC's tegenwoorden geen seriële poort meer hebben, kun je in dat geval het beste een USB-naar-serieel adapter kabel gebruiken.  \
+* Een kabel en adapter waarmee je de 25-pins seriële poort van de P2000T aan je PC kunt koppelen. Omdat de meeste PC's tegenwoordig geen seriële poort meer hebben, kun je in dat geval het beste een USB-naar-serieel adapter kabel gebruiken.  \
   Als je zo'n kabel zoekt: online kun je het vinden door te zoeken op "USB to serial RS-232 adapter".
   ![USB to RS232 cable](/utilities/pc2p2000t/usb2rs232.png)
 

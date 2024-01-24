@@ -11,7 +11,7 @@ Om deze utility te gebruiken heb je de volgende hardware nodig:
 * Een P2000T;
 * Een PC met daarop de `.cas` bestanden die je wilt laden naar je P2000T;
 * Een kabel en adapter waarmee je de 25-pins seriële poort van de P2000T aan je PC kunt koppelen. Omdat de meeste PC's tegenwoordig geen seriële poort meer hebben, kun je in dat geval een USB-naar-serieel adapter kabel gebruiken.  \
-  Oline kun je zo'n kabel vinden door te zoeken op "USB to serial RS-232 adapter".
+  Online kun je zo'n kabel vinden door te zoeken op "USB to serial RS-232 adapter". \
   ![USB to RS232 cable](/utilities/pc2p2000t/usb2rs232.png)
 
 Als je alle hardware beschikbaar hebt, tik dan deze 32 regels BASIC code op je P2000T:

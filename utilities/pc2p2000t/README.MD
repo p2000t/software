@@ -72,7 +72,7 @@ Hierna kun je het ingeladen spel bewaren op cassette met `CSAVE` of direct spele
 ### Ontvang-bewaar modus
 
 De `pc2p2000t` utility heeft ook een **ontvang-bewaar modus**, die te activeren is d.m.v. `?USR2(0)` i.p.v. `?USR1(0)`. Hierbij kun je vanaf de PC iedere keer een los .cas bestand naar de P2000T sturen, die dan direct na ontvangst op cassette wordt bewaard, waarna de P2000T dan weer gaat wachten op het volgende .cas bestand. Hiermee kun je dus een hele reeks .cas bestanden in één keer naar cassette wegschrijven. \
-Ook kun je de [sendcas.py](sendcas.py) Python utility gebruiken, die zelf de juiste baudrate instelt en ook niet-opgesplitste .cas bestanden zoals [Basic Demo cassette (kant A).cas](../../cassettes/demos/Basic Demo cassette (kant A).cas) of [Errorsoft.cas](../../cassettes/games/Errorsoft.cas) correct kan overzetten.
+Ook kun je de [sendcas.py](sendcas.py) Python utility gebruiken, die zelf de juiste baudrate instelt en ook niet-opgesplitste .cas bestanden zoals [Basic Demo cassette (kant A).cas](../../cassettes/demos/Basic Demo cassette (kant A).cas) of [ErrorSoft.cas](../../cassettes/games/ErrorSoft.cas) correct kan overzetten.
 Zorg bij het gebruik van de ontvang-bewaar modus wel voor dat:
 * De cassette waarnaar je wilt schrijven leeg is;
 * De eerste letter van ieder Basic bestandsnaam (te vinden in de .cas header) uniek is;

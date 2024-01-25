@@ -1,17 +1,17 @@
-## PC2P2000T - vanaf PC naar P2000T programma's laden via de seriële poort
+## P2000T programma's laden vanaf PC via een seriële verbinding
 
-[pc2p2000t](pc2p2000t.bas) is een utility gemaakt voor de P2000T waarmee je via de seriële poort één of meerdere .cas programma's vanaf een PC kunt inladen. Na het laden van een programma naar de P2000T kun je deze dan starten d.m.v. `RUN`, maar ook wegschrijven naar mini-cassette d.m.v. `CSAVE`.
+[pc2p2000t](pc2p2000t.bas) is een utility gemaakt voor de P2000T waarmee je via de seriële poort .cas programma's direct vanaf een PC kunt inladen. Na het laden van een programma naar de P2000T kun je deze dan starten d.m.v. `RUN`, maar ook wegschrijven naar mini-cassette d.m.v. `CSAVE`.
 
-Er bestond al een utility [SERIAL.BAS Tape Converter](../tapeconv) van Marcel de Kogel, waarmee je een complete mini-cassette vanaf de P2000T naar je PC kan wegschrijven via de seriële poort. Maar pc2p2000t werkt dus precies de andere kant op.
+Er bestond voorheen al een [Tape Converter](../tapeconv) utility (SERIAL.BAS) van Marcel de Kogel, waarmee je een complete mini-cassette in binair formaat vanaf de P2000T naar je PC kan "dumpen" via de seriële poort. Maar pc2p2000t werkt dus precies de andere kant op.
 
-De overdrachtssnelheid van deze utility is 9600 baud (9600 bits per seconde), waarmee het zelfs sneller is dan het laden van een P2000T cassette, dat met ongeveer 6000 baud gaat.
+pc2p2000t werkt voor alle P2000T modellen, dus met 16K, 32K of >48K aan RAM geheugen. De overdrachtssnelheid van de utility is 9600 baud (9600 bits per seconde), waarmee het zelfs sneller is dan het laden van een P2000T cassette, dat met ongeveer 6000 baud gaat.
 
-pc2p2000t werkt voor alle P2000T modellen, dus met 16K, 32K of >48K aan RAM geheugen.
+
 
 Om deze utility te gebruiken heb je de volgende hardware nodig:
 * Een P2000T;
 * Een PC met daarop de .cas bestanden die je wilt laden naar je P2000T;
-* Een kabel/adapter waarmee je de 25-pins seriële poort van de P2000T aan je PC kunt koppelen. Omdat de meeste PC's tegenwoordig geen seriële poort meer hebben, kun je in dat geval een USB-naar-serieel adapter kabel gebruiken.  \
+* Een crossover kabel/adapter waarmee je de 25-pins seriële poort van de P2000T aan je PC kunt koppelen. Omdat de meeste PC's tegenwoordig geen seriële poort meer hebben, kun je in dat geval een USB-naar-serieel adapter kabel gebruiken.  \
   Online kun je zo'n kabel vinden door te zoeken op "USB to serial RS-232 adapter". Hieronder een paar voorbeelden van hoe zo'n kabel/adapter eruit kan zien:\
   ![RS-232 USB to DB9 adapter](img/USB2DB9.png) ![RS-232 USB to DB25 adapter](img/USB2DB25.jpg)
 
@@ -74,10 +74,10 @@ Hierna kun je het ingeladen spel bewaren op cassette met `CSAVE` of direct spele
 
 De laatste versie van de pc2p2000t utility heeft nu ook een **ontvang-bewaar modus**, die te activeren is d.m.v. `?USR2(0)` i.p.v. `?USR1(0)`. Hierbij kun je vanaf de PC iedere keer een los .cas bestand naar de P2000T sturen, die dan direct na ontvangst op cassette wordt bewaard, waarna de P2000T dan weer gaat wachten op het volgende .cas bestand. Zo kun je dus een hele reeks .cas bestanden achter elkaar naar cassette wegschrijven.
 
-Ook kun je de [sendcas.py](sendcas.py) Python utility gebruiken, die zelf de COM-poort juist instelt en ook niet-gesplitste .cas bestanden zoals [Basic Demo cassette (kant A).cas](<../../cassettes/demos/Basic Demo cassette (kant A).cas>) of [ErrorSoft.cas](../../cassettes/games/ErrorSoft.cas) in één keer correct kan overzetten.
+Ook kun je de [send_p2000t_cas.py](send_p2000t_cas.py) Python utility gebruiken, die zelf de COM-poort juist instelt en ook niet-gesplitste cassette dump bestanden zoals [Basic Demo cassette (kant A).cas](<../../cassettes/demos/Basic Demo cassette (kant A).cas>) of [ErrorSoft.cas](../../cassettes/games/ErrorSoft.cas) in één keer correct kan overzetten. Deze Python utility ondersteunt ook het nieuwe .p2000t formaat dat blok-headers van 32 bytes i.p.v. 256 bytes gebruikt.
 ```
-usage: python sendcas.py [-h] serial_port cas_file_path [cas_file_path ...]
-example: python sendcas.py COM4 games\Fraxxon.cas games\Brick-Wall.cas
+usage: python send_p2000t_cas.py [-h] serial_port file_path [file_path ...]
+example: python send_p2000t_cas.py COM4 games\Fraxxon.cas games\Brick-Wall.p2000t
 ```
 
 Zorg bij het gebruik van de ontvang-bewaar modus wel voor dat:
@@ -85,7 +85,7 @@ Zorg bij het gebruik van de ontvang-bewaar modus wel voor dat:
 * Alle programma's bij elkaar maximaal 40 blokken zijn, want meer past er niet op een originele P2000T cassette. \
   Oké... 41 blokken mag, maar dan wordt het laatste blok niet volledig weggeschreven :smirk:
 * De eerste letter van iedere bestandsnaam (zoals te vinden in de .cas header) uniek is. M.u.v. "stand-alone" machinetaalprogramma's; 
-* De PC na het verzenden van ieder .cas bestand een tijdje wacht (afhankelijk van de grootte van het bestand) voordat het volgende .cas bestand weer wordt verzonden. Op die manier krijgt de P2000T genoeg tijd om het zojuist ontvangen bestand op cassette te bewaren voordat het klaar is om het volgende bestand te ontvangen. N.B. de `sendcas.py` utility doet dit wachten uit zichzelf al.
+* De PC na het verzenden van ieder .cas bestand een tijdje wacht (afhankelijk van de grootte van het bestand) voordat het volgende .cas bestand weer wordt verzonden. Op die manier krijgt de P2000T genoeg tijd om het zojuist ontvangen bestand op cassette te bewaren voordat het klaar is om het volgende bestand te ontvangen. N.B. de `send_p2000t_cas.py` utility doet dit wachten uit zichzelf al.
 
 ### Op zoek naar .cas games?
 

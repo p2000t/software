@@ -1,6 +1,6 @@
 0 REM Cassette Dumper 2.0
 1 REM Dumpt cassette naar seriele poort
-2 REM 9600 baud, 1 start- en 1 stopbit
+2 REM 9600 baud, 1 startbit, 1 stopbit
 5 T=0 : M=&H9010
 10 A=0
 20 READ A$

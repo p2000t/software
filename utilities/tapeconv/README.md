@@ -1,12 +1,12 @@
-## P2000T Tape Converter
+## P2000T Cassette Dumper
 
-To convert P2000T tapes to program files on your PC, do the following:
-* Run [`SERIAL.BAS`](/utilities/tapeconv/SERIAL.BAS) on your P2000. This will send all bytes of one side of the currently inserted tape through the P2000's serial port, at a baudrate of 2400Bd with 1 startbit and 1 stopbit
-* Then run splitape.exe to split the full tape file into individual `.cas` programs
+To archive/dump P2000T tapes to files on your PC, do the following:
+* Run [Cassette Dumper.bas](</utilities/tapeconv/Cassette Dumper.bas>) on your P2000T. This will send all bytes of one side of the inserted tape through the P2000's serial port, at a baudrate of 9600 with no parity, 8 data bits, 1 startbit and 1 stopbit
+* [Optionally] Run splitape.exe to split the full tape file into individual `.cas` program files
 
 ### Detailed instructions (in Dutch)
 
-Dit is de hardware en software die ik heb gebruikt om P2000T programma's vanaf mini-cassettes om te zetten naar bestanden onder Windows:
+Dit is de hardware en software die ik heb gebruikt om P2000T cassettes te archiveren/dumpen naar bestanden onder Windows:
 
 * Een USB naar 9-pin RS-232 adapter. Te vinden op bijv. https://www.onlinekabelshop.nl/usb-naar-9-pins-serieel-rs-232-adapter-0-80-meter \
 De driver voor deze adapter kun je hier vinden: https://files-onlinekabelshop.nl/Handleidingen/OKS-27684_Drivers.zip
@@ -16,16 +16,17 @@ Trouwens: kabel en adapter kun je ook veel goedkoper op AliExpress bestellen, ma
  
 * M.b.v. de kabel en adapter maak je dan een verbinding tussen de P2000T (seriele poort) en je laptop (USB poort).
  
-* Tik dan (eenmalig) het programma [`SERIAL.BAS`](/utilities/tapeconv/SERIAL.BAS) over op de P2000T **en bewaar deze op een cassette**. \
-Als je dit programma al eerder had ingetikt, dan kun je het gewoon laden uiteraard.
+* Tik dan (eenmalig) het programma [Cassette Dumper.bas](</utilities/tapeconv/Cassette Dumper.bas>) over op je P2000T en bewaar deze m.b.v. `CSAVE` op een cassette voor de volgende keer. \
+Als je dit programma al eerder had ingetikt, dan kun je het gewoon inladen uiteraard.
  
-* Na het intikken/inladen van `SERIAL.BAS` (let op: run deze nog niet!), doe je de cassette in de P2000T die je wil gaan archiveren. Het archiveren gaat per kant van de cassette, dus je moet zowel de voor- als achterkant doen.
+* Na het intikken/inladen van `Cassette Dumper.bas` run je deze d.m.v. `RUN` en doe je de cassette in de P2000T die je wil gaan archiveren. Let op: druk nog niet op een toets! \
+ Het archiveren gaat per kant van de cassette, dus je moet zowel de voor- als achterkant doen.
  
 * Op Windows (ik gebruik Windows 10) kun je bij Device Manager zien op welke COM-poort de USB-adapter is gemapt. Dat was in mijn geval COM4. Als het COM-nummer bij jou anders is, vervang in de instructies hieronder `COM4` voor het andere COM poort nummer.
  
-* Daarna op je PC een Command Prompt openen en de baudrate (2400), stopbits (1), databits (8) en parity (geen) zetten voor de betreffende COM poort:
+* Daarna op je PC een Command Prompt openen en de baudrate (9600), stopbits (1), databits (8) en parity (geen) zetten voor de betreffende COM poort:
   ``` 
-  mode COM4 BAUD=2400 PARITY=n DATA=8
+  mode COM4 BAUD=9600 PARITY=n DATA=8
   ```
  
 * Daarna op je PC het volgende commando uitvoeren om inkomende data van de COM-poort te bewaren in een tape image file
@@ -33,9 +34,9 @@ Als je dit programma al eerder had ingetikt, dan kun je het gewoon laden uiteraa
   type com4: >> mijntape.cas
   ```
 
-* Daarna op de P2000T het commando `RUN` geven, waardoor het programma SERIAL.BAS uitgevoerd wordt, die de gehele inhoud van één kant van de cassette via RS-232 naar je PC verstuurt.
+* Daarna op de P2000T een toets indrukken, waarmee het archiveren/dumpen gaat beginnen, die de gehele inhoud van één kant van de cassette via RS-232 naar je PC verstuurt.
  
-* Na verloop van tijd is het programma SERIAL.BAS klaar (duurt maximaal 4-5 minuten per kant van een cassette), waarna je Ctrl-C doet in de Windows Command Prompt, zodat het archief bestand wordt gesloten.
+* Na verloop van tijd is het archiveren klaar (duurt maximaal 2 minuten per kant van een cassette), waarna je Ctrl-C doet in de Windows Command Prompt, zodat het archief bestand wordt gesloten.
 
 * [Optioneel] Gebruik het programma `splittape.exe` om de tape image file (bijv. `Basic Demo blauw A.cas`) op te splitsen in losse `.cas` programma's: \
 ![Example usage of splitape.exe](/utilities/tapeconv/splitape_example.png)

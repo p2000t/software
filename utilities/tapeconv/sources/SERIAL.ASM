@@ -3,7 +3,7 @@
 ; Also note that when using the OUT instruction on port $10 (serial data out) the bits are sent inverted. So sending a logical 0 is 
 ; done by setting bit 7 of register A. For a logical 1, bit 7 of A needs to be cleared. This is exactly then opposite when using 
 ; the IN instruction and bit 0 of A.
-; For each byte, 10 bits are sent out (RS232): 1 start bit (1), 8 data bits (inverted) and 1 stop bit (0)
+; For each byte, 10 bits are ouputted to port $10: 1 start bit (1), 8 data bits (inverted) and 1 stop bit (0)
 
 BaudRate        .equ    $6016   ; contains the configured serial baudrate (set as '0' by SERIAL.BAS = 2400 Bd)
 
@@ -27,31 +27,22 @@ loop:   ld      c,(hl)          ; load next byte of data from pointer HL into C
 print:  push    bc              
         push    de              ; push values in BC and DE to stack (so registers can be reused)
         scf                     ; set carry flag...
-        ccf                     ; ...and invert (so unsets) carry flag. note that "or a" also would have cleared the carry flag
-        ld      d,$0A           ; run pri1 10 times (1 start bit + 8 data bits + 1 end bit)
+        ccf                     ; ...and toggle (so resets) carry flag. note that "or a" also would have cleared the carry flag
+        ld      d,$0A           ; run pri1-loop 10 times (1 start bit + 8 data bits + 1 end bit)
         di                      ; disable interrupts
-pri1:   ld      a,$C0           ; load %11000000 into A. Note: I suspect that %10000000 ($80) would also work
-        jr      nc,pri2         ; skip resetting bit 7 of A if carry clear
-        res     7,a             ; carry set? A = %01000000. carry unset? A = %11000000
-pri2:   out     ($10),a         ; writes MSB (i.e. left bit) of A to port $10 (serial data out)
-        ld      b,$49           ; set next delay-loop counter
-        ld      a,(BaudRate)    ; load BaudRate value into A (%000 = 2400 Bd, %001 = 1200 Bd, %011 = 600 Bd, %111 = 300 Bd, etc.)
-        res     7,a             ; clear possibly set non-automatic CR+LF bit
-        inc     a               ; increment A to get pri3 delay loop working correctly
-pri3:   djnz    pri3            ; perform delay loop for correct RS232 signal timing
-        ld      b,$4E           ; set next delay-loop counter
-        dec     a               ; decrement A to check if we can break the pri3 delay-loop
-        add     a,$00           ; this will just populate the zero flag using value in A
-        jr      nz,pri3         ; the lower the BaudRate (= higher value in A), the more often pri3 delay-loop is called
-        scf                     ; set carry flag to force correct stop-bit
-        rr      c               ; C is bit-rotated to right. the bit leaving is copied the carry
-        dec     d               ; another bit was sent out, so decrement d
-        jr      nz,pri1         ; already 10 bits sent out?
-        ld      b,a             ; puts remainer of A into B for the endbit's delay loop
-pri4:   djnz    pri4            ; perform endbit's delay loop
-        ei                      ; enable interrupts again
-        pop     de
-        pop     bc              ; pop values bc and de from stack
-        ret
-
+pri1:   ld      a,$00           ; [7] A=0
+        ccf                     ; [4] Complement/toggle Carry
+        rra                     ; [4] Rotate the Carry into bit 7
+        jp      pri2            ; [10] Burn 10 T-states for RS-232 timing purposes
+pri2:   out     ($10),a         ; [11] writes MSB (i.e. left bit) of A to port $10 (serial data out)
+        ld      b,$0f           ; [7] set the delay-loop counter for RS-232 timing 
+pri3:   djnz    pri3            ; [13/8] perform delay loop for correct RS232 signal timing (waits 14x13+8 T-states)
+        scf                     ; [4] set carry flag, so bit 7 of C will is set after 'rr'. This is the stop-bit
+        rr      c               ; [8] C is bit-rotated to right. the bit leaving is copied the carry
+        dec     d               ; [4] another bit was sent out, so decrement d
+        jr      nz,pri1         ; [12/7] already 10 bits sent out?
+        ei                      ; [4] enable interrupts again
+        pop     de              ; [10]
+        pop     bc              ; [10] pop values bc and de from stack
+        ret                     ; [10]
 .end

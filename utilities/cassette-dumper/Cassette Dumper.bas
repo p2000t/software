@@ -1,6 +1,4 @@
 0 REM Cassette Dumper 2.0
-1 REM Dumpt cassette naar seriele poort
-2 REM 9600 baud, 1 startbit, 1 stopbit
 5 T=0 : M=&H9010
 10 A=0
 20 READ A$
@@ -26,7 +24,7 @@
 88 POKE &H9002,0:POKE &H9003,4
 89 A=USR (0)
 90 GOTO 80
-100 IF F>75 THEN PRINT"Dumper klaar":END
+100 IF F=69 OR F=77 THEN PRINT"Dumper klaar":END
 110 PRINT"Cassette fout ";CHR$(F):END
 1000 DATA 2a,00,90,ed,5b,02,90,4e,cd,22
 1010 DATA 90,23,1b,7a,b3,20,f6,c9,c5,d5

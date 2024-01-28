@@ -1,13 +1,13 @@
 #
-# send_p2000t_cas.py 
+# pc_to_p2000t.py 
 #
 #   This Python script sends one or multiple .cas/.p2000t files via RS-232 to a Philips P2000T Computer.
 #   The P2000T must be connected to the PC via a serial cable or a "USB to RS232 serial adapter" and
-#   running the utility "pc2p2000t" in receive-store ("ontvang-bewaar") mode. Make sure the target
+#   running the utility "pc2p2000t.bas" in receive-store ("ontvang-bewaar") mode. Make sure the target
 #   cassette is empty and pc2p2000t is started [Basic commmand: ?USR2(0)] before running this script.
 #
 # example:
-#   python send_p2000t_cas.py COM4 /path/to/file1.cas /path/to/file2.p2000t /path/to/file3.cas
+#   python pc_to_p2000t.py COM4 /path/to/file1.cas /path/to/file2.p2000t /path/to/file3.cas
 #
 # for Linux or Mac, use e.g. /dev/ttyUSB3 instead of COM4
 #

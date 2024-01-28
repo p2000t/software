@@ -37,7 +37,7 @@ En als je al `pc2p2000t.bas` hebt, dan kun je daarmee ook direct [Cassette Dumpe
 
 * Daarna op de P2000T een toets indrukken, waarmee het archiveren/dumpen gaat beginnen, die de gehele inhoud van één kant van de cassette via RS-232 naar je PC verstuurt.
  
-* Na verloop van tijd is het archiveren klaar (duurt maximaal 2 minuten per kant van een cassette), waarna je Ctrl-C doet in de Windows Command Prompt, zodat het archief bestand wordt gesloten.
+* Na verloop van tijd is het archiveren klaar (duurt maximaal 3 minuten per kant van een cassette), waarna je Ctrl-C doet in de Windows Command Prompt, zodat het archief bestand wordt gesloten.
 
 * [Optioneel] Gebruik het programma `splittape.exe` om de tape image file (bijv. `Basic Demo blauw A.cas`) op te splitsen in losse `.cas` programma's: \
 ![Example usage of splitape.exe](splitape_example.png)

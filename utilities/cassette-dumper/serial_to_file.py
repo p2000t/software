@@ -32,7 +32,7 @@ if __name__ == '__main__':
             while True:
                 byte = serial_port.read(1)
                 if byte:
-                    block[block_bytes] = byte
+                    block[block_bytes] = byte[0]
                     if block_bytes == 0:
                         block_counter += 1
                         print(f'Saving block {block_counter} to file...', end="", flush=True)
@@ -41,7 +41,6 @@ if __name__ == '__main__':
                         file.write(block)
                         block_bytes = 0      
                         print("Done")
-                        print("Waiting for more data... (press Ctrl+C to stop)")
     finally:
         if serial_port.is_open:
             serial_port.close()

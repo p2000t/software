@@ -2,8 +2,8 @@
 
 To archive/dump P2000T tapes to files on your PC, do the following:
 * Connect the P2000T to your PC using a serial cross cable or USB-to-serial adapter cable;
-* Run [Cassette Dumper.bas](</utilities/tapeconv/Cassette Dumper.bas>) on your P2000T. This will send all bytes of one side of the inserted tape through the P2000's serial port, at a baudrate of 9600 with no parity, 8 data bits, 1 startbit and 1 stopbit. 
-* On the PC you'll need to store the received bytes into a .cas dump file;
+* Run [Cassette Dumper.bas](</utilities/tapeconv/Cassette Dumper.bas>) on your P2000T. This will read all data on (one side of) the inserted tape and send them via the P2000's serial port at a baudrate of 9600 with no parity, 8 data bits, 1 startbit and 1 stopbit. 
+* On the PC you'll need to receive and store the bytes into a .cas dump file;
 * [Optionally] Run splitape.exe to split the full tape dump file into individual .cas program files.
 
 ### Detailed instructions (in Dutch)

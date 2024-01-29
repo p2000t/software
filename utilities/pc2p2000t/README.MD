@@ -1,6 +1,6 @@
 ## P2000T programma's laden vanaf PC via een seriële verbinding
 
-[pc2p2000t](pc2p2000t.bas) is een utility gemaakt voor de P2000T waarmee je via de seriële poort .cas programma's direct vanaf een PC kunt inladen. Na het laden van een programma naar de P2000T kun je deze dan starten d.m.v. `RUN`, maar ook wegschrijven naar mini-cassette d.m.v. `CSAVE "verzin-een-naam"`.
+[pc2p2000t](pc2p2000t.bas) is een utility gemaakt voor de P2000T waarmee je via de seriële poort .cas programma's direct vanaf een PC kunt inladen. Na het laden van een programma naar de P2000T kun je deze dan starten d.m.v. `RUN`, maar ook wegschrijven naar mini-cassette d.m.v. `CSAVE`.
 
 Er bestond voorheen al een [Cassette Dumper](../cassette-dumper) utility van Marcel de Kogel, waarmee je een complete mini-cassette in binair formaat vanaf de P2000T naar je PC kan "dumpen" via de seriële poort. Maar pc2p2000t werkt dus precies de andere kant op.
 

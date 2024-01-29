@@ -25,9 +25,9 @@ En als je al `pc2p2000t.bas` hebt, dan kun je daarmee ook direct [Cassette Dumpe
  
 * Op Windows (ik gebruik Windows 10) kun je bij Device Manager zien op welke COM-poort de USB-adapter is gemapt. Dat was in mijn geval COM4. Als het COM-nummer bij jou anders is, vervang in de instructies hieronder `COM4` voor het andere COM poort nummer.
  
-* Daarna op je PC een Command Prompt openen en de baudrate (9600), stopbits (1), databits (8) en parity (geen) zetten voor de betreffende COM poort:
+* Daarna op je PC een Command Prompt openen en m.b.v. het 'MODE' commando de baudrate (9600), parity (geen), databits (8) en stopbits (1) zetten voor de betreffende COM poort:
   ``` 
-  mode COM4 BAUD=9600 PARITY=n DATA=8
+  mode COM4 BAUD=9600 PARITY=n DATA=8 STOP=1
   ```
  
 * Daarna op je PC het volgende commando uitvoeren om inkomende data van de COM-poort te bewaren in een tape image file

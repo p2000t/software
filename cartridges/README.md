@@ -5,10 +5,10 @@
 | [assembler 5.6](assembler%205.6.bin) |  | cartridge/module | `526132548429f7c1bc275b07f5eb609d` |
 | [assembler 5.9](assembler%205.9.bin) |  | cartridge | `1bf96263f5456e04f9c47d4b2e98e9b2` |
 | [Zemon-assembler](Zemon%201.4.bin) |  | cartridge | `ea226775d5d5832c8e9e704fbda56eb2` |
-| [BASICNL1.0](BASICNL1.0.bin) |  | Early release of the BASICNL cartridge (v1.0) | `b57e185b526d0b97fbc07a7e95fdbde3` |
-| [BASICNL1.1](BASICNL1.1.bin) | P2305 | Revision of the BASICNL cartridge mentioning the names of the authors (Rob van der Heij en Rob van Ommering) and the release date of 1983 in the header. | `2191811aa64f8e7f273ce0f462374728` |
-| [BASICNL1.1A2](BASICNL1.1A2.bin) |  | Another revision of the BASICNL1.1 cartridge, yet no mentioning of the authors and using more of the available space. | `1b55185494ca8b356cbad223ed305a37` |
-| [BASICEN1.0](BASICEN1.0.bin) |  | English version of the BASIC 1.0 cartridge. | `5191eb8ed909c44acdb0c5672d4fced1` |
+| [BASIC NL 1.0](BASICNL1.0.bin) |  | Early release of the BASICNL cartridge (v1.0) | `b57e185b526d0b97fbc07a7e95fdbde3` |
+| [BASIC NL 1.1](BASICNL1.1.bin) | P2305 | Basic Interpreter 16K | `2191811aa64f8e7f273ce0f462374728` |
+| [BASIC NL1.1 A2](BASICNL1.1A2.bin) |  | Unknown revision of the BASICNL1.1 cartridge. Maybe just a hack? | `1b55185494ca8b356cbad223ed305a37` |
+| [BASIC EN 1.0](BASICEN1.0.bin) |  | English version of the BASIC 1.0 cartridge. | `5191eb8ed909c44acdb0c5672d4fced1` |
 | [Bildschirmtext Editor](BILDSCHIRMTEXT_DE.bin) | P2303 | cartridge | `17366eec37f0b96e718962cd903ab880` |
 | [24k-basic](Basic-24.bin) |  | cartridge, floppydrive(s) required for Basic-24 systemtracks.bin | `7e2fbc0342181d9dcd6d808cb4228b18` |
 | [24k-basic systemtracks](Basic-24%20systemtracks.bin) |  |  | `38c0112723820a2b73b7652d4d15c010` |
@@ -17,7 +17,7 @@
 | [CP/M (Nater)](CPM%20Nater.bin) |  | cartridge, floppydrive(s) required | `b1147f6bbc62fa1f9dcab1e6f9cdeece` |
 | [CP/M (Nater)](Seeters.bin) |  | systeemtracks on floppy | `ae54b8aebfe111c29ad12f5510b5edb0` |
 | [EPROM-programmer](EPROM-programmer.bin) |  | cartridge, connected to hardware=programmer with cable! | `fd696d4019605029940a7f71475e5173` |
-| [Familiegeheugen 2](familiegeheugen%202.bin) |  | cartridge | `9aa06a27142c9a6af5b93c6a2c98016c` |
+| [Familiegeheugen 2](familiegeheugen%202.bin) | P2304 | cartridge | `9aa06a27142c9a6af5b93c6a2c98016c` |
 | [Familiegeheugen 3](familiegeheugen%203.bin) |  | cartridge | `449951c31f6439f6215e593ce22fb73a` |
 | [Familiegeheugen 4](familiegeheugen%204.bin) |  | cartridge | `26b0c8cfeba85c52723d4cca55198f5a` |
 | [flexbase](flexbase.bin) |  | cartridge | `29cbab5494e9ca3389d7e596e678f228` |
@@ -32,7 +32,7 @@
 | [cartridge, floppydrive(s) required for NeboCalc system.hex](NeboCalc.bin) |  | cartridge | `406ffe34b008c48f43b3eda6fbe396e3` |
 | [NEBOcalc](NeboCalc%20system.bin) |  | floppy | `242c335798605cec3329ef73fdc31851` |
 | [PDOS](PDOS.bin) |  | systeemtracks on floppy | `aae03013dbdfbd58c223bc0fe0a6d8e8` |
-| [Tekst1 (Dutch)](tekst%201.bin) |  | cartridge, word processor tool | `e04ec6879e9c946a1dd8b997c6d78d31` |
+| [Tekstverwerker (Dutch)](tekst%201.bin) | P2301 | cartridge, word processor tool | `e04ec6879e9c946a1dd8b997c6d78d31` |
 | [Text1 (German)](TEXT1_DE.bin) |  | cartridge, German version of tekst 1.bin | `2d0b109fec74b6502ff54a5830d23fb5` |
 | [Text2 (German)](TEXT2_DE.bin) |  | cartridge, version 2 of TEXT1_DE.bin | `3215b55e6f4c9e87a699c6eb031f0fae` |
 | [text2000 2](Text2000%202.bin) |  | cartridge | `2d3e7cb3a348a17b9a046e443c38dcbe` |

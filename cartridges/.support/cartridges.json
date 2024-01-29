@@ -17,23 +17,23 @@
         },
         {
             "filename": "BASICNL1.0.bin",
-            "name" : "BASICNL1.0",
+            "name" : "BASIC NL 1.0",
             "description": "Early release of the BASICNL cartridge (v1.0)"
         },
         {
             "filename": "BASICNL1.1.bin",
-            "name" : "BASICNL1.1",
+            "name" : "BASIC NL 1.1",
             "code": "P2305",
-            "description": "Revision of the BASICNL cartridge mentioning the names of the authors (Rob van der Heij en Rob van Ommering) and the release date of 1983 in the header."
+            "description": "Basic Interpreter 16K"
         },
         {
             "filename": "BASICNL1.1A2.bin",
-            "name" : "BASICNL1.1A2",
-            "description": "Another revision of the BASICNL1.1 cartridge, yet no mentioning of the authors and using more of the available space."
+            "name" : "BASIC NL1.1 A2",
+            "description": "Unknown revision of the BASICNL1.1 cartridge. Maybe just a hack?"
         },
         {
             "filename": "BASICEN1.0.bin",
-            "name" : "BASICEN1.0",
+            "name" : "BASIC EN 1.0",
             "description": "English version of the BASIC 1.0 cartridge."
         },
         {
@@ -80,6 +80,7 @@
         {
             "filename": "familiegeheugen 2.bin",
             "name" : "Familiegeheugen 2",
+            "code" : "P2304",
             "description": "cartridge"
         },
         {
@@ -154,7 +155,8 @@
         },
         {
             "filename": "tekst 1.bin",
-            "name" : "Tekst1 (Dutch)",
+            "name" : "Tekstverwerker (Dutch)",
+            "code" : "P2301",
             "description": "cartridge, word processor tool"
         },
         {

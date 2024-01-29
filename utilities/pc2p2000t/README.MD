@@ -1,6 +1,6 @@
 ## P2000T programma's laden vanaf PC via een seriële verbinding
 
-[pc2p2000t](pc2p2000t.bas) is een utility gemaakt voor de P2000T waarmee je via de seriële poort .cas programma's direct vanaf een PC kunt inladen. Na het laden van een programma naar de P2000T kun je deze dan starten d.m.v. `RUN`, maar ook wegschrijven naar mini-cassette d.m.v. `CSAVE`.
+[pc2p2000t](pc2p2000t.bas) is een utility gemaakt voor de P2000T waarmee je via de seriële poort .cas programma's direct vanaf een PC kunt inladen. Na het laden van een programma naar de P2000T kun je deze dan starten d.m.v. `RUN`, maar ook wegschrijven naar mini-cassette d.m.v. `CSAVE "verzin-een-naam"`.
 
 Er bestond voorheen al een [Cassette Dumper](../cassette-dumper) utility van Marcel de Kogel, waarmee je een complete mini-cassette in binair formaat vanaf de P2000T naar je PC kan "dumpen" via de seriële poort. Maar pc2p2000t werkt dus precies de andere kant op.
 
@@ -9,7 +9,7 @@ pc2p2000t werkt voor alle P2000T modellen, dus met 16K, 32K of >48K aan RAM gehe
 Om deze utility te gebruiken heb je de volgende hardware nodig:
 * Een P2000T;
 * Een PC met daarop de .cas bestanden die je wilt laden naar je P2000T;
-* Een crossover kabel/adapter waarmee je de 25-pins seriële poort van de P2000T aan je PC kunt koppelen. Omdat de meeste PC's tegenwoordig geen seriële poort meer hebben, kun je in dat geval een USB-naar-serieel adapter kabel gebruiken. Adapters met FTDI-chip zijn het beste.  \
+* Een crossover kabel/adapter waarmee je de 25-pins seriële poort van de P2000T aan je PC kunt koppelen. Omdat de meeste PC's tegenwoordig geen seriële poort meer hebben, kun je in dat geval een USB-naar-serieel adapter kabel gebruiken. Adapters met FTDI-chip hebben op Windows geen extra drivers nodig, maar zijn wel duurder dan adapters met bijv. een CH340-kloon chip.  \
   Online kun je zo'n kabel vinden door te zoeken op "USB to serial RS-232 adapter". Hieronder een paar voorbeelden van hoe zo'n kabel/adapter eruit kan zien:\
   ![RS-232 USB to DB9 adapter](img/USB2DB9.png) ![RS-232 USB to DB25 adapter](img/USB2DB25.jpg)
 

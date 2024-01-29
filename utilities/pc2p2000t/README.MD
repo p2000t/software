@@ -95,5 +95,5 @@ Voor grote spellen zoals [Fraxxon.cas](../../cassettes/games/Fraxxon.cas) heeft 
   ```
   mode com5 baud=1200 parity=n data=8 stop=1
   ```
-  en daarna het `TYPE COM5` commando geven (gebruik ipv '5' jouw eigen COM nummer), waarna je op de P2000T `<shift><00>` (de printer-key) indrukt. Dit stuurt alles op het scherm van je P2000T naar je PC, dus als het goed is zie je die tekst verschijnen in de command prompt.
-* De `mode` instellingen die je op de PC doet, worden weer gereset naar de standaard waarden als je de USB stekker los- en daarna weer vastmaakt.
+  en daarna het `TYPE COM5` commando geven (gebruik ipv '5' jouw eigen COM nummer), waarna je op de P2000T `<shift><00>` (de printer-key) indrukt. Dit stuurt alle tekst op het scherm van je P2000T naar je PC, dus als het goed is zie je die tekst verschijnen in de command prompt.
+* De `MODE` instellingen die je in Windows doet, worden weer gereset naar de standaard waarden als je de USB stekker los- en daarna weer vastmaakt.

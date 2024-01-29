@@ -72,7 +72,7 @@ Hierna kun je het ingeladen spel bewaren op cassette met `CSAVE` of direct spele
 
 De meest recente versie van de pc2p2000t utility heeft nu ook een **ontvang-bewaar modus**, die te activeren is d.m.v. `?USR2(0)` i.p.v. `?USR1(0)`. Hierbij kun je vanaf de PC iedere keer een los .cas bestand naar de P2000T sturen, die dan direct na ontvangst op cassette wordt bewaard, waarna de P2000T dan weer gaat wachten op het volgende .cas bestand. Zo kun je dus een hele reeks .cas bestanden achter elkaar naar cassette wegschrijven.
 
-Ook kun je de [send_p2000t_cas.py](send_p2000t_cas.py) Python utility gebruiken, die zelf de COM-poort juist instelt en ook niet-gesplitste cassette dump bestanden zoals [Basic Demo cassette (kant A).cas](<../../cassettes/demos/Basic Demo cassette (kant A).cas>) of [ErrorSoft.cas](../../cassettes/games/ErrorSoft.cas) in één keer correct kan overzetten. Deze Python utility ondersteunt ook het nieuwe .p2000t formaat dat blok-headers van 32 bytes i.p.v. 256 bytes gebruikt.
+Ook kun je de [send_p2000t_cas.py](send_p2000t_cas.py) Python utility hiervoor gebruiken, die zelf de COM-poort juist instelt en ook niet-gesplitste cassette dump bestanden zoals [Basic Demo cassette (kant A).cas](<../../cassettes/demos/Basic Demo cassette (kant A).cas>) of [ErrorSoft.cas](../../cassettes/games/ErrorSoft.cas) in één keer correct kan overzetten. Deze Python utility ondersteunt ook het nieuwe .p2000t formaat dat blok-headers van 32 bytes i.p.v. 256 bytes gebruikt.
 ```
 usage: python send_p2000t_cas.py [-h] serial_port file_path [file_path ...]
 example: python send_p2000t_cas.py COM4 games\Fraxxon.cas games\Brick-Wall.p2000t

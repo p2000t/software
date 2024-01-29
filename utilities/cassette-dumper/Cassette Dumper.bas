@@ -1,4 +1,4 @@
-0 REM Cassette Dumper 2.0
+0 REM Cassette Dumper 2.1
 5 T=0 : M=&H9010
 10 A=0
 20 READ A$
@@ -7,7 +7,7 @@
 40 P=VAL("&h"+A$) : POKE M+A,P
 50 A=A+1 : T=T+P
 60 GOTO 20
-70 IF T=7304 THEN GOTO 72
+70 IF T=7432 THEN GOTO 72
 71 PRINT"Typfout gemaakt in DATA":END
 72 PRINT"Voer nu de cassette in die gedumpt"
 73 PRINT"moet worden en druk een toets ..."
@@ -28,7 +28,7 @@
 110 PRINT"Cassette fout ";CHR$(F):END
 1000 DATA 2a,00,90,ed,5b,02,90,4e,cd,22
 1010 DATA 90,23,1b,7a,b3,20,f6,c9,c5,d5
-1020 DATA 37,3f,16,0a,f3,3e,00,3f,1f,c3
+1020 DATA 37,3f,16,0a,f3,3e,80,3f,1f,c3
 1030 DATA 30,90,d3,10,06,0f,10,fe,37,cb
 1040 DATA 19,15,20,ed,fb,d1,c1,c9
 1050 DATA next

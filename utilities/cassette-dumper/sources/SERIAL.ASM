@@ -28,7 +28,7 @@ print:  push    bc
         ccf                     ; ...and toggle (so resets) carry flag. note that "or a" also would have cleared the carry flag
         ld      d,$0A           ; run pri1-loop 10 times (1 start bit + 8 data bits + 1 end bit)
         di                      ; disable interrupts
-pri1:   ld      a,$00           ; [7] A=0
+pri1:   ld      a,$80           ; [7] A=%100000000, so bit 6 is set after rra (keyboard enable)
         ccf                     ; [4] Complement/toggle Carry
         rra                     ; [4] Rotate the Carry into bit 7
         jp      pri2            ; [10] Burn 10 T-states for RS-232 timing purposes

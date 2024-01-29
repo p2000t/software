@@ -2,11 +2,9 @@
 
 [pc2p2000t](pc2p2000t.bas) is een utility gemaakt voor de P2000T waarmee je via de seriële poort .cas programma's direct vanaf een PC kunt inladen. Na het laden van een programma naar de P2000T kun je deze dan starten d.m.v. `RUN`, maar ook wegschrijven naar mini-cassette d.m.v. `CSAVE`.
 
-Er bestond voorheen al een [Tape Converter](../tapeconv) utility (SERIAL.BAS) van Marcel de Kogel, waarmee je een complete mini-cassette in binair formaat vanaf de P2000T naar je PC kan "dumpen" via de seriële poort. Maar pc2p2000t werkt dus precies de andere kant op.
+Er bestond voorheen al een [Cassette Dumper](../cassette-dumper) utility van Marcel de Kogel, waarmee je een complete mini-cassette in binair formaat vanaf de P2000T naar je PC kan "dumpen" via de seriële poort. Maar pc2p2000t werkt dus precies de andere kant op.
 
 pc2p2000t werkt voor alle P2000T modellen, dus met 16K, 32K of >48K aan RAM geheugen. De overdrachtssnelheid van de utility is 9600 baud (9600 bits per seconde), waarmee het zelfs sneller is dan het laden van een P2000T cassette, dat met ongeveer 6000 baud gaat.
-
-
 
 Om deze utility te gebruiken heb je de volgende hardware nodig:
 * Een P2000T;

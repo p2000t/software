@@ -14,7 +14,7 @@ def main():
     paths = [] # store list of file paths
 
     # collecting all files and checking for duplicates
-    for root, dirs, files in os.walk('.'):
+    for root, dirs, files in os.walk('..'):
         for file in files:
             path = os.path.join(root, file)
             if os.path.splitext(path)[1].lower() == ".cas":

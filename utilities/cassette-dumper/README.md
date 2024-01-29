@@ -11,8 +11,8 @@ To archive/dump P2000T tapes to files on your PC, do the following:
 Dit is de hardware en software die ik heb gebruikt om P2000T cassettes te archiveren/dumpen naar .cas bestanden onder Windows:
 
 * Een USB naar 25-pin RS-232 adapter. \
-Te vinden op bijv. https://www.onlinekabelshop.nl/usb-naar-9-pins-serieel-rs-232-adapter-0-80-meter in combinatie met https://www.onlinekabelshop.nl/adapter-db25-m-db9-v \
-De driver voor deze CH340-kloon adapter kun je hier vinden: https://files-onlinekabelshop.nl/Handleidingen/OKS-27684_Drivers.zip \
+Te vinden op bijv. https://www.onlinekabelshop.nl/usb-a-m-naar-9-pins-sub-d-25-pins-sub-d-m-seriele.html \
+De drivers voor deze CH340-kloon adapter kun je hier vinden: https://files-onlinekabelshop.nl/Handleidingen/Drivers%20OKS-45902.zip \
 Deze adapter/kabel kun je trouwens voor minder geld op AliExpress kopen, maar dan moet je wel rekenen op een langere wachttijd.
  
 * M.b.v. de kabel/adapter maak je dan een verbinding tussen de P2000T (seriele poort) en je laptop (USB poort).

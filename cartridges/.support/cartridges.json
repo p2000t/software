@@ -55,11 +55,12 @@
         {
             "filename": "BIS system.bin",
             "name" : "BIS-system",
-            "description": "floppy"
+            "description": "floppy???"
         },
         {
             "filename": "BIS.bin",
-            "name" : "BIS-editor",
+            "name" : "BIS Editor",
+            "code" : "P2314",
             "description": "cartridge, floppydrive(s) required for BIS system.hex"
         },
         {

@@ -12,8 +12,8 @@
 | [Bildschirmtext Editor](BILDSCHIRMTEXT_DE.bin) | P2303 | cartridge | `17366eec37f0b96e718962cd903ab880` |
 | [24k-basic](Basic-24.bin) |  | cartridge, floppydrive(s) required for Basic-24 systemtracks.bin | `7e2fbc0342181d9dcd6d808cb4228b18` |
 | [24k-basic systemtracks](Basic-24%20systemtracks.bin) |  |  | `38c0112723820a2b73b7652d4d15c010` |
-| [BIS-system](BIS%20system.bin) |  | floppy | `075e0e28d9e3e2d9855914355d8ea9a2` |
-| [BIS-editor](BIS.bin) |  | cartridge, floppydrive(s) required for BIS system.hex | `ceeee0ada3a3d88adc9db635e68fadd1` |
+| [BIS-system](BIS%20system.bin) |  | floppy??? | `075e0e28d9e3e2d9855914355d8ea9a2` |
+| [BIS Editor](BIS.bin) | P2314 | cartridge, floppydrive(s) required for BIS system.hex | `ceeee0ada3a3d88adc9db635e68fadd1` |
 | [CP/M (Nater)](CPM%20Nater.bin) |  | cartridge, floppydrive(s) required | `b1147f6bbc62fa1f9dcab1e6f9cdeece` |
 | [CP/M (Nater)](Seeters.bin) |  | systeemtracks on floppy | `ae54b8aebfe111c29ad12f5510b5edb0` |
 | [EPROM-programmer](EPROM-programmer.bin) |  | cartridge, connected to hardware=programmer with cable! | `fd696d4019605029940a7f71475e5173` |

@@ -28,14 +28,14 @@ if __name__ == '__main__':
             timeout=1)
 
         with open(args.destination_file, 'wb') as file:
-            print(f'Waiting for P2000T to send data... (press Ctrl+C to stop)')
+            print(f'Waiting for P2000T to send cassette data... (press Ctrl+C to stop)')
             while True:
                 byte = serial_port.read(1)
                 if byte:
                     block[block_bytes] = byte[0]
                     if block_bytes == 0:
                         block_counter += 1
-                        print(f'Saving block {block_counter} to file...', end="", flush=True)
+                        print(f'Saving cassette block {block_counter} to file...', end="", flush=True)
                     block_bytes += 1
                     if block_bytes == 1280:
                         file.write(block)

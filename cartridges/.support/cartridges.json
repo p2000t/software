@@ -29,7 +29,7 @@
         {
             "filename": "BASICNL1.1A2.bin",
             "name" : "BASIC NL1.1 A2 (hack)",
-            "description": "BASICNL 1.1 cartridge with hack to support DOS booting."
+            "description": "Modified BASICNL 1.1 cartridge with hack to support PDOS booting."
         },
         {
             "filename": "BASICEN1.0.bin",

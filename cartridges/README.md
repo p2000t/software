@@ -7,7 +7,7 @@
 | [Zemon-assembler](Zemon%201.4.bin) |  | cartridge | `ea226775d5d5832c8e9e704fbda56eb2` |
 | [BASIC NL 1.0](BASICNL1.0.bin) |  | Early release of the BASICNL cartridge (v1.0) | `b57e185b526d0b97fbc07a7e95fdbde3` |
 | [BASIC NL 1.1](BASICNL1.1.bin) | P2305 | Basic Interpreter 16K | `2191811aa64f8e7f273ce0f462374728` |
-| [BASIC NL1.1 A2 (hack)](BASICNL1.1A2.bin) |  | BASICNL 1.1 cartridge with hack to support DOS booting. | `1b55185494ca8b356cbad223ed305a37` |
+| [BASIC NL1.1 A2 (hack)](BASICNL1.1A2.bin) |  | Modified BASICNL 1.1 cartridge with hack to support PDOS booting. | `1b55185494ca8b356cbad223ed305a37` |
 | [BASIC EN 1.0](BASICEN1.0.bin) |  | English version of the BASIC 1.0 cartridge. | `5191eb8ed909c44acdb0c5672d4fced1` |
 | [Bildschirmtext Editor](BILDSCHIRMTEXT_DE.bin) | P2303 | cartridge | `17366eec37f0b96e718962cd903ab880` |
 | [24k-basic](Basic-24.bin) |  | cartridge, floppydrive(s) required for Basic-24 systemtracks.bin | `7e2fbc0342181d9dcd6d808cb4228b18` |

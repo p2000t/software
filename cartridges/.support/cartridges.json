@@ -28,8 +28,8 @@
         },
         {
             "filename": "BASICNL1.1A2.bin",
-            "name" : "BASIC NL1.1 A2",
-            "description": "Unknown revision of the BASICNL1.1 cartridge. Maybe just a hack?"
+            "name" : "BASIC NL1.1 A2 (hack)",
+            "description": "BASICNL 1.1 cartridge with hack to support DOS booting."
         },
         {
             "filename": "BASICEN1.0.bin",

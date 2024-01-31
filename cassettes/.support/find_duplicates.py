@@ -1,6 +1,5 @@
 import os
 import hashlib
-import numpy as np
 
 #
 # Purpose

@@ -18,7 +18,7 @@ Deze adapter/kabel kun je trouwens voor minder geld op AliExpress kopen, maar da
 * M.b.v. de kabel/adapter maak je dan een verbinding tussen de P2000T (seriele poort) en je laptop (USB poort).
  
 * Tik dan (eenmalig) het programma [Cassette Dumper.bas](<Cassette Dumper.bas>) over op je P2000T en bewaar deze m.b.v. `CSAVE "Cassette Dumper"` op een cassette voor de volgende keer. Als je dit programma al eerder had ingetikt, dan kun je het uiteraard gewoon inladen. \
-En mocht je de utility [pc2p2000t.bas](<..\pc2p2000t\pc2p2000t.bas>) hebben, dan kun je daarmee direct [Cassette Dumper.cas](<../../cassettes/utilities/Cassette Dumper.cas>) vanaf je PC inladen op je P2000T.
+En mocht je de utility [pc2p2000t.bas](../pc2p2000t/pc2p2000t.bas) hebben, dan kun je daarmee direct [Cassette Dumper.cas](<../../cassettes/utilities/Cassette Dumper.cas>) vanaf je PC inladen op je P2000T.
  
 * Na het intikken/inladen van Cassette Dumper.bas run je deze d.m.v. `RUN` en doe je de cassette in de P2000T die je wilt gaan archiveren. Let op: druk nog niet op een toets! \
  Een cassette heeft twee zijden, dus je moet zowel de voor- als achterkant los archiveren.

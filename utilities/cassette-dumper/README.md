@@ -24,20 +24,15 @@ En mocht je al de utility `pc2p2000t.bas` hebben, dan kun je daarmee direct [Cas
  Een cassette heeft twee zijden, dus je moet zowel de voor- als achterkant los archiveren.
  
 * Op Windows (ik gebruik Windows 10) kun je bij Device Manager zien op welke COM-poort de USB-adapter is gemapt. Dat was in mijn geval COM4. Als het COM-nummer bij jou anders is, vervang in de instructies hieronder `COM4` voor het andere COM poort nummer.
- 
-* Daarna op je PC een Command Prompt window openen en m.b.v. het `MODE` commando de baudrate (9600), parity (geen), databits (8) en stopbits (1) zetten voor de betreffende COM poort:
-  ``` 
-  mode COM4 BAUD=9600 PARITY=n DATA=8 STOP=1
+
+* Daarna op je PC een Command Prompt (of terminal window) openen en het Python script [serial_to_file.py](serial_to_file.py) starten, waarbij je de juiste COM poort en het doel bestand opgeeft, bijv:
   ```
- 
-* Vervolgens op je PC het volgende commando uitvoeren om inkomende data van de COM-poort te bewaren in een .cas dump bestand
-  ```
-  type com4: >> bandje-1A.cas
+  python serial_to_file.py COM4 bandje-1A.cas
   ```
 
 * Dan op de P2000T een toets indrukken, waarmee het archiveren/dumpen gaat beginnen. De gehele inhoud van één kant van de cassette wordt via RS-232 naar je PC verstuurd.
  
-* Na verloop van tijd (maximaal 3 minuten) is het archiveren klaar, waarna je Ctrl-C doet in de Windows Command Prompt, zodat het .cas archief bestand wordt gesloten.
+* Na verloop van tijd (maximaal 3 minuten) is het archiveren klaar, waarna je Ctrl-C doet in de Command Prompt, zodat het .cas archief bestand wordt gesloten.
 
-* [Optioneel] Gebruik het programma `splittape.exe` om de programma's in het cassette dump bestand op te splitsen in losse .cas bestanden: \
+* [Optioneel] Gebruik het Windows programma `splittape.exe` om de programma's in het cassette dump bestand op te splitsen in losse .cas bestanden: \
 ![Example usage of splitape.exe](splitape_example.png)

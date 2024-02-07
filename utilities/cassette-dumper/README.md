@@ -29,6 +29,7 @@ En mocht je de utility [pc2p2000t.bas](../pc2p2000t/pc2p2000t.bas) hebben, dan k
   ```
   python serial_to_file.py COM4 bandje-1A.cas
   ```
+  N.B. dit Python script heeft de library PySerial nodig, die je installeert met `pip install pyserial`. Python zelf kun hier downloaden: https://www.python.org/downloads/
 
 * Dan op de P2000T een toets indrukken, waarmee het archiveren/dumpen gaat beginnen. De gehele inhoud van één kant van de cassette wordt via RS-232 naar je PC verstuurd.
  

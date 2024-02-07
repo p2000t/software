@@ -25,11 +25,13 @@ En mocht je de utility [pc2p2000t.bas](../pc2p2000t/pc2p2000t.bas) hebben, dan k
  
 * Op Windows (ik gebruik Windows 10) kun je bij Device Manager zien op welke COM-poort de USB-adapter is gemapt. Dat was in mijn geval COM4. Als het COM-nummer bij jou anders is, vervang in de instructies hieronder `COM4` voor het andere COM poort nummer.
 
+* Zorg dat je een recente versie van Python hebt geinstalleerd. Python kun hier downloaden: https://www.python.org/downloads/
+
 * Daarna op je PC een Command Prompt (of terminal window) openen en het Python script [serial_to_file.py](serial_to_file.py) starten, waarbij je de juiste COM poort en het doel bestand opgeeft, bijv:
   ```
   python serial_to_file.py COM4 bandje-1A.cas
   ```
-  N.B. dit Python script heeft de library PySerial nodig, die je installeert met `pip install pyserial`. Python zelf kun hier downloaden: https://www.python.org/downloads/
+  N.B. dit Python script heeft de library PySerial nodig, die je installeert met `pip install pyserial`.
 
 * Dan op de P2000T een toets indrukken, waarmee het archiveren/dumpen gaat beginnen. De gehele inhoud van één kant van de cassette wordt via RS-232 naar je PC verstuurd.
  

@@ -18,26 +18,35 @@ Deze adapter/kabel kun je trouwens voor minder geld op AliExpress kopen, maar da
 * M.b.v. de kabel/adapter maak je dan een verbinding tussen de P2000T (seriele poort) en je laptop (USB poort).
  
 * Tik dan (eenmalig) het programma [Cassette Dumper.bas](<Cassette Dumper.bas>) over op je P2000T en bewaar deze m.b.v. `CSAVE "Cassette Dumper"` op een cassette voor de volgende keer. Als je dit programma al eerder had ingetikt, dan kun je het uiteraard gewoon inladen. \
-En mocht je al de utility `pc2p2000t.bas` hebben, dan kun je daarmee direct [Cassette Dumper.cas](<../../cassettes/utilities/Cassette Dumper.cas>) vanaf je PC inladen op je P2000T.
+En mocht je de utility [pc2p2000t.bas](../pc2p2000t/pc2p2000t.bas) hebben, dan kun je daarmee direct [Cassette Dumper.cas](<../../cassettes/utilities/Cassette Dumper.cas>) vanaf je PC inladen op je P2000T.
  
 * Na het intikken/inladen van Cassette Dumper.bas run je deze d.m.v. `RUN` en doe je de cassette in de P2000T die je wilt gaan archiveren. Let op: druk nog niet op een toets! \
  Een cassette heeft twee zijden, dus je moet zowel de voor- als achterkant los archiveren.
  
 * Op Windows (ik gebruik Windows 10) kun je bij Device Manager zien op welke COM-poort de USB-adapter is gemapt. Dat was in mijn geval COM4. Als het COM-nummer bij jou anders is, vervang in de instructies hieronder `COM4` voor het andere COM poort nummer.
- 
-* Daarna op je PC een Command Prompt window openen en m.b.v. het `MODE` commando de baudrate (9600), parity (geen), databits (8) en stopbits (1) zetten voor de betreffende COM poort:
-  ``` 
-  mode COM4 BAUD=9600 PARITY=n DATA=8 STOP=1
+
+* [eenmalig] Zorg dat je een recente versie van Python hebt geinstalleerd. Python kun hier downloaden: https://www.python.org/downloads/
+
+* [eenmalig] Open een Command Prompt (of Terminal) window en installeer de Python library PySerial (dit hoef je slechts eenmalig te doen):
   ```
- 
-* Vervolgens op je PC het volgende commando uitvoeren om inkomende data van de COM-poort te bewaren in een .cas dump bestand
+  pip install pyserial
   ```
-  type com4: >> bandje-1A.cas
+
+* [eenmalig] Download het Python script [serial_to_file.py](serial_to_file.py) naar je computer.
+
+* Navigeer vanuit een Command Prompt window naar de map waarin je serial_to_file.py hebt gedownload. Indien je deze naar de standaard Downloads map hebt gedownload, dan doe je:
+  ```
+  cd C:\Users\%USERNAME%\Downloads
+  ```
+
+* Vervolgens start je in hetzelfde Command Prompt window het Python script [serial_to_file.py](serial_to_file.py), waarbij je de juiste COM poort en het doel bestand opgeeft, bijv:
+  ```
+  python serial_to_file.py COM4 bandje-1A.cas
   ```
 
 * Dan op de P2000T een toets indrukken, waarmee het archiveren/dumpen gaat beginnen. De gehele inhoud van één kant van de cassette wordt via RS-232 naar je PC verstuurd.
  
-* Na verloop van tijd (maximaal 3 minuten) is het archiveren klaar, waarna je Ctrl-C doet in de Windows Command Prompt, zodat het .cas archief bestand wordt gesloten.
+* Na verloop van tijd (maximaal 3 minuten) is het archiveren klaar, waarna je Ctrl-C doet in de Command Prompt, zodat het .cas archief bestand wordt gesloten.
 
-* [Optioneel] Gebruik het programma `splittape.exe` om de programma's in het cassette dump bestand op te splitsen in losse .cas bestanden: \
+* [Optioneel] Gebruik het Windows programma `splittape.exe` om de programma's in het cassette dump bestand op te splitsen in losse .cas bestanden: \
 ![Example usage of splitape.exe](splitape_example.png)

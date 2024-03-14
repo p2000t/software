@@ -1,4 +1,4 @@
-## P2000T ROM Dumper
+## P2000T Basic ROM Dumper
 
 To archive/dump the P2000T's internal ROM or external Basic cartridge ROM (in slot 1) to a .bin file on your PC, do the following:
 * Connect the P2000T to your PC using a serial cross cable or USB-to-serial adapter cable;

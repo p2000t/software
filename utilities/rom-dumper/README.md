@@ -44,5 +44,5 @@ En mocht je de utility [pc2p2000t.bas](../pc2p2000t/pc2p2000t.bas) hebben, dan k
 * Dan op de P2000T - waar Rom Dumper.bas runt - nu de (P)lugin ROM of (M)onitor ROM toets indrukken, waarmee het archiveren/dumpen gaat beginnen. Alle bytes van de ROM worden via RS-232 naar je PC verstuurd. \
 Voor de duidelijkheid: Een plugin ROM is de 16K cartridge in slot 1 en de Monitor ROM is the interne 4K ROM van de P2000T.
  
-* Na verloop van tijd (maximaal 3 minuten) is het archiveren klaar, waarna je de Esc-toets drukt in de Command Prompt, zodat het python programma stopt.
+* Na een tijdje (maximaal 20 seconden voor 16K cartridges) is het archiveren klaar, waarna je de Esc-toets drukt in de Command Prompt, zodat het python programma stopt.
 

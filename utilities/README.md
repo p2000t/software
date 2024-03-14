@@ -5,3 +5,6 @@
 
 * [pc2p2000t](/utilities/pc2p2000t/) \
   Load .cas dump files from your PC back into the P2000T, using a serial connection cable or USB to 25-pin RS232 adapter.
+
+* [rom-dumper](/utilities/rom-dumper/) \
+  Archive P2000T ROM or cartridges to .bin dump files on your PC, using a serial connection cable or USB to 25-pin RS232 adapter.

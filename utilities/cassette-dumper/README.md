@@ -26,9 +26,9 @@ En mocht je de utility [pc2p2000t.bas](../pc2p2000t/pc2p2000t.bas) hebben, dan k
 
 * [eenmalig] Zorg dat je een recente versie van Python hebt geinstalleerd. Python kun hier downloaden: https://www.python.org/downloads/
 
-* [eenmalig] Open een Command Prompt (of Terminal) window en installeer de Python library PySerial (dit hoef je slechts eenmalig te doen):
+* [eenmalig] Open een Command Prompt (of Terminal) window en installeer de Python libraries `PySerial` en `Keyboard` (dit hoef je slechts eenmalig te doen):
   ```
-  pip install pyserial
+  pip install pyserial,keyboard
   ```
 
 * [eenmalig] Download het Python script [serial_to_file.py](serial_to_file.py) naar je computer.
@@ -45,7 +45,7 @@ En mocht je de utility [pc2p2000t.bas](../pc2p2000t/pc2p2000t.bas) hebben, dan k
 
 * Dan op de P2000T een toets indrukken, waarmee het archiveren/dumpen gaat beginnen. De gehele inhoud van één kant van de cassette wordt via RS-232 naar je PC verstuurd.
  
-* Na verloop van tijd (maximaal 3 minuten) is het archiveren klaar, waarna je Ctrl-C doet in de Command Prompt, zodat het .cas archief bestand wordt gesloten.
+* Na verloop van tijd (maximaal 3 minuten) is het archiveren klaar, waarna je de Esc-toets drukt in de Command Prompt, zodat het python programma stopt.
 
 * [Optioneel] Gebruik het Windows programma `splittape.exe` om de programma's in het cassette dump bestand op te splitsen in losse .cas bestanden: \
 ![Example usage of splitape.exe](splitape_example.png)

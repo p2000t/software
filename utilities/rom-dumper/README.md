@@ -16,7 +16,7 @@ Dit is de hardware en software die ik heb gebruikt om P2000T cartridges te archi
 * M.b.v. de kabel/adapter maak je dan een verbinding tussen de P2000T (seriele poort) en je laptop (USB poort).
  
 * Tik dan (eenmalig) het programma [Rom Dumper.bas](<Rom Dumper.bas>) over op je P2000T en bewaar deze m.b.v. `CSAVE "Rom Dumper"` op een cassette voor de volgende keer. Als je dit programma al eerder had ingetikt, dan kun je het uiteraard gewoon inladen. \
-En mocht je de utility [pc2p2000t.bas](../pc2p2000t/pc2p2000t.bas) hebben, dan kun je daarmee direct [Rom Dumper.cas](<../../../../raw/master/cassettes/utilities/Rom Dumper.cas>) vanaf je PC inladen op je P2000T.
+En mocht je de utility [pc2p2000t.bas](../pc2p2000t/pc2p2000t.bas) hebben, dan kun je daarmee direct het [Rom Dumper](<../../../../raw/master/cassettes/utilities/Rom Dumper.cas>) .cas bestand vanaf je PC inladen op je P2000T.
  
 * Na het intikken/inladen van Rom Dumper.bas run je deze d.m.v. `RUN`. Let op: druk nog niet op een toets!
  

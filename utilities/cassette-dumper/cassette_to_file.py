@@ -1,5 +1,5 @@
 #
-# serial_to_file.py 
+# cassette_to_file.py 
 #
 # note: this requires the libaries 'pyserial' and 'keyboard' to be installed:
 #   pip install pyserial, keyboard

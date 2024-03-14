@@ -31,16 +31,16 @@ En mocht je de utility [pc2p2000t.bas](../pc2p2000t/pc2p2000t.bas) hebben, dan k
   pip install pyserial,keyboard
   ```
 
-* [eenmalig] Download het Python script [serial_to_file.py](serial_to_file.py) naar je computer.
+* [eenmalig] Download het Python script [cassette_to_file.py](cassette_to_file.py) naar je computer.
 
-* Navigeer vanuit een Command Prompt window naar de map waarin je serial_to_file.py hebt gedownload. Indien je deze naar de standaard Downloads map hebt gedownload, dan doe je:
+* Navigeer vanuit een Command Prompt window naar de map waarin je cassette_to_file.py hebt gedownload. Indien je deze naar de standaard Downloads map hebt gedownload, dan doe je:
   ```
   cd C:\Users\%USERNAME%\Downloads
   ```
 
-* Vervolgens start je in hetzelfde Command Prompt window het Python script [serial_to_file.py](serial_to_file.py), waarbij je de juiste COM poort en het doel bestand opgeeft, bijv:
+* Vervolgens start je in hetzelfde Command Prompt window het Python script [cassette_to_file.py](cassette_to_file.py), waarbij je de juiste COM poort en het doel bestand opgeeft, bijv:
   ```
-  python serial_to_file.py COM4 bandje-1A.cas
+  python cassette_to_file.py COM4 bandje-1A.cas
   ```
 
 * Dan op de P2000T een toets indrukken, waarmee het archiveren/dumpen gaat beginnen. De gehele inhoud van één kant van de cassette wordt via RS-232 naar je PC verstuurd.

@@ -5,7 +5,7 @@ Preservation of software for the Philips P2000T home computer, originating from 
 In this repo you can find:
 
 * [Cartridge images](/cartridges/) of P2000T cartridges like 'Basic Interpreter' and 'Familiegeheugen'.
-* [Cassette programs and games](/cassettes/) dumped from mini-cassette. Some recommended arcade conversions are: Brick-Wall (Breakout), Doolhof (3D Maze), Fraxxon (Galaga?), Ghosthunt (Pac-Man) and Lazy Bug (Lady Bug).
+* [Cassette programs and games](/cassettes/) dumped from mini-cassette. Some recommended arcade conversions are: Brick-Wall (Breakout clone), Doolhof (3D Maze clone), Fraxxon (Phoenix clone), Ghosthunt (Pac-Man clone) and Lazy Bug (Lady Bug clone).
 * [Disk images](/disks/) for the JWS Disk System.
 * [Utilities](/utilities/) for archiving/dumping P2000T cassette programs to PC, but also for loading P2000T programs from PC back to your P2000T again. Note: these utilities require a serial connection cable.
 

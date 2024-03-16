@@ -1,4 +1,4 @@
-0 REM ROM Dumper 1.0
+0 REM ROM Dumper 1.1
 10 T=0:A=0
 20 READ A$
 30 IF A$="stop" THEN GOTO 70

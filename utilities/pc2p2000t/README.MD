@@ -60,9 +60,9 @@ Laad op je P2000T de `pc2p2000t.bas` utility en "installeer" het door `RUN` te d
 ```
 ?USR1(0)
 ```
-Nu kun je vanaf je PC een .cas bestand sturen via de juiste COM poort m.b.v. het [pc_to_pc2000t.py](pc_to_pc2000t.py) script. Als voorbeeld hieronder hoe je het bestand BrickWall.cas verstuurt via COM5:
+Nu kun je vanaf je PC een .cas bestand sturen via de juiste COM poort m.b.v. het [pc_to_p2000t.py](pc_to_p2000t.py) script. Als voorbeeld hieronder hoe je het bestand BrickWall.cas verstuurt via COM5:
 ```
-python pc_to_pc2000t.py COM5 ..\..\cassettes\games\Fraxxon.cas
+python pc_to_p2000t.py COM5 ..\..\cassettes\games\Fraxxon.cas
 ```
 Als alle bytes ontvangen zijn, dan hoor je een pieptoon op je P2000T, waarna de cursor weer te zien is. Dit betekent dat het programma succesvol is ingeladen.
 Hierna kun je het ingeladen spel bewaren op cassette met `CSAVE` of direct spelen met `RUN`.
@@ -71,10 +71,10 @@ Hierna kun je het ingeladen spel bewaren op cassette met `CSAVE` of direct spele
 
 De meest recente versie van de pc2p2000t utility heeft nu ook een **ontvang-bewaar modus**, die te activeren is d.m.v. `?USR2(0)` i.p.v. `?USR1(0)`. Hierbij kun je vanaf de PC iedere keer een los .cas bestand naar de P2000T sturen, die dan direct na ontvangst op cassette wordt bewaard, waarna de P2000T dan weer gaat wachten op het volgende .cas bestand. Zo kun je dus een hele reeks .cas bestanden achter elkaar naar cassette wegschrijven.
 
-Vanaf je PC gebruik je hiervoor dezelde [pc_to_pc2000t.py](pc_to_pc2000t.py) Python utility, waarmee je meerdere .cas programma's kunt versturen. Hiermee kun je ook niet-gesplitste cassette dump bestanden zoals [Basic Demo cassette (kant A).cas](<../../cassettes/demos/Basic Demo cassette (kant A).cas>) of [ErrorSoft.cas](../../cassettes/games/ErrorSoft.cas) in één keer correct overzetten. 
+Vanaf je PC gebruik je hiervoor dezelde [pc_to_p2000t.py](pc_to_p2000t.py) Python utility, waarmee je meerdere .cas programma's kunt versturen. Hiermee kun je ook niet-gesplitste cassette dump bestanden zoals [Basic Demo cassette (kant A).cas](<../../cassettes/demos/Basic Demo cassette (kant A).cas>) of [ErrorSoft.cas](../../cassettes/games/ErrorSoft.cas) in één keer correct overzetten. 
 Als voorbeeld:
 ```
-python pc_to_pc2000t.py COM4 ..\..\cassettes\games\Fraxxon.cas ..\..\cassettes\games\Brick-Wall.cas
+python pc_to_p2000t.py COM4 ..\..\cassettes\games\Fraxxon.cas ..\..\cassettes\games\Brick-Wall.cas
 ```
 
 Zorg bij het gebruik van de ontvang-bewaar modus wel voor dat:

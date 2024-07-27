@@ -60,7 +60,7 @@ Laad op je P2000T de `pc2p2000t.bas` utility en "installeer" het door `RUN` te d
 ```
 ?USR1(0)
 ```
-Nu kun je vanaf je PC een .cas bestand sturen via de juiste COM poort m.b.v. het `pc_to_pc2000t.py` script. Als voorbeeld hieronder hoe je het bestand BrickWall.cas verstuurt via COM5:
+Nu kun je vanaf je PC een .cas bestand sturen via de juiste COM poort m.b.v. het [pc_to_pc2000t.py](pc_to_pc2000t.py) script. Als voorbeeld hieronder hoe je het bestand BrickWall.cas verstuurt via COM5:
 ```
 python pc_to_pc2000t.py COM5 ..\..\cassettes\games\Fraxxon.cas
 ```

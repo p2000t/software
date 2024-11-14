@@ -1,7 +1,7 @@
 #
 # pc_to_p2000t.py 
 #
-#   This Python script sends one or multiple .cas/.p2000t files via RS-232 to a Philips P2000T Computer.
+#   This Python script sends one or multiple .cas files via RS-232 to a Philips P2000T Computer.
 #   The P2000T must be connected to the PC via a serial cable or a "USB to RS232 serial adapter" and
 #   running the utility "pc2p2000t.bas" in receive-store ("ontvang-bewaar") mode. Make sure the target
 #   cassette is empty and pc2p2000t is started [Basic commmand: ?USR2(0)] before running this script.
@@ -24,34 +24,24 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", 'pyserial'])
     import serial
 
-def unify_block(block, header_size):
-    # For .p2000t files, the header is only 32 bytes, so we need to add 224 bytes of padding
-    if header_size == 32:
-        return bytearray([0]*48) + block[:32] + bytearray([0]*176) + block[32:]
-    else:
-        return bytearray(block)
-
 def send_file_to_serial(file_path, serial_port, is_last_file):
     file_extension = os.path.splitext(file_path)[1].lower()
-    if file_extension == '.p2000t':
-        header_size = 32 # .p2000t uses a clean 32 bytes header per block
-    elif file_extension == '.cas':
-        header_size = 256 # .cas headers are 256 bytes but only 32 bytes contain information
-    else:
+    if file_extension != '.cas':
         print(f'Error: unsupported file extension for "{file_path}"')
         return 
 
     # Open the input file in read mode
     with open(file_path, 'rb') as file:
         # Read the first block of the first program file in this .cas
-        first_block = file.read(header_size + 1024)
+        # Each block contains 256 header bytes + 1024 data bytes
+        first_block = file.read(256 + 1024)
 
         while True:
             if not first_block:
                 break
 
-            # Unify the block of P2000T file data into a byte array
-            block_data = unify_block(first_block, header_size)
+            # Put the block of P2000T file data into a byte array
+            block_data = bytearray(first_block)
 
             # Get the total number of file blocks from the block's header
             p2000_file_block_count = block_data[0x4F]
@@ -70,11 +60,11 @@ def send_file_to_serial(file_path, serial_port, is_last_file):
                 
             # Read the remaining blocks for the P2000T file
             for _ in range(p2000_file_block_count - 1):
-                next_block = file.read(header_size + 1024)
+                next_block = file.read(256 + 1024)
                 if not next_block:
                     print(f'Error: missing block(s) for P2000T file "{p2000_file_name}"')
                     return
-                block_data.extend(unify_block(next_block, header_size))
+                block_data.extend(bytearray(next_block))
 
             # Send the P2000T file blocks to the serial port
             print(f'Sending P2000T file "{p2000_file_name}" ({p2000_file_block_count} blocks)...')
@@ -82,7 +72,7 @@ def send_file_to_serial(file_path, serial_port, is_last_file):
             serial_port.flush()
 
             # Read the first block of the next program file in this .cas
-            first_block = file.read(header_size + 1024)
+            first_block = file.read(256 + 1024)
 
             if first_block or not is_last_file:
                 # Now wait for 10 seconds (=cassette ramp-up time) + 2 times the number of blocks,

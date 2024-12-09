@@ -112,12 +112,6 @@ read_block_loop:
     ld ($6407), hl          ; 22 07 64
     ld ($6409), hl          ; 22 09 64
 
-    ; reset the pointers to end of memory for BASIC
-    ld a, ($63b9)           ; 3A B9 63
-    add a, 2                ; C6 02
-    ld ($63b9), a           ; 32 B9 63
-    ld ($6259), a           ; 32 59 62
-
     ; succes: play beep
     ld a,$07                ; 3E 07
     call $104a              ; CD 4A 10
@@ -125,16 +119,16 @@ read_block_loop:
     ei                      ; FB - enable interrupts
     ret                     ; C9
 
-write_to_cas_loop:          ; starts at $9E6C
+write_to_cas_loop:          ; starts at $9E61
     call read_program       ; CD 1D 9E
 
     ; copy block of 32 bytes at TransferAddress to $6030 (hl -> de)
     ld hl, TransferAddress  ; 21 30 9F
-	ld de, $6030            ; 11 30 60
-	ld bc, $20              ; 01 20 00
-	ldir                    ; ED B0
+    ld de, $6030            ; 11 30 60
+    ld bc, $20              ; 01 20 00
+    ldir                    ; ED B0
 
     ; write program out to cassette
     ld a, $5                ; 3E 05 - 5 is command number for write
     call $0018              ; CD 18 00 - call cass write
-    jp write_to_cas_loop    ; C3 6C 9E
+    jp write_to_cas_loop    ; C3 61 9E

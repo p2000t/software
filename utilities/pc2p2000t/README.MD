@@ -14,10 +14,10 @@ Omdat de meeste PC's tegenwoordig geen seriële poort meer hebben, kun je in dat
   Online kun je zo'n kabel vinden door te zoeken op "USB to serial RS-232 adapter". Hieronder een paar voorbeelden van hoe zo'n kabel/adapter eruit kan zien:\
   ![RS-232 USB to DB9 adapter](img/USB2DB9.png) ![RS-232 USB to DB25 adapter](img/USB2DB25.jpg)
 
-Als je alle hardware beschikbaar hebt, tik dan deze 32 regels BASIC code op je P2000T:
+Als je alle hardware beschikbaar hebt, tik dan deze 30 regels BASIC code op je P2000T:
 ```
-10 REM P2000 programma laden via RS232
-20 REM Versie 0.3 door Dion Olsthoorn
+10 REM P2000T programma laden via RS232
+20 REM Versie 0.4 door Dion Olsthoorn
 30 CLEAR 50,&H9DFF+256*32*(PEEK(&H605C)+(PEEK(&H605C)=1))
 40 M=PEEK(&H605C) : Z = 32*(M+(M=1))
 50 BASE = &H9E00 + 256*Z
@@ -26,10 +26,10 @@ Als je alle hardware beschikbaar hebt, tik dan deze 32 regels BASIC code op je P
 80 P=VAL("&H"+P$) : POKE BASE+I,P
 90 IF P=&H9E OR P=&H9F THEN POKE BASE+I,P+Z
 100 I=I+1 : T=T+P : GOTO 70
-110 IF T=11963 THEN GOTO 130
+110 IF T=10839 THEN GOTO 130
 120 PRINT "Typfout gemaakt in DATA" : END
 130 DEF USR1=BASE + &H1D
-131 DEF USR2=BASE + &H6C
+131 DEF USR2=BASE + &H61
 140 PRINT "Start ontvanger op P2000T met ?USR1(0)"
 141 PRINT "of ?USR2(0) voor ontvang-bewaar modus"
 150 PRINT "Dan op PC .cas bestand zenden naar COM"
@@ -43,11 +43,9 @@ Als je alle hardware beschikbaar hebt, tik dan deze 32 regels BASIC code op je P
 260 DATA 04,CD,00,9E,77,23,1B,7A,B3,20
 270 DATA F6,0D,20,E9,11,47,65,2A,34,9F
 280 DATA 19,22,05,64,22,07,64,22,09,64
-290 DATA 3A,B9,63,C6,02,32,B9,63,32,59
-300 DATA 62,3E,07,CD,4A,10,FB,C9,CD,1D
-310 DATA 9E,21,30,9F,11,30,60,01,20,00
-320 DATA ED,B0,3E,05,CD,18,00,C3,6C,9E
-330 DATA stop
+290 DATA 3E,07,CD,4A,10,FB,C9,CD,1D,9E
+300 DATA 21,30,9F,11,30,60,01,20,00,ED
+310 DATA B0,3E,05,CD,18,00,C3,61,9E,stop
 ```
 Bewaar dit vervolgens op een P2000T cassette, zodat je het de volgende keer weer kunt gebruiken. Noem het bijvoorbeeld `pc2p2000t.bas`.
 

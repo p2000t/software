@@ -1,21 +1,20 @@
-10 REM P2000T programma laden via RS232
-20 REM Versie 0.4 door Dion Olsthoorn
-30 CLEAR 50,&H9DFF+256*32*(PEEK(&H605C)+(PEEK(&H605C)=1))
-40 M=PEEK(&H605C) : Z = 32*(M+(M=1))
-50 BASE = &H9E00 + 256*Z
-60 T=0 : I=0 : PRINT CHR$(12)
-70 READ P$ : IF P$="stop" THEN GOTO 110
-80 P=VAL("&H"+P$) : POKE BASE+I,P
-90 IF P=&H9E OR P=&H9F THEN POKE BASE+I,P+Z
-100 I=I+1 : T=T+P : GOTO 70
-110 IF T=10839 THEN GOTO 130
-120 PRINT "Typfout gemaakt in DATA" : END
-130 DEF USR1=BASE + &H1D
-131 DEF USR2=BASE + &H61
+10 REM pc2p2000t v0.4
+20 CLEAR 50,&H9DFF+256*32*(PEEK(&H605C)+(PEEK(&H605C)=1))
+30 M=PEEK(&H605C) : Z = 32*(M+(M=1))
+40 BASE = &H9E00 + 256*Z
+50 T=0 : I=0 : PRINT CHR$(12)
+60 READ P$ : IF P$="stop" THEN GOTO 100
+70 P=VAL("&H"+P$) : POKE BASE+I,P
+80 IF P=&H9E OR P=&H9F THEN POKE BASE+I,P+Z
+90 I=I+1 : T=T+P : GOTO 60
+100 IF T=10839 THEN GOTO 120
+110 PRINT "Typfout in DATA" : END
+120 DEF USR1=BASE + &H1D
+130 DEF USR2=BASE + &H61
 140 PRINT "Start ontvanger op P2000T met ?USR1(0)"
-141 PRINT "of ?USR2(0) voor ontvang-bewaar modus"
-150 PRINT "Dan op PC .cas bestand zenden naar COM"
-160 PRINT "9600 baud, geen parity en 8 data bits"
+150 PRINT "of ?USR2(0) voor ontvang-bewaar modus"
+160 PRINT "Dan op PC .cas bestand zenden naar COM"
+170 PRINT "9600 baud, geen parity en 8 data bits"
 200 DATA C5,DB,20,E6,01,20,FA,06,15,10
 210 DATA FE,06,08,DB,20,1F,CB,19,C5,06
 220 DATA 10,10,FE,C1,10,F3,79,C1,C9,F3

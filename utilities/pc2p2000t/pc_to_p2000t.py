@@ -100,7 +100,7 @@ if __name__ == '__main__':
             stopbits=serial.STOPBITS_ONE, 
             bytesize=serial.EIGHTBITS)
 
-        # Call the function to send each .cas/.p2000t file to the serial port
+        # Call the function to send each .cas file to the serial port
         for index, file_path in enumerate(args.file_path):
             is_last_file = (index == len(args.file_path) - 1)
             send_file_to_serial(file_path, serial_port, is_last_file)

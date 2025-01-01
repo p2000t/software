@@ -6,6 +6,13 @@
     ; name of the cartridge (11 bytes)
     DB "Brickwall",0x00,0x00
 
+    ; For Brick-Wall, the conversion to cartridge was a bit tricky, because
+    ; it expects a mapping-table at $1814 for conversion of key-codes to ascii.
+    ; I decided to just copy the table to the cartridge, and then put the game
+    ; code after the table.
+    ; Note: the game code ends with a lot of 00's, which is probably used in
+    ; the cassette-version to hold the high-score table.
+
 start:
     LD HL, brickwall_bytes  ; Source address
     LD DE, $673D            ; Destination address

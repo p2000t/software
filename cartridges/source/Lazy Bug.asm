@@ -1,10 +1,12 @@
     org $1000
 
-    ; signature, byte count, checksum
-    DB 0x5E,0x00,0x00,0x00,0x00
+    ; signature and header
+    DB 0x5E
+    DS 15, 0
 
-    ; name of the cartridge (11 bytes)
-    DB "Lazy Bug",0x00,0x00,0x00
+    ; Lazy Bug was using Basic's "Wait for key and return ascii code" routine at $1956,
+    ; which eventually was fairly easy to implement, using the key-map which I already
+    ; created for Brick-Wall. Fun little game.
 
 start:
     LD HL, lazybug_bytes    ; Source address

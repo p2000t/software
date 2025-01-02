@@ -2,7 +2,7 @@
 
     ; signature and header
     DB 0x5E
-    DB 15, 0
+    DS 15, 0
 
     ; Space Fight was an easy conversion, as it uses no Basic routines
     ; at all! Too bad this game has no sound.

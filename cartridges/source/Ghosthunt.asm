@@ -1,10 +1,14 @@
     org $1000
 
-    ; signature, byte count, checksum
-    DB 0x5E,0x00,0x00,0x00,0x00
+    ; signature and header
+    DB 0x5E
+    DS 15, 0
 
-    ; name of the cartridge (11 bytes)
-    DB "Ghosthunt",0x00,0x00
+    ; For Ghosthunt, the conversion to cartridge was straightforward. 
+    ; There were two calls to Basic routines at the title screen:
+    ; 1. call to $104A to clear the screen ($0C in A)
+    ; 2. call to $104D to wait for key.
+    ; I've replaced by calls to Monitor routines ($0035 and $0026)
 
 start:
     LD HL, ghosthunt_bytes  ; Source address

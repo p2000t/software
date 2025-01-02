@@ -1,10 +1,8 @@
     org $1000
 
-    ; signature, byte count, checksum
-    DB 0x5E,0x00,0x00,0x00,0x00
-
-    ; name of the cartridge (11 bytes)
-    DB "Brickwall",0x00,0x00
+    ; signature and header
+    DB 0x5E
+    DS 15, 0
 
     ; For Brick-Wall, the conversion to cartridge was a bit tricky, because
     ; it expects a mapping-table at $1814 for conversion of key-codes to ascii.

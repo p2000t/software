@@ -4,7 +4,8 @@
     DB 0x5E
     DS 15, 0
 
-    ; 
+    ; Multipede was easy to convert to cartridge format, as it only uses a
+    ; ascii mapping table from Basic, just like Brick-Wall.
 
 start:
     LD HL, monkeykong_bytes ; Source address

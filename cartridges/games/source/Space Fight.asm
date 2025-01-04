@@ -4,7 +4,7 @@
     DB 0x5E
     DS 15, 0
 
-    ; Space Fight was an easy conversion, as it uses no Basic routines
+    ; Space Fight was the easiest conversion, as it uses no Basic routines
     ; at all! Too bad this game has no sound.
 
 start:

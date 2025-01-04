@@ -5,6 +5,8 @@
     DB 0x5E
     DS 15, 0
 
+    ; NOTE!!! Macho Man is not working properly. It hangs after start.
+
 start:
     LD HL, machoman_bytes   ; Source address
     LD DE, $6547            ; Destination address

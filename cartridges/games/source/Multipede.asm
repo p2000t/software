@@ -4,7 +4,8 @@
     DB 0x5E
     DS 15, 0
 
-    ; 
+    ; Multipede was easy to convert to cartridge format, as it only uses a
+    ; Basic routines for keyboard input, which I already had in my library.
 
 start:
     LD HL, multipede_bytes  ; Source address

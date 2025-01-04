@@ -1,5 +1,5 @@
 MAX_STRING_LENGTH:  EQU 20        ; MAX can only go up till end of the line
-BUFFER:             EQU 0x6261
+STRING_BUFFER:      EQU 0x6261
 CURSOR_COL:         EQU 0x60B3
 CURSOR_ROW:         EQU 0x60B4
 CURSOR_CHAR:        EQU 127
@@ -19,8 +19,8 @@ start:
     jp $6600                ; Start the game
 
 clear_buffer:
-    ld hl, BUFFER           ; source
-    ld de, BUFFER+1         ; dest
+    ld hl, STRING_BUFFER     ; source
+    ld de, STRING_BUFFER+1   ; dest
     ld bc, MAX_STRING_LENGTH ; counter to clear 20+1 bytes
     ld (hl), 0
     ldir
@@ -33,23 +33,23 @@ print_buffer:
     ld a, (CURSOR_ROW)      ; Load cursor row position into a
     or a                    ; if row is 0, skip row loop
     jr z, skiprowloop 
-    ld b, a                 ; store row number in b for djnz loop
+    ld b, a
     ld de, 80
-rowloop:
+rowloop:                    ; add 80 * row to hl
     add hl, de 
     djnz rowloop
 skiprowloop:
     ld (CURSOR_ROW_POS), hl ; store cursor line's screen position
-    ld a, (CURSOR_COL)      ; cursor column
-    ld e, a                 ; Move value into E (low byte of DE)
-    ld d, 0                 ; Clear high byte of DE
-    add hl, de              ; Add DE to HL
+    ld a, (CURSOR_COL)      ; get cursor column
+    ld e, a
+    ld d, 0
+    add hl, de              ; Add de (cusor colum) to hl
     ; now display all characters in buffer
-    ld de, BUFFER
+    ld de, STRING_BUFFER    ; de points to first element in buffer
 buffer_loop:
-    ld a, (de)
+    ld a, (de)              ; read ascii value from buffer
     or a 
-    jr z, display_cursor
+    jr z, display_cursor    ; if 0, now display the cursor char
     ld (hl), a              ; display char    
     inc hl
     inc de
@@ -57,7 +57,7 @@ buffer_loop:
 display_cursor:
     ld a, CURSOR_CHAR
     ld (hl), a
-    ld a, 0x20             ; end with a space to mask deleted cursor
+    ld a, 0x20             ; add additional space in case backspace was used
     inc hl
     ld (hl), a
     exx
@@ -93,7 +93,7 @@ keymap_to_ascii: ; takes keycode in a, returns ASCII in a
 
 read_input:
     call clear_buffer
-    ld hl, BUFFER           ; buffer pointer in hl
+    ld hl, STRING_BUFFER    ; buffer pointer in hl
 read_loop:
     call print_buffer
     call 00026h             ; call Monitor routine to read keycode into a
@@ -106,7 +106,7 @@ read_loop:
     jr z, key_invalid
 add_key:
     ld b, a                 ; store ASCII code in b
-    ld a, (BUFFER + MAX_STRING_LENGTH) & 0xFF ; check if buffer is at MAX
+    ld a, (STRING_BUFFER+MAX_STRING_LENGTH) & 0xFF ; check if buffer is at MAX
     cp l                    ; l holds lower byte of buffer pointer
     jr z, key_invalid
     ld (hl), b              ; store ASCII code in buffer  
@@ -115,7 +115,7 @@ add_key:
 key_return:
     ret
 key_backspace:
-    ld a, BUFFER & 0xFF     ; if buffer is still empty, then beep (invalid)
+    ld a, STRING_BUFFER & 0xFF ; if buffer is still empty, then beep (invalid)
     cp l                    ; l holds lower byte of buffer pointer
     jr z, key_invalid
     dec hl
@@ -125,14 +125,17 @@ key_invalid:
     call $0032              ; beep
     jr read_loop
 
-    DS 0x1911-$, 0          ; Fill with 00's until address 0x1956
-    call read_input
-    ; clear the full "Naam speler:" line
-    ld hl, (CURSOR_ROW_POS)
+    DS 0x1911-$, 0          ; Fill with 00's until address 0x1911
+address_0x1911:
+    call read_input         ; called by Tetris to enter player name
+    ld hl, (CURSOR_ROW_POS) ; clear the full "Naam speler:" line
     ld a, 1
     call $0035              ; call Monitor routine to clear 1 line
     ret
 
+    ; Below are the bytes of the Tetris game
+    ; Note: the 17 bytes following 0xCD, 0x11, 0x19 (call $1911) were filled
+    ; with 0x00 to disable the unnecessary display-fix code
 tetris_bytes: 
     DB 0x62, 0x65, 0x0A, 0x00, 0x8E, 0x20, 0x54, 0x65, 0x74, 0x72, 0x69, 0x73
     DB 0x2E, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20

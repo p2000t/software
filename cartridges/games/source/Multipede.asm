@@ -8,12 +8,12 @@
     ; Basic routines for keyboard input, which I already had in my library.
 
 start:
-    LD HL, multipede_bytes  ; Source address
-    LD DE, $6547            ; Destination address
-    LD BC, 6945             ; Number of bytes to copy
-    LDIR                    ; Copy BC bytes from (HL) to (DE)
-
-    JP 26117                ; Start the game
+    ld hl, multipede_bytes  ; Source address
+    ld de, $6547            ; Destination address
+    ld bc, 6945             ; Number of bytes to copy
+    ldir                    ; Copy BC bytes from (HL) to (DE)
+    
+    jp 26117                ; Start the game
 
     DS 0x1814-$, 0          ; Fill with 00's until address 0x1814
 key_map:                    ; key-code to ascii map, which must be located at $1814

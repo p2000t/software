@@ -11,11 +11,12 @@
     ; I've replaced by calls to Monitor routines ($0035 and $0026)
 
 start:
-    LD HL, ghosthunt_bytes  ; Source address
-    LD DE, $67FD            ; Destination address
-    LD BC, 13925            ; Number of bytes to copy
-    LDIR                    ; Copy BC bytes from (HL) to (DE)
-    JP $67FD                ; Start the copied code
+    ld hl, ghosthunt_bytes  ; Source address
+    ld de, $67FD            ; Destination address
+    ld bc, 13925            ; Number of bytes to copy
+    ldir                    ; Copy BC bytes from (HL) to (DE)
+    
+    jp $67FD                ; Start the game
 
 ghosthunt_bytes:
     ; Below are the Ghosthunt game bytes which need to be copied to $67FD

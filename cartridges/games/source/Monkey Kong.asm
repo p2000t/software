@@ -8,12 +8,12 @@
     ; ascii mapping table from Basic, just like Brick-Wall.
 
 start:
-    LD HL, monkeykong_bytes ; Source address
-    LD DE, $6547            ; Destination address
-    LD BC, 8479             ; Number of bytes to copy
-    LDIR                    ; Copy BC bytes from (HL) to (DE)
-
-    JP $7000                ; Start the game
+    ld hl, monkeykong_bytes ; Source address
+    ld de, $6547            ; Destination address
+    ld bc, 8479             ; Number of bytes to copy
+    ldir                    ; Copy BC bytes from (HL) to (DE)
+    
+    jp $7000                ; Start the game
 
     DS 0x1814-$, 0          ; Fill with 00's until address 0x1814
 key_map:                    ; key-code to ascii map, which must be located at $1814

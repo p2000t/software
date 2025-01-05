@@ -8,12 +8,12 @@
     ; at all! Too bad this game has no sound.
 
 start:
-    LD HL, spacefight_bytes ; Source address
-    LD DE, $6547            ; Destination address
-    LD BC, 10937            ; Number of bytes to copy
-    LDIR                    ; Copy BC bytes from (HL) to (DE)
+    ld hl, spacefight_bytes ; Source address
+    ld de, $6547            ; Destination address
+    ld bc, 10937            ; Number of bytes to copy
+    ldir                    ; Copy BC bytes from (HL) to (DE)
 
-    JP $71BE                ; Start the game
+    jp $71BE                ; Start the game
 
 spacefight_bytes:
     DB 0x55, 0x65, 0x0A, 0x00, 0xA0, 0x20, 0x9D, 0x20, 0x88, 0x20, 0x35, 0x30

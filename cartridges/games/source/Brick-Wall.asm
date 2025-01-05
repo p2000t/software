@@ -12,11 +12,12 @@
     ; the cassette-version to hold the high-score table.
 
 start:
-    LD HL, brickwall_bytes  ; Source address
-    LD DE, $673D            ; Destination address
-    LD BC, 12995            ; Number of bytes to copy
-    LDIR                    ; Copy BC bytes from (HL) to (DE)
-    JP $89C0                ; Start the copied code
+    ld hl, brickwall_bytes  ; Source address
+    ld de, $673D            ; Destination address
+    ld bc, 12995            ; Number of bytes to copy
+    ldir                    ; Copy BC bytes from (HL) to (DE)
+    
+    jp $89C0                ; Start the game
 
     DS 0x1814-$, 0          ; Fill with 00's until address 0x1814
 key_map:                    ; key-code to ascii map, which must be located at $1814

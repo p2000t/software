@@ -11,11 +11,15 @@ CURSOR_ROW_POS:     EQU $60B1
     DB 0x5E
     DS 15, 0
 
+    ; Tetris was using Basic's text input routine at $1911, which I needed to
+    ; reverse-engineer to get the player name input working.
+
 start:
     ld hl, tetris_bytes     ; Source address
     ld de, $6547            ; Destination address
     ld bc, 7097             ; Number of bytes to copy
     ldir                    ; Copy BC bytes from (HL) to (DE)
+
     jp $6600                ; Start the game
 
 clear_buffer:

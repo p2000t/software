@@ -8,9 +8,12 @@ BASIC_START:  equ $6547
     DS 15, 0
 
     ; Because Fraxxon's size is more than 16KiB, I had to compress the bytes
-    ; using LZ4 algorithm. The LZ4 decompression routine for Z80 is included 
-    ; from 'libs/LZ4_Z80.asm'.
-    ; Also, I had to simulate several Basic instructions to start the game.
+    ; using the LZ4 algorithm. The LZ4 decompression routine for Z80 is 
+    ; included from 'libs/LZ4_Z80.asm'. Note that for correct decompression,
+    ; you need to use the lz4 command-line tool with options --no-frame-crc -B4
+    ;
+    ; To get Fraxxon running, I had to simulate running several Basic commands 
+    ; before starting the game.
 
 start:
     ld a, ($605C)           ; Fraxxon needs >=32K RAM. check if we have enough

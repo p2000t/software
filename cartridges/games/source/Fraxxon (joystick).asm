@@ -15,7 +15,14 @@ BASIC_START:  equ $6547
     ; To get Fraxxon running, I had to simulate running several Basic commands 
     ; before starting the game.
 
-start:
+init:                       ; init vector at $1010
+    jp copy_data_and_start
+    ret                     ; on a RST $10, just continue
+    nop
+    nop                     
+include 'libs/pause.asm'    ; must be included at location $1016
+
+copy_data_and_start:
     ld a, ($605C)           ; Fraxxon needs >=32K RAM. check if we have enough
     cp 1
     jr z, not_enough_ram
@@ -77,9 +84,9 @@ pr_loop:
     jp pr_loop
 
 msg_mem_err:
-    DB "Fraxxon requires at least 32K of RAM", 0
+    DB "Fraxxon heeft minstens 32K RAM nodig", 0
 msg_lz4_err:
-    DB "L4Z decompression error: ", 0
+    DB "L4Z decompressie fout: ", 0
 
 include 'libs/LZ4_Z80.asm'
 

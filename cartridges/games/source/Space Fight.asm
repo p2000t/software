@@ -7,7 +7,14 @@
     ; Space Fight was the easiest conversion, as it uses no Basic routines
     ; at all! Too bad this game has no sound.
 
-start:
+init:                       ; init vector at $1010
+    jp copy_data_and_start
+    ret                     ; on a RST $10, just continue
+    nop
+    nop                     
+include 'libs/pause.asm'    ; must be included at location $1016
+
+copy_data_and_start:
     ld hl, spacefight_bytes ; Source address
     ld de, $6547            ; Destination address
     ld bc, 10937            ; Number of bytes to copy

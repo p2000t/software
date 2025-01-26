@@ -10,7 +10,14 @@
     ; 2. call to $104D to wait for key.
     ; I've replaced by calls to Monitor routines ($0035 and $0026)
 
-start:
+init:                       ; init vector at $1010
+    jp copy_data_and_start
+    ret                     ; on a RST $10, just continue
+    nop
+    nop                     
+include 'libs/pause.asm'    ; must be included at location $1016
+
+copy_data_and_start:
     ld hl, ghosthunt_bytes  ; Source address
     ld de, $67FD            ; Destination address
     ld bc, 13925            ; Number of bytes to copy

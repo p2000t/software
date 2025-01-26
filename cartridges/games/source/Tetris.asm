@@ -14,7 +14,14 @@ CURSOR_ROW_POS:     EQU $60B1
     ; Tetris was using Basic's text input routine at $1911, which I needed to
     ; reverse-engineer to get the player name input working.
 
-start:
+init:                       ; init vector at $1010
+    jp copy_data_and_start
+    ret                     ; on a RST $10, just continue
+    nop
+    nop                     
+include 'libs/pause.asm'    ; must be included at location $1016
+
+copy_data_and_start:
     ld hl, tetris_bytes     ; Source address
     ld de, $6547            ; Destination address
     ld bc, 7097             ; Number of bytes to copy

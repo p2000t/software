@@ -11,12 +11,20 @@
     ; Note: the game code ends with a lot of 00's, which is probably used in
     ; the cassette-version to hold the high-score table.
 
-start:
+init:                       ; init vector at $1010
+    jp copy_data_and_start
+    ret                     ; on a RST $10, just continue
+    nop
+    nop                     
+include 'libs/pause.asm'    ; must be included at location $1016
+
+copy_data_and_start:
     ld hl, brickwall_bytes  ; Source address
     ld de, $673D            ; Destination address
     ld bc, 12995            ; Number of bytes to copy
     ldir                    ; Copy BC bytes from (HL) to (DE)
-    
+start_game:
+    call clear_pause
     jp $89C0                ; Start the game
 
     DS 0x1814-$, 0          ; Fill with 00's until address 0x1814

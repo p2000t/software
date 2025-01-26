@@ -7,7 +7,14 @@
     ; Doolhof used some Basic code for displaying the manual and handling
     ; the end of the game, for which I made a custom implementation.
 
-start:
+init:                       ; init vector at $1010
+    jp copy_data_and_start
+    ret                     ; on a RST $10, just continue
+    nop
+    nop                     
+include 'libs/pause.asm'    ; must be included at location $1016
+
+copy_data_and_start:
     ld hl, doolhof_bytes    ; Source address
     ld de, $6547            ; Destination address
     ld bc, 8726             ; Number of bytes to copy

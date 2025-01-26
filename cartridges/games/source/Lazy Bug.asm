@@ -8,7 +8,14 @@
     ; which eventually was fairly easy to implement, using the key-map which I already
     ; created for Brick-Wall. Fun little game.
 
-start:
+init:                       ; init vector at $1010
+    jp copy_data_and_start
+    ret                     ; on a RST $10, just continue
+    nop
+    nop                     
+include 'libs/pause.asm'    ; must be included at location $1016
+
+copy_data_and_start:
     ld hl, lazybug_bytes    ; Source address
     ld de, $6547            ; Destination address
     ld bc, 9331             ; Number of bytes to copy

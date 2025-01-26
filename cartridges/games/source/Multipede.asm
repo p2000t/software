@@ -7,7 +7,14 @@
     ; Multipede was easy to convert to cartridge format, as it only uses a
     ; Basic routines for keyboard input, which I already had in my library.
 
-start:
+init:                       ; init vector at $1010
+    jp copy_data_and_start
+    ret                     ; on a RST $10, just continue
+    nop
+    nop                     
+include 'libs/pause.asm'    ; must be included at location $1016
+
+copy_data_and_start:
     ld hl, multipede_bytes  ; Source address
     ld de, $6547            ; Destination address
     ld bc, 6945             ; Number of bytes to copy

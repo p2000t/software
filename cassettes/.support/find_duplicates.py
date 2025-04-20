@@ -17,8 +17,25 @@ def main():
         for file in files:
             path = os.path.join(root, file)
             if os.path.splitext(path)[1].lower() == ".cas":
-                paths.append(path)
+                with open(path, "rb") as f:
+                    bytes = bytearray(f.read())
+                    # ignore headers by clearing them
+                    for i in range(len(bytes) - 1):
+                        if i % (256+1024) < 256:
+                            bytes[i] = 0
+                    checksum = hashlib.md5(bytes).hexdigest()
+                    if checksum in checksums:
+                        otherPath = paths[checksums.index(checksum)]
+                        print('\n[ERROR] Duplicate .cas files found: "%s" and "%s"' % (path, otherPath))
+                        return
+                    else:
+                        print('Checked "%s"' % path)
+                        checksums.append(checksum)
+                        paths.append(path)
 
+    print("\nNo duplicates found. You're good to go!")
+    print() # additional whiteline
+    
     # check CAS headers
     invalid_header = []
     errorlists = []

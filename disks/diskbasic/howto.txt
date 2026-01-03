@@ -1,0 +1,7 @@
+Each .bin image consists of 10 tracks of 16 sectors of 256 bytes, for a total of 32kB. The first 2 tracks contain PDOS (which is loaded by the monitor). Tracks 3, 4, 5, 6 contain the disk portion of Philips Disk Basic (but note that track 6 is not used) which is loaded by the cartridge (P2306 Disk Basic 24k). Tracks 7 and 8 contain a runtime which is optionally loaded by the disk portion of Philips Disk Basic.
+
+Depending on the size of your disk you can pad these binary files with 0's to get a full disk length (e.g 35 tracks single sided will give 143360 bytes). For instance on Linux use
+
+$ truncate diskbasic_16uk.bin --size 143360
+
+The file volorg.dsk is a full disk file of 143360 bytes. It contains the VOLORG utilities that are explained in the Philips Disk Basic software documentation (https://github.com/p2000t/software).

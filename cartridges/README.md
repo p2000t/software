@@ -10,10 +10,11 @@
 | [BASIC NL1.1 A2 (hack)](BASICNL1.1A2.bin) |  | Modified BASICNL 1.1 cartridge with hack to support PDOS booting. | `1b55185494ca8b356cbad223ed305a37` |
 | [BASIC EN 1.0](BASICEN1.0.bin) |  | English version of the BASIC 1.0 cartridge. | `5191eb8ed909c44acdb0c5672d4fced1` |
 | [Bildschirmtext Editor](BILDSCHIRMTEXT_DE.bin) | P2303 | cartridge | `17366eec37f0b96e718962cd903ab880` |
-| [24k-basic](Basic-24.bin) |  | cartridge, floppydrive(s) required for Basic-24 systemtracks.bin | `7e2fbc0342181d9dcd6d808cb4228b18` |
+| [24k-basic](Basic-24.bin) | P2306 | cartridge, floppydrive(s) required for Basic-24 systemtracks.bin | `7e2fbc0342181d9dcd6d808cb4228b18` |
 | [24k-basic systemtracks](Basic-24%20systemtracks.bin) |  |  | `38c0112723820a2b73b7652d4d15c010` |
 | [BIS-system](BIS%20system.bin) |  | floppy??? | `075e0e28d9e3e2d9855914355d8ea9a2` |
 | [BIS Editor](BIS.bin) | P2314 | cartridge, floppydrive(s) required for BIS system.hex | `ceeee0ada3a3d88adc9db635e68fadd1` |
+| [BIS Editor NL](BISNL.bin) | | cartridge, floppydrive(s) required for BIS system.hex | `929b0c2d4c75707acc5add1ed1719947` |
 | [CP/M (Nater)](CPM%20Nater.bin) |  | cartridge, floppydrive(s) required | `b1147f6bbc62fa1f9dcab1e6f9cdeece` |
 | [CP/M (Nater)](Seeters.bin) |  | systeemtracks on floppy | `ae54b8aebfe111c29ad12f5510b5edb0` |
 | [EPROM-programmer](EPROM-programmer.bin) |  | cartridge, connected to hardware=programmer with cable! | `fd696d4019605029940a7f71475e5173` |
@@ -23,6 +24,7 @@
 | [flexbase](flexbase.bin) |  | cartridge | `29cbab5494e9ca3389d7e596e678f228` |
 | [Forth](Forth.bin) |  | cartridge | `886d05e6686c9775ee7261e14d711ccf` |
 | [GOS 3.6](GOS%203.6.bin) |  | Graphic Operating System in 2764 on hires-print | `6103619c0a5aa016870902ca3be73a40` |
+| [Hotel Informatie-Systeem](Hotel%20Informatie-Systeem.bin) |  | cartridge | `12159964d845eea52ee7dbc91e1c23eb` |
 | [maintenance 1](Maintenance%201.bin) |  | cartridge | `86e53cd5bb2d9db8eca421e21c14691a` |
 | [maintenance 2](Maintenance%202.bin) |  | cartridge | `ac38f883bebf919c76596c12493dabfa` |
 | [Maintenance 1 cartridge (slightly modified variant)](MAINT1.bin) |  | cartridge | `e85d0ef274f24e11d7d94c94682b617b` |
@@ -37,8 +39,9 @@
 | [Text2 (German)](TEXT2_DE.bin) |  | cartridge, version 2 of TEXT1_DE.bin | `3215b55e6f4c9e87a699c6eb031f0fae` |
 | [text2000 2](Text2000%202.bin) |  | cartridge | `2d3e7cb3a348a17b9a046e443c38dcbe` |
 | [text2000 3](Text2000%203.bin) |  | cartridge | `7145d89a3f9047e90484187a9d247a0b` |
-| [UCSD Pascal](UCSD%20Pascal.bin) |  | cartridge, floppydrive(s) required for UCSD Pascal system.hex | `ae613f20424e9bc20a214c67771a5000` |
+| [UCSD Pascal](UCSD%20Pascal.bin) | P2351  | cartridge, floppydrive(s) required for UCSD Pascal system.hex | `ae613f20424e9bc20a214c67771a5000` |
 | [UCSD Pascal](UCSD%20Pascal%20system.bin) |  | floppy | `5b5e3e6a3c0596ac89855b1e7108db45` |
+| [Viewdata Editor](Viewdata%20Editor.bin) |  | cartridge | `30fd09e85c7e04e0162d5762858f22a1` |
 | [WordProcessor 1](WordProcessor%201.bin) |  | cartridge | `ac61d66e577b5874d6c4281069ba25f6` |
 | [WordProcessor 2](WordProcessor%202.bin) |  | cartridge | `c13a29d0409b975abd91547b23301267` |
 | [ECOL 3.0](ECOL3.0.bin) |  | Progamming Language | `143b0d7e5f54ec7aa1c35f1e6ec8a4c1` |
